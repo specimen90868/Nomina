@@ -40,9 +40,37 @@ namespace Usuarios.Core
         }
 
 
-        public int insertUsuario(Usuarios usr)
+        public int insertaUsuario(Usuarios usr)
         {
-            Command.CommandText = "insert into usuario values (@idusuario)";
+            Command.CommandText = "insert into usuarios(usuario,nombre,password,activo,plaza) values (@usuario,@nombre,@password,@activo,@plaza)";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("usuario",usr.usuario);
+            Command.Parameters.AddWithValue("nombre", usr.nombre);
+            Command.Parameters.AddWithValue("password", usr.password);
+            Command.Parameters.AddWithValue("activo", usr.activo);
+            Command.Parameters.AddWithValue("plaza", usr.plaza);
+            return Command.ExecuteNonQuery();
+        }
+
+        public int modificaUsuario(Usuarios usr)
+        {
+            Command.CommandText = "update usuarios set usuario = @usuario, nombre = @nombre, activo = @activo, plaza = @plaza where idusuario = @id";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("id", usr.usuario);
+            Command.Parameters.AddWithValue("usuario", usr.usuario);
+            Command.Parameters.AddWithValue("nombre", usr.nombre);
+            Command.Parameters.AddWithValue("activo", usr.activo);
+            Command.Parameters.AddWithValue("plaza", usr.plaza);
+            return Command.ExecuteNonQuery();
+        }
+
+        public int bajaUsuario(Usuarios usr)
+        {
+            Command.CommandText = "update usuarios set activo = @activo where idusuario = @id";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("id", usr.usuario);
+            Command.Parameters.AddWithValue("activo", usr.activo);
+            return Command.ExecuteNonQuery();
         }
     }
 }
