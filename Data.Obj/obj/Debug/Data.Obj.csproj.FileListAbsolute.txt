@@ -1,0 +1,5 @@
+c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\bin\Debug\Data.Obj.dll
+c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\bin\Debug\Data.Obj.pdb
+c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\obj\Debug\Data.Obj.csprojResolveAssemblyReference.cache
+c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\obj\Debug\Data.Obj.dll
+c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\obj\Debug\Data.Obj.pdb
