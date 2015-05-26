@@ -50,6 +50,28 @@ namespace Autorizaciones.Core
             }
             return menu;
         }
+
+        public List<Ediciones> getEdiciones(string idperfil, string nombre)
+        {
+            List<Ediciones> edicion = new List<Ediciones>();
+            DataTable dtEdicion = new DataTable();
+            Command.CommandText = "select m.nombre, crear, consulta, modificar, baja from menus m left join ediciones e on m.idmenu = e.idmenu where e.idperfil = @idperfil and m.tipomenu = 0 and m.nombre = @nombre;";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idperfil", idperfil);
+            Command.Parameters.AddWithValue("nombre", nombre);
+            dtEdicion = SelectData(Command);
+            for (int i = 0; i < dtEdicion.Rows.Count; i++)
+            {
+                Ediciones e = new Ediciones();
+                e.nombre = dtEdicion.Rows[i]["nombre"].ToString();
+                e.crear = int.Parse(dtEdicion.Rows[i]["crear"].ToString());
+                e.consulta = int.Parse(dtEdicion.Rows[i]["consulta"].ToString());
+                e.modificar = int.Parse(dtEdicion.Rows[i]["modificar"].ToString());
+                e.baja = int.Parse(dtEdicion.Rows[i]["baja"].ToString());
+                edicion.Add(e);
+            }
+            return edicion;
+        }
     }
 }
 

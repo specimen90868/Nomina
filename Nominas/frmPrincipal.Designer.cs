@@ -51,6 +51,7 @@
             this.mnuSalarioMinimo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPlazas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEmpresas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPerfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCambiarContrasenia = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +59,7 @@
             this.mnuPreferencias = new System.Windows.Forms.ToolStripMenuItem();
             this.workPerfil = new System.ComponentModel.BackgroundWorker();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
-            this.cargaPerfil = new System.Windows.Forms.ToolStripProgressBar();
-            this.mnuEmpresas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
-            this.stsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuPrincipal
@@ -73,7 +71,7 @@
             this.mnuConfiguracion});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(1045, 24);
+            this.mnuPrincipal.Size = new System.Drawing.Size(654, 24);
             this.mnuPrincipal.TabIndex = 1;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
@@ -132,6 +130,7 @@
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(154, 22);
             this.mnuSalir.Text = "Salir";
+            this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
             // 
             // mnuRecursosHumanos
             // 
@@ -237,6 +236,13 @@
             this.mnuConfiguracion.Size = new System.Drawing.Size(95, 20);
             this.mnuConfiguracion.Text = "Configuración";
             // 
+            // mnuEmpresas
+            // 
+            this.mnuEmpresas.Name = "mnuEmpresas";
+            this.mnuEmpresas.Size = new System.Drawing.Size(180, 22);
+            this.mnuEmpresas.Text = "Empresas";
+            this.mnuEmpresas.Click += new System.EventHandler(this.mnuEmpresas_Click);
+            // 
             // mnuUsuarios
             // 
             this.mnuUsuarios.Name = "mnuUsuarios";
@@ -274,30 +280,17 @@
             // 
             // stsPrincipal
             // 
-            this.stsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargaPerfil});
-            this.stsPrincipal.Location = new System.Drawing.Point(0, 720);
+            this.stsPrincipal.Location = new System.Drawing.Point(0, 511);
             this.stsPrincipal.Name = "stsPrincipal";
-            this.stsPrincipal.Size = new System.Drawing.Size(1045, 22);
+            this.stsPrincipal.Size = new System.Drawing.Size(654, 22);
             this.stsPrincipal.TabIndex = 3;
             this.stsPrincipal.Text = "statusStrip1";
-            // 
-            // cargaPerfil
-            // 
-            this.cargaPerfil.Name = "cargaPerfil";
-            this.cargaPerfil.Size = new System.Drawing.Size(100, 16);
-            // 
-            // mnuEmpresas
-            // 
-            this.mnuEmpresas.Name = "mnuEmpresas";
-            this.mnuEmpresas.Size = new System.Drawing.Size(180, 22);
-            this.mnuEmpresas.Text = "Empresas";
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 742);
+            this.ClientSize = new System.Drawing.Size(654, 533);
             this.Controls.Add(this.stsPrincipal);
             this.Controls.Add(this.mnuPrincipal);
             this.IsMdiContainer = true;
@@ -307,8 +300,6 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
-            this.stsPrincipal.ResumeLayout(false);
-            this.stsPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,7 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPerfiles;
         private System.ComponentModel.BackgroundWorker workPerfil;
         private System.Windows.Forms.StatusStrip stsPrincipal;
-        private System.Windows.Forms.ToolStripProgressBar cargaPerfil;
         private System.Windows.Forms.ToolStripMenuItem mnuEmpresas;
     }
 }

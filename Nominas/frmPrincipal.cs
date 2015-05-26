@@ -19,13 +19,15 @@ namespace Nominas
             InitializeComponent();
         }
 
+        #region VARIABLES GLOBALES
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         MySqlConnection cnx;
         MySqlCommand cmd;
+        #endregion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-        
+            workPerfil.RunWorkerAsync();
         }
 
         private void workPerfil_DoWork(object sender, DoWorkEventArgs e)
@@ -76,6 +78,42 @@ namespace Nominas
                     case "Expedientes":
                         mnuExpedientes.Enabled = Convert.ToBoolean(lstMenu[i].ver);
                         break;
+                    case "Bajas":
+                        mnuBajas.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Empresas":
+                        mnuEmpresas.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Clientes":
+                        mnuClientes.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Departamentos":
+                        mnuDepartamentos.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Puestos":
+                        mnuPuestos.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Periodos":
+                        mnuPeriodos.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Factores":
+                        mnuFactores.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Salario minimo":
+                        mnuSalarioMinimo.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Plazas":
+                        mnuPlazas.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Usuarios":
+                        mnuUsuarios.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Perfiles":
+                        mnuPerfiles.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
+                    case "Preferencias":
+                        mnuPreferencias.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        break;
                 }
             }
 
@@ -84,12 +122,12 @@ namespace Nominas
 
         private void workPerfil_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            cargaPerfil.Value = e.ProgressPercentage;
+            //cargaPerfil.Value = e.ProgressPercentage;
         }
 
         private void mniIniciarSesion_Click(object sender, EventArgs e)
         {
-            workPerfil.RunWorkerAsync();
+            
         }
 
         private void mnuAbrirEmpresa_Click(object sender, EventArgs e)
@@ -103,6 +141,19 @@ namespace Nominas
         void frmEmpresa_OnAbrirEmpresa()
         {
             this.Text = "Sistema de Nomina - [" + GLOBALES.NOMBREEMPRESA + "]"; 
+        }
+
+        private void mnuEmpresas_Click(object sender, EventArgs e)
+        {
+            frmListaEmpresas le = new frmListaEmpresas();
+            le.MdiParent = this;
+            le.WindowState = FormWindowState.Maximized;
+            le.Show();
+        }
+
+        private void mnuSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

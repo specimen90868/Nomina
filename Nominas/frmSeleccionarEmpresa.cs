@@ -19,10 +19,15 @@ namespace Nominas
             InitializeComponent();
         }
 
+        #region DELEGADOS
         public delegate void delOnAbrirEmpresa();
         public event delOnAbrirEmpresa OnAbrirEmpresa;
+        #endregion
 
+        #region VARIBALES GLOBALES
         List<Empresas.Core.Empresas> lstEmpresa;
+        #endregion
+        
 
         private void frmSeleccionarEmpresa_Load(object sender, EventArgs e)
         {
@@ -41,21 +46,30 @@ namespace Nominas
             Empresas.Core.EmpresasHelper eh = new Empresas.Core.EmpresasHelper();
             eh.Command = cmd;
 
-            cnx.Open();
+            try 
+            {
+                cnx.Open();
 
-            lstEmpresa = eh.InicioEmpresa();
+                lstEmpresa = eh.InicioEmpresa();
 
-            cnx.Close();
-            cnx.Dispose();
+                cnx.Close();
+                cnx.Dispose();
 
-            var e = from em in lstEmpresa
-                    select new
-                    {
-                        em.idempresa,
-                        em.nombre,
-                        registro = em.registro + em.digitoverificador
-                    };
-            dgvEmpresas.DataSource = e.ToList();
+                var e = from em in lstEmpresa
+                        select new
+                        {
+                            IdEmpresa = em.idempresa,
+                            Nombre = em.nombre,
+                            Registro = em.registro + em.digitoverificador
+                        };
+                dgvEmpresas.DataSource = e.ToList();
+                dgvEmpresas.Columns[1].Width = 200;
+                dgvEmpresas.RowHeadersVisible = false;
+            }
+            catch (Exception error) 
+            {
+                MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+            }
         }
 
         private void abrirEmpresa()
@@ -83,7 +97,13 @@ namespace Nominas
         private void toolNuevo_Click(object sender, EventArgs e)
         {
             frmEmpresas em = new frmEmpresas();
+            em.OnNuevaEmpresa += em_OnNuevaEmpresa;
             em.ShowDialog();
+        }
+
+        void em_OnNuevaEmpresa()
+        {
+            cargaGridEmpresa();
         }
     }
 }

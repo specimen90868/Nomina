@@ -20,3 +20,4 @@ C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nomin
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Direccion.Core.dll
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Direccion.Core.pdb
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmEmpresas.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaEmpresas.resources

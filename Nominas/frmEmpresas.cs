@@ -20,6 +20,18 @@ namespace Nominas
             InitializeComponent();
         }
 
+        #region VARIABLES GLOBALES
+        MySqlConnection cnx;
+        MySqlCommand cmd;
+        string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
+        Empresas.Core.EmpresasHelper eh;
+        Direccion.Core.DireccionesHelper dh;
+        #endregion
+        
+        #region DELEGADOS
+        public delegate void delOnNuevaEmpresa();
+        public event delOnNuevaEmpresa OnNuevaEmpresa;
+        #endregion
 
         private void toolGuardarCerrar_Click(object sender, EventArgs e)
         {
@@ -34,20 +46,24 @@ namespace Nominas
         private void guardar(int tipoGuardar)
         {
             //SE VALIDA SI TODOS LOS TEXTBOX HAN SIDO LLENADOS.
-            string control = validar(this,typeof(TextBox));
+            string control = GLOBALES.VALIDAR(this,typeof(TextBox));
             if (!control.Equals(""))
             {
                 MessageBox.Show("Falta el campo: " + control, "Información");
                 return;
             }
 
-            string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
-            MySqlConnection cnx = new MySqlConnection();
+            int idempresa;
+
+            cnx = new MySqlConnection();
             cnx.ConnectionString = cdn;
-            MySqlCommand cmd = new MySqlCommand();
+            cmd = new MySqlCommand();
             cmd.Connection = cnx;
-            Empresas.Core.EmpresasHelper eh = new Empresas.Core.EmpresasHelper();
+            eh = new Empresas.Core.EmpresasHelper();
             eh.Command = cmd;
+
+            dh = new Direccion.Core.DireccionesHelper();
+            dh.Command = cmd;
 
             Empresas.Core.Empresas em = new Empresas.Core.Empresas();
             em.nombre = txtNombre.Text;
@@ -55,7 +71,27 @@ namespace Nominas
             em.registro = txtRegistroPatronal.Text;
             em.digitoverificador = int.Parse(txtDigitoVerificador.Text);
             em.sindicato = Convert.ToInt32(chkEsSindicato.Checked);
-            em.representante = txtRepresentante.Text.Equals(0) ? " " : txtRepresentante.Text;
+            em.representante = txtRepresentante.Text;
+
+            Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
+            d.calle = txtCalle.Text;
+            d.exterior = txtExterior.Text;
+            d.interior = txtInterior.Text;
+            d.colonia = txtColonia.Text;
+            d.cp = txtCP.Text;
+            d.ciudad = txtMunicipio.Text;
+            d.estado = txtEstado.Text;
+            d.pais = txtPais.Text;
+            ///TIPO DIRECCION
+            ///0 PARA FISCAL
+            ///1 PARA SUCURSALES
+            ///2 PARA PERSONALES
+            d.tipodireccion = 0;
+            ///TIPO PERSONA
+            ///0 PARA EMPRESA
+            ///1 PARA CLIENTE
+            ///2 PARA EMPLEADO
+            d.tipopersona = 0;
 
             switch (tipoGuardar)
             {
@@ -64,33 +100,46 @@ namespace Nominas
                     {
                         cnx.Open();
                         eh.insertaEmpresa(em);
+                        /// SE OBTIENE EL ID DE LA EMPRESA INSERTADA MEDIANTE EL RFC Y REGISTRO PATRONAL
+                        idempresa = (int)eh.obtenerIdEmpresa(em);
+                        d.idpersona = idempresa;
+                        dh.insertaDireccion(d);
                         cnx.Close();
                         cnx.Dispose();
+
+                        if (OnNuevaEmpresa != null)
+                            OnNuevaEmpresa();
+
+                        this.Dispose();
                     }
                     catch (Exception error)
                     {
-                        MessageBox.Show("Error al ingresar la empresa. \r\n Error: " + error.Message);
+                        MessageBox.Show("Error al ingresar la empresa. \r\n \r\n Error: " + error.Message);
                     }
                     break;
                 case 1:
+                    try
+                    {
+                        
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error al actualizar la empresa. \r\n \r\n Error: " + error.Message);
+                    }
                     break;
             }
         }
 
-        private string validar(Control control, Type tipo)
+        #region FUNCION LIMPIAR TEXTBOX
+        private void limpiar(Control control, Type tipo)
         {
-            string nombre = "";
             var controls = control.Controls.Cast<Control>();
-            foreach (Control c in controls.Where(c=>c.GetType() == tipo))
+            foreach (Control c in controls.Where(c => c.GetType() == tipo))
             {
-                if (string.IsNullOrEmpty(c.Text) || string.IsNullOrWhiteSpace(c.Text))
-                {
-                    nombre = c.Name.Substring(3);
-                    break;
-                }
+                (c as TextBox).Clear();
             }
-            return nombre;
         }
+        #endregion
 
         private void txtRfc_Leave(object sender, EventArgs e)
         {

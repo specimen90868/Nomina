@@ -21,4 +21,13 @@ namespace Autorizaciones.Core
         public string nombre { get; set; }
         public int ver { get; set; }
     }
+
+    public class Ediciones
+    {
+        public string nombre { get; set; }
+        public int crear { get; set; }
+        public int consulta { get; set; }
+        public int modificar { get; set; }
+        public int baja { get; set; }
+    }
 }
