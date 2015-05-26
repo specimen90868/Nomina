@@ -8,12 +8,17 @@ namespace Autorizaciones.Core
 {
     public class Autorizaciones
     {
-        public int id { get; set; }
         public int idusuario { get; set; }
-        public bool catalogos { get; set; }
-        public bool usuarios { get; set; }
-        public bool rh { get; set; }
-        public bool ss { get; set; }
-        public bool contrato { get; set }
+        public string usuario { get; set; }
+        public int idperfil { get; set; }
+        public string nombre { get; set; }
+        public string modulo { get; set; }
+        public int acceso { get; set; }
+    }
+
+    public class Menus
+    {
+        public string nombre { get; set; }
+        public int ver { get; set; }
     }
 }

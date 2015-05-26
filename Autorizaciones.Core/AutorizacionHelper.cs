@@ -10,19 +10,45 @@ namespace Autorizaciones.Core
 {
     public class AutorizacionHelper : Data.Obj.DataObj
     {
-        public int modificaAutorizacion(Autorizaciones auth)
+        public List<Autorizaciones> getAutorizacion(string idusuario)
         {
-            Command.CommandText = "update autorizaciones set idusuario = @idusuario, catalogos = @catalogos, usuarios = @usuarios," +
-                            "rh = @rh, ss= @ss, contrato = @contrato  where id = @id";
+            List<Autorizaciones> auth = new List<Autorizaciones>();
+            DataTable dtAuth = new DataTable();
+            Command.CommandText = "call spAutorizacion (@idusuario)";
             Command.Parameters.Clear();
-            Command.Parameters.AddWithValue("id", auth.id);
-            Command.Parameters.AddWithValue("idusuario", auth.idusuario);
-            Command.Parameters.AddWithValue("catalogos", auth.catalogos);
-            Command.Parameters.AddWithValue("usuarios", auth.usuarios);
-            Command.Parameters.AddWithValue("rh", auth.rh);
-            Command.Parameters.AddWithValue("ss", auth.ss);
-            Command.Parameters.AddWithValue("contrato", auth.contrato);
-            return Command.ExecuteNonQuery();
+            Command.Parameters.AddWithValue("idusuario", idusuario);
+            dtAuth = SelectData(Command);
+            for (int i = 0; i < dtAuth.Rows.Count; i++)
+            {
+                Autorizaciones a = new Autorizaciones();
+                a.idusuario = int.Parse(dtAuth.Rows[i]["idusuario"].ToString());
+                a.usuario = dtAuth.Rows[i]["usuario"].ToString();
+                a.idperfil = int.Parse(dtAuth.Rows[i]["idperfil"].ToString());
+                a.nombre = dtAuth.Rows[i]["nombre"].ToString();
+                a.modulo = dtAuth.Rows[i]["modulo"].ToString();
+                a.acceso = int.Parse(dtAuth.Rows[i]["acceso"].ToString());
+                auth.Add(a);
+            }
+            return auth;
+        }
+
+
+        public List<Menus> getMenus(string idperfil)
+        {
+            List<Menus> menu = new List<Menus>();
+            DataTable dtMenu = new DataTable();
+            Command.CommandText = "select m.nombre, ver from menus m left join ediciones e on m.idmenu = e.idmenu where e.idperfil = @idperfil and m.tipomenu = 0;";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idperfil", idperfil);
+            dtMenu = SelectData(Command);
+            for (int i = 0; i < dtMenu.Rows.Count; i++)
+            {
+                Menus m = new Menus();
+                m.nombre = dtMenu.Rows[i]["nombre"].ToString();
+                m.ver = int.Parse(dtMenu.Rows[i]["ver"].ToString());
+                menu.Add(m);
+            }
+            return menu;
         }
     }
 }

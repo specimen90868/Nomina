@@ -39,6 +39,17 @@ namespace Usuarios.Core
             return dtUsuario = SelectData(Command);
         }
 
+        public DataTable ValidaUsuario(Usuarios usr)
+        {
+            DataTable dtUsuario = new DataTable();
+            Command.CommandText = "select idusuario,idperfil from usuarios where usuario = @usuario and password = @password and activo = 1";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("usuario", usr.usuario);
+            Command.Parameters.AddWithValue("password", usr.password);
+            dtUsuario = SelectData(Command);
+            return dtUsuario;
+        }
+
 
         public int insertaUsuario(Usuarios usr)
         {
