@@ -33,8 +33,8 @@
             this.mnuAbrirEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCerrarEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mniIniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuIniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRecursosHumanos = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,8 +81,8 @@
             this.mnuAbrirEmpresa,
             this.mnuCerrarEmpresa,
             this.toolStripSeparator1,
-            this.mniIniciarSesion,
-            this.nuCerrarSesion,
+            this.mnuIniciarSesion,
+            this.mnuCerrarSesion,
             this.toolStripSeparator4,
             this.mnuSalir});
             this.mnuArchivo.Name = "mnuArchivo";
@@ -101,24 +101,26 @@
             this.mnuCerrarEmpresa.Name = "mnuCerrarEmpresa";
             this.mnuCerrarEmpresa.Size = new System.Drawing.Size(154, 22);
             this.mnuCerrarEmpresa.Text = "Cerrar Empresa";
+            this.mnuCerrarEmpresa.Click += new System.EventHandler(this.mnuCerrarEmpresa_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
             // 
-            // mniIniciarSesion
+            // mnuIniciarSesion
             // 
-            this.mniIniciarSesion.Name = "mniIniciarSesion";
-            this.mniIniciarSesion.Size = new System.Drawing.Size(154, 22);
-            this.mniIniciarSesion.Text = "Iniciar sesión";
-            this.mniIniciarSesion.Click += new System.EventHandler(this.mniIniciarSesion_Click);
+            this.mnuIniciarSesion.Name = "mnuIniciarSesion";
+            this.mnuIniciarSesion.Size = new System.Drawing.Size(154, 22);
+            this.mnuIniciarSesion.Text = "Iniciar sesión";
+            this.mnuIniciarSesion.Click += new System.EventHandler(this.mniIniciarSesion_Click);
             // 
-            // nuCerrarSesion
+            // mnuCerrarSesion
             // 
-            this.nuCerrarSesion.Name = "nuCerrarSesion";
-            this.nuCerrarSesion.Size = new System.Drawing.Size(154, 22);
-            this.nuCerrarSesion.Text = "Cerrar sesión";
+            this.mnuCerrarSesion.Name = "mnuCerrarSesion";
+            this.mnuCerrarSesion.Size = new System.Drawing.Size(154, 22);
+            this.mnuCerrarSesion.Text = "Cerrar sesión";
+            this.mnuCerrarSesion.Click += new System.EventHandler(this.mnuCerrarSesion_Click);
             // 
             // toolStripSeparator4
             // 
@@ -330,8 +332,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFotografias;
         private System.Windows.Forms.ToolStripMenuItem mnuExpedientes;
         private System.Windows.Forms.ToolStripMenuItem mnuBajas;
-        private System.Windows.Forms.ToolStripMenuItem mniIniciarSesion;
-        private System.Windows.Forms.ToolStripMenuItem nuCerrarSesion;
+        private System.Windows.Forms.ToolStripMenuItem mnuIniciarSesion;
+        private System.Windows.Forms.ToolStripMenuItem mnuCerrarSesion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem mnuCambiarContrasenia;
         private System.Windows.Forms.ToolStripMenuItem mnuPerfiles;

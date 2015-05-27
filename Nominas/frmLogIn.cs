@@ -49,6 +49,7 @@ namespace Nominas
                     {
                         GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
                         GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
+                        GLOBALES.SESION = 1;
                         frmPrincipal p = new frmPrincipal();
                         this.Hide();
                         p.Show();
@@ -60,6 +61,11 @@ namespace Nominas
             {
                 MessageBox.Show("Ocurrió un error al arbir la bace de datos: \r\n" + error.Message,"Error");
             }
+        }
+
+        private void frmLogIn_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

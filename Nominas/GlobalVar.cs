@@ -15,6 +15,7 @@ namespace Nominas
         public static int IDPERFIL { get; set; }
         public static int IDEMPRESA { get; set; }
         public static string NOMBREEMPRESA { get; set; }
+        public static int SESION { get; set; }
 
         public static string VALIDAR(Control control, Type tipo)
         {
