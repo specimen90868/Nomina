@@ -37,7 +37,7 @@ namespace Nominas
             {
                 uh.Command = cmd;
                 cnx.Open();
-
+                
                 DataTable usr = new DataTable();
                 usr = uh.ValidaUsuario(u);
 
@@ -47,12 +47,21 @@ namespace Nominas
                 if (usr != null)
                     if (!usr.Rows.Count.Equals(0))
                     {
-                        GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
-                        GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
-                        GLOBALES.SESION = 1;
-                        frmPrincipal p = new frmPrincipal();
-                        this.Hide();
-                        p.Show();
+                        if (GLOBALES.SESION == 0)
+                        {
+                            GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
+                            GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
+                            GLOBALES.SESION = 1;
+                            frmPrincipal p = new frmPrincipal();
+                            this.Hide();
+                            p.Show();
+                        }
+                        else
+                        {
+                            GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
+                            GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
+                            this.Close();
+                        }
                     }
                     else
                         MessageBox.Show("Usuario y/o Contraseña no validos.", "Error");
@@ -65,7 +74,8 @@ namespace Nominas
 
         private void frmLogIn_Load(object sender, EventArgs e)
         {
-            
+            txtUsuario.Clear();
+            txtPassword.Clear();
         }
     }
 }

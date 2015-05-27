@@ -131,5 +131,23 @@ namespace Nominas
             txtBuscar.ForeColor = System.Drawing.Color.Gray;
         }
         #endregion
+
+        private void dgvEmpresas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SeleccionaEmpresa()
+        {
+            int fila = dgvEmpresas.CurrentCell.RowIndex;
+            frmEmpresas e = new frmEmpresas();
+            e._tipoOperacion = 1;
+            e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
+        }
     }
 }

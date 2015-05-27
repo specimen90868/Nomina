@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaEmpresas));
             this.toolBusqueda = new System.Windows.Forms.ToolStrip();
+            this.toolNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolConsultar = new System.Windows.Forms.ToolStripButton();
+            this.toolEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolBaja = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblBuscar = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolTitulo = new System.Windows.Forms.ToolStrip();
             this.toolEmpresas = new System.Windows.Forms.ToolStripLabel();
-            this.toolNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvEmpresas = new System.Windows.Forms.DataGridView();
-            this.toolBaja = new System.Windows.Forms.ToolStripButton();
-            this.toolConsultar = new System.Windows.Forms.ToolStripButton();
             this.toolBusqueda.SuspendLayout();
             this.toolTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).BeginInit();
@@ -60,6 +60,44 @@
             this.toolBusqueda.Size = new System.Drawing.Size(913, 25);
             this.toolBusqueda.TabIndex = 1;
             this.toolBusqueda.Text = "ToolStrip1";
+            // 
+            // toolNuevo
+            // 
+            this.toolNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevo.Image")));
+            this.toolNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevo.Name = "toolNuevo";
+            this.toolNuevo.Size = new System.Drawing.Size(62, 22);
+            this.toolNuevo.Text = "Nuevo";
+            this.toolNuevo.Click += new System.EventHandler(this.toolNuevo_Click);
+            // 
+            // toolConsultar
+            // 
+            this.toolConsultar.Image = ((System.Drawing.Image)(resources.GetObject("toolConsultar.Image")));
+            this.toolConsultar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolConsultar.Name = "toolConsultar";
+            this.toolConsultar.Size = new System.Drawing.Size(78, 22);
+            this.toolConsultar.Text = "Consultar";
+            // 
+            // toolEditar
+            // 
+            this.toolEditar.Image = ((System.Drawing.Image)(resources.GetObject("toolEditar.Image")));
+            this.toolEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolEditar.Name = "toolEditar";
+            this.toolEditar.Size = new System.Drawing.Size(57, 22);
+            this.toolEditar.Text = "Editar";
+            // 
+            // toolBaja
+            // 
+            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
+            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBaja.Name = "toolBaja";
+            this.toolBaja.Size = new System.Drawing.Size(70, 22);
+            this.toolBaja.Text = "Eliminar";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // lblBuscar
             // 
@@ -96,27 +134,6 @@
             this.toolEmpresas.Size = new System.Drawing.Size(103, 24);
             this.toolEmpresas.Text = "Empresas";
             // 
-            // toolNuevo
-            // 
-            this.toolNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevo.Image")));
-            this.toolNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolNuevo.Name = "toolNuevo";
-            this.toolNuevo.Size = new System.Drawing.Size(62, 22);
-            this.toolNuevo.Text = "Nuevo";
-            // 
-            // toolEditar
-            // 
-            this.toolEditar.Image = ((System.Drawing.Image)(resources.GetObject("toolEditar.Image")));
-            this.toolEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolEditar.Name = "toolEditar";
-            this.toolEditar.Size = new System.Drawing.Size(57, 22);
-            this.toolEditar.Text = "Editar";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // dgvEmpresas
             // 
             this.dgvEmpresas.AllowUserToAddRows = false;
@@ -124,26 +141,12 @@
             this.dgvEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpresas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmpresas.Location = new System.Drawing.Point(0, 52);
+            this.dgvEmpresas.MultiSelect = false;
             this.dgvEmpresas.Name = "dgvEmpresas";
             this.dgvEmpresas.ReadOnly = true;
             this.dgvEmpresas.Size = new System.Drawing.Size(913, 509);
             this.dgvEmpresas.TabIndex = 3;
-            // 
-            // toolBaja
-            // 
-            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
-            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolBaja.Name = "toolBaja";
-            this.toolBaja.Size = new System.Drawing.Size(70, 22);
-            this.toolBaja.Text = "Eliminar";
-            // 
-            // toolConsultar
-            // 
-            this.toolConsultar.Image = ((System.Drawing.Image)(resources.GetObject("toolConsultar.Image")));
-            this.toolConsultar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolConsultar.Name = "toolConsultar";
-            this.toolConsultar.Size = new System.Drawing.Size(78, 22);
-            this.toolConsultar.Text = "Consultar";
+            this.dgvEmpresas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpresas_CellDoubleClick);
             // 
             // frmListaEmpresas
             // 

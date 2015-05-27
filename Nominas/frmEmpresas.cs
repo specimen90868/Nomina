@@ -33,6 +33,11 @@ namespace Nominas
         public event delOnNuevaEmpresa OnNuevaEmpresa;
         #endregion
 
+        #region VARIABLES PUBLICAS
+        public int _tipoOperacion;
+        public int _idempresa;
+        #endregion
+
         private void toolGuardarCerrar_Click(object sender, EventArgs e)
         {
             guardar(0);
@@ -53,7 +58,7 @@ namespace Nominas
                 return;
             }
 
-            int idempresa;
+            //int idempresa;
 
             cnx = new MySqlConnection();
             cnx.ConnectionString = cdn;
@@ -62,8 +67,8 @@ namespace Nominas
             eh = new Empresas.Core.EmpresasHelper();
             eh.Command = cmd;
 
-            dh = new Direccion.Core.DireccionesHelper();
-            dh.Command = cmd;
+            //dh = new Direccion.Core.DireccionesHelper();
+            //dh.Command = cmd;
 
             Empresas.Core.Empresas em = new Empresas.Core.Empresas();
             em.nombre = txtNombre.Text;
@@ -73,25 +78,27 @@ namespace Nominas
             em.sindicato = Convert.ToInt32(chkEsSindicato.Checked);
             em.representante = txtRepresentante.Text;
 
-            Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
-            d.calle = txtCalle.Text;
-            d.exterior = txtExterior.Text;
-            d.interior = txtInterior.Text;
-            d.colonia = txtColonia.Text;
-            d.cp = txtCP.Text;
-            d.ciudad = txtMunicipio.Text;
-            d.estado = txtEstado.Text;
-            d.pais = txtPais.Text;
+            //Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
+            //d.calle = txtCalle.Text;
+            //d.exterior = txtExterior.Text;
+            //d.interior = txtInterior.Text;
+            //d.colonia = txtColonia.Text;
+            //d.cp = txtCP.Text;
+            //d.ciudad = txtMunicipio.Text;
+            //d.estado = txtEstado.Text;
+            //d.pais = txtPais.Text;
+
+
             ///TIPO DIRECCION
             ///0 PARA FISCAL
             ///1 PARA SUCURSALES
             ///2 PARA PERSONALES
-            d.tipodireccion = 0;
+            //d.tipodireccion = 0;
             ///TIPO PERSONA
             ///0 PARA EMPRESA
             ///1 PARA CLIENTE
             ///2 PARA EMPLEADO
-            d.tipopersona = 0;
+            //d.tipopersona = 0;
 
             switch (tipoGuardar)
             {
@@ -101,9 +108,9 @@ namespace Nominas
                         cnx.Open();
                         eh.insertaEmpresa(em);
                         /// SE OBTIENE EL ID DE LA EMPRESA INSERTADA MEDIANTE EL RFC Y REGISTRO PATRONAL
-                        idempresa = (int)eh.obtenerIdEmpresa(em);
-                        d.idpersona = idempresa;
-                        dh.insertaDireccion(d);
+                        //idempresa = (int)eh.obtenerIdEmpresa(em);
+                        //d.idpersona = idempresa;
+                        //dh.insertaDireccion(d);
                         cnx.Close();
                         cnx.Dispose();
 
@@ -147,6 +154,32 @@ namespace Nominas
             Regex loRE = new Regex(lsPatron);
             if (!loRE.IsMatch(txtRfc.Text))
                 MessageBox.Show("El RFC no es valido. Verifique","Error");
+        }
+
+        private void frmEmpresas_Load(object sender, EventArgs e)
+        {
+            if (_tipoOperacion == 1)
+            {
+                cnx = new MySqlConnection();
+                cnx.ConnectionString = cdn;
+                cmd = new MySqlCommand();
+                cmd.Connection = cnx;
+                eh = new Empresas.Core.EmpresasHelper();
+                eh.Command = cmd;
+
+                List<Empresas.Core.Empresas> lstEmpresa = eh.obtenerEmpresa(_idempresa);
+
+                for (int i = 0; i < lstEmpresa.Count; i++)
+                {
+                    txtNombre.Text = lstEmpresa[i].nombre;
+                    txtRepresentante.Text = lstEmpresa[i].representante;
+                    txtRfc.Text = lstEmpresa[i].rfc;
+                    txtRegistroPatronal.Text = lstEmpresa[i].registro;
+                    txtDigitoVerificador.Text = lstEmpresa[i].digitoverificador.ToString();
+                    chkEsSindicato.Checked = Convert.ToBoolean(lstEmpresa[i].sindicato);
+                }
+
+            }
         }
     }
 }

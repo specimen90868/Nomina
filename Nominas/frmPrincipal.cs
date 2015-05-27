@@ -27,7 +27,8 @@ namespace Nominas
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            MenuInicial();
+            toolEstatusPerfil.Text = "";
+            MenuInicial(0);
         }
 
         private void workPerfil_DoWork(object sender, DoWorkEventArgs e)
@@ -118,16 +119,13 @@ namespace Nominas
             }
 
             workPerfil.ReportProgress(100);
+            toolEstatusPerfil.Text = "Perfil cargado.";
         }
 
         private void workPerfil_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //cargaPerfil.Value = e.ProgressPercentage;
-        }
-
-        private void mniIniciarSesion_Click(object sender, EventArgs e)
-        {
-
+            toolEstatusPerfil.Text = "Cargando perfil...";
         }
 
         private void mnuAbrirEmpresa_Click(object sender, EventArgs e)
@@ -149,8 +147,8 @@ namespace Nominas
         void frmEmpresa_OnAbrirEmpresa()
         {
             this.Text = "Sistema de Nomina - [" + GLOBALES.NOMBREEMPRESA + "]";
-            MenuPerfil();
             workPerfil.RunWorkerAsync();
+            MenuPerfil();
         }
 
         private void mnuEmpresas_Click(object sender, EventArgs e)
@@ -161,18 +159,26 @@ namespace Nominas
             le.Show();
         }
 
-        private void mnuSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void MenuInicial()
+        private void MenuInicial(int sesion)
         {
             mnuRecursosHumanos.Visible = false;
             mnuCatalogos.Visible = false;
             mnuConfiguracion.Visible = false;
-            /// MENUS DE SESION
-            mnuIniciarSesion.Enabled = false;
+            if (sesion == 0)
+            {
+                /// MENUS DE SESION
+                mnuAbrirEmpresa.Enabled = true;
+                mnuCerrarEmpresa.Enabled = true;
+                mnuCerrarSesion.Enabled = true;
+                mnuIniciarSesion.Enabled = false;
+            }
+            else
+            {
+                mnuAbrirEmpresa.Enabled = false;
+                mnuCerrarEmpresa.Enabled = false;
+                mnuCerrarSesion.Enabled = false;
+                mnuIniciarSesion.Enabled = true;
+            }
         }
 
         private void MenuPerfil()
@@ -182,13 +188,29 @@ namespace Nominas
             mnuConfiguracion.Visible = true;
         }
 
+        private void mniIniciarSesion_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.ShowDialog();
+            MenuInicial(0);
+        }
+
         private void mnuCerrarSesion_Click(object sender, EventArgs e)
         {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Dispose();
+            }
+
             GLOBALES.IDUSUARIO = 0;
             GLOBALES.IDPERFIL = 0;
             GLOBALES.IDEMPRESA = 0;
             GLOBALES.NOMBREEMPRESA = null;
             this.Text = "Sistema de Nomina";
+            mnuRecursosHumanos.Visible = false;
+            mnuCatalogos.Visible = false;
+            mnuConfiguracion.Visible = false;
+            MenuInicial(1);
         }
 
         private void mnuCerrarEmpresa_Click(object sender, EventArgs e)
@@ -200,6 +222,17 @@ namespace Nominas
             GLOBALES.NOMBREEMPRESA = null;
             GLOBALES.IDEMPRESA = 0;
             this.Text = "Sistema de Nomina";
+            MenuInicial(0);
+        }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void mnuSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

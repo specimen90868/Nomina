@@ -30,6 +30,29 @@ namespace Empresas.Core
             }
             return lstEmpresa;
         }
+
+        public List<Empresas> obtenerEmpresa(int idempresa)
+        {
+            DataTable dtEmpresas = new DataTable();
+            Command.CommandText = "select idempresa, nombre, rfc, registro, digitoverificador, sindicato, representante from empresas where idempresa = @idempresa";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idempresa", idempresa);
+            dtEmpresas = SelectData(Command);
+            List<Empresas> lstEmpresa = new List<Empresas>();
+            for (int i = 0; i < dtEmpresas.Rows.Count; i++)
+            {
+                Empresas e = new Empresas();
+                e.idempresa = int.Parse(dtEmpresas.Rows[i]["idempresa"].ToString());
+                e.nombre = dtEmpresas.Rows[i]["nombre"].ToString();
+                e.rfc = dtEmpresas.Rows[i]["rfc"].ToString();
+                e.registro = dtEmpresas.Rows[i]["registro"].ToString();
+                e.digitoverificador = int.Parse(dtEmpresas.Rows[i]["digitoverificador"].ToString());
+                e.sindicato = int.Parse(dtEmpresas.Rows[i]["sindicato"].ToString());
+                e.representante = dtEmpresas.Rows[i]["representante"].ToString();
+                lstEmpresa.Add(e);
+            }
+            return lstEmpresa;
+        }
         
         public List<Empresas> InicioEmpresa()
         {

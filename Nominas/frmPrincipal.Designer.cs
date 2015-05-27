@@ -59,7 +59,9 @@
             this.mnuPreferencias = new System.Windows.Forms.ToolStripMenuItem();
             this.workPerfil = new System.ComponentModel.BackgroundWorker();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
+            this.toolEstatusPerfil = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuPrincipal.SuspendLayout();
+            this.stsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuPrincipal
@@ -282,11 +284,19 @@
             // 
             // stsPrincipal
             // 
+            this.stsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolEstatusPerfil});
             this.stsPrincipal.Location = new System.Drawing.Point(0, 511);
             this.stsPrincipal.Name = "stsPrincipal";
             this.stsPrincipal.Size = new System.Drawing.Size(654, 22);
             this.stsPrincipal.TabIndex = 3;
             this.stsPrincipal.Text = "statusStrip1";
+            // 
+            // toolEstatusPerfil
+            // 
+            this.toolEstatusPerfil.Name = "toolEstatusPerfil";
+            this.toolEstatusPerfil.Size = new System.Drawing.Size(98, 17);
+            this.toolEstatusPerfil.Text = "Cargando perfil...";
             // 
             // frmPrincipal
             // 
@@ -299,9 +309,12 @@
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "frmPrincipal";
             this.Text = "Sistema de Nomina";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
+            this.stsPrincipal.ResumeLayout(false);
+            this.stsPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +353,7 @@
         private System.ComponentModel.BackgroundWorker workPerfil;
         private System.Windows.Forms.StatusStrip stsPrincipal;
         private System.Windows.Forms.ToolStripMenuItem mnuEmpresas;
+        private System.Windows.Forms.ToolStripStatusLabel toolEstatusPerfil;
     }
 }
 
