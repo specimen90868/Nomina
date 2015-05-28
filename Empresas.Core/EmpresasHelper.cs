@@ -13,7 +13,7 @@ namespace Empresas.Core
         public List<Empresas> obtenerEmpresas()
         {
             DataTable dtEmpresas = new DataTable();
-            Command.CommandText = "select idempresa, nombre, rfc, registro, digitoverificador, representante from empresas";
+            Command.CommandText = "select idempresa, nombre, rfc, registro, digitoverificador, representante from empresas where activo = 1";
             Command.Parameters.Clear();
             dtEmpresas = SelectData(Command);
             List<Empresas> lstEmpresa = new List<Empresas>();
@@ -57,7 +57,7 @@ namespace Empresas.Core
         public List<Empresas> InicioEmpresa()
         {
             List<Empresas> lstEmpresa = new List<Empresas>();
-            Command.CommandText = "select idempresa, nombre, registro, digitoverificador from empresas";
+            Command.CommandText = "select idempresa, nombre, registro, digitoverificador from empresas where activo = 1";
             Command.Parameters.Clear();
             DataTable dtEmpresa = new DataTable();
             dtEmpresa = SelectData(Command);
@@ -85,15 +85,16 @@ namespace Empresas.Core
 
         public int insertaEmpresa(Empresas e)
         {
-            Command.CommandText = "insert into empresas (nombre, rfc, registro, digitoverificador, sindicato, representante) " + 
-                "values (@nombre, @rfc, @registro, @digitoverificador, @sindicato, @representante)";
+            Command.CommandText = "insert into empresas (nombre, rfc, registro, digitoverificador, sindicato, representante, activo) " + 
+                "values (@nombre, @rfc, @registro, @digitoverificador, @sindicato, @representante, @activo)";
             Command.Parameters.Clear();
-            Command.Parameters.AddWithValue("@nombre",e.nombre);
-            Command.Parameters.AddWithValue("@rfc", e.rfc);
-            Command.Parameters.AddWithValue("@registro", e.registro);
-            Command.Parameters.AddWithValue("@digitoverificador", e.digitoverificador);
-            Command.Parameters.AddWithValue("@sindicato", e.sindicato);
-            Command.Parameters.AddWithValue("@representante", e.representante);
+            Command.Parameters.AddWithValue("nombre",e.nombre);
+            Command.Parameters.AddWithValue("rfc", e.rfc);
+            Command.Parameters.AddWithValue("registro", e.registro);
+            Command.Parameters.AddWithValue("digitoverificador", e.digitoverificador);
+            Command.Parameters.AddWithValue("sindicato", e.sindicato);
+            Command.Parameters.AddWithValue("representante", e.representante);
+            Command.Parameters.AddWithValue("activo", e.activo);
             return Command.ExecuteNonQuery();
         }
 
@@ -102,14 +103,15 @@ namespace Empresas.Core
             Command.CommandText = "update empresas set nombre = @nombre, rfc = @rfc, registro = @registro, digitoverificador = @digitoverificador, sindicato = @sindicato, representante = @representante " +
                 "where idempresa = @idempresa";
             Command.Parameters.Clear();
-            Command.Parameters.AddWithValue("@idempresa", e.idempresa);
-            Command.Parameters.AddWithValue("@nombre", e.nombre);
-            Command.Parameters.AddWithValue("@rfc", e.rfc);
-            Command.Parameters.AddWithValue("@registro", e.registro);
-            Command.Parameters.AddWithValue("@digitoverificador", e.digitoverificador);
-            Command.Parameters.AddWithValue("@sindicato", e.sindicato);
-            Command.Parameters.AddWithValue("@representante", e.representante);
+            Command.Parameters.AddWithValue("idempresa", e.idempresa);
+            Command.Parameters.AddWithValue("nombre", e.nombre);
+            Command.Parameters.AddWithValue("rfc", e.rfc);
+            Command.Parameters.AddWithValue("registro", e.registro);
+            Command.Parameters.AddWithValue("digitoverificador", e.digitoverificador);
+            Command.Parameters.AddWithValue("sindicato", e.sindicato);
+            Command.Parameters.AddWithValue("representante", e.representante);
             return Command.ExecuteNonQuery();
         }
     }
 }
+

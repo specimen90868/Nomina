@@ -77,6 +77,7 @@
             this.toolConsultar.Name = "toolConsultar";
             this.toolConsultar.Size = new System.Drawing.Size(78, 22);
             this.toolConsultar.Text = "Consultar";
+            this.toolConsultar.Click += new System.EventHandler(this.toolConsultar_Click);
             // 
             // toolEditar
             // 
@@ -85,6 +86,7 @@
             this.toolEditar.Name = "toolEditar";
             this.toolEditar.Size = new System.Drawing.Size(57, 22);
             this.toolEditar.Text = "Editar";
+            this.toolEditar.Click += new System.EventHandler(this.toolEditar_Click);
             // 
             // toolBaja
             // 

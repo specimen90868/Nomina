@@ -25,7 +25,6 @@ namespace Nominas
         MySqlCommand cmd;
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         Empresas.Core.EmpresasHelper eh;
-        Direccion.Core.DireccionesHelper dh;
         #endregion
         
         #region DELEGADOS
@@ -58,17 +57,12 @@ namespace Nominas
                 return;
             }
 
-            //int idempresa;
-
             cnx = new MySqlConnection();
             cnx.ConnectionString = cdn;
             cmd = new MySqlCommand();
             cmd.Connection = cnx;
             eh = new Empresas.Core.EmpresasHelper();
             eh.Command = cmd;
-
-            //dh = new Direccion.Core.DireccionesHelper();
-            //dh.Command = cmd;
 
             Empresas.Core.Empresas em = new Empresas.Core.Empresas();
             em.nombre = txtNombre.Text;
@@ -77,57 +71,31 @@ namespace Nominas
             em.digitoverificador = int.Parse(txtDigitoVerificador.Text);
             em.sindicato = Convert.ToInt32(chkEsSindicato.Checked);
             em.representante = txtRepresentante.Text;
+            em.activo = 1;
 
-            //Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
-            //d.calle = txtCalle.Text;
-            //d.exterior = txtExterior.Text;
-            //d.interior = txtInterior.Text;
-            //d.colonia = txtColonia.Text;
-            //d.cp = txtCP.Text;
-            //d.ciudad = txtMunicipio.Text;
-            //d.estado = txtEstado.Text;
-            //d.pais = txtPais.Text;
-
-
-            ///TIPO DIRECCION
-            ///0 PARA FISCAL
-            ///1 PARA SUCURSALES
-            ///2 PARA PERSONALES
-            //d.tipodireccion = 0;
-            ///TIPO PERSONA
-            ///0 PARA EMPRESA
-            ///1 PARA CLIENTE
-            ///2 PARA EMPLEADO
-            //d.tipopersona = 0;
-
-            switch (tipoGuardar)
+            switch (_tipoOperacion)
             {
                 case 0:
                     try
                     {
                         cnx.Open();
                         eh.insertaEmpresa(em);
-                        /// SE OBTIENE EL ID DE LA EMPRESA INSERTADA MEDIANTE EL RFC Y REGISTRO PATRONAL
-                        //idempresa = (int)eh.obtenerIdEmpresa(em);
-                        //d.idpersona = idempresa;
-                        //dh.insertaDireccion(d);
                         cnx.Close();
                         cnx.Dispose();
-
-                        if (OnNuevaEmpresa != null)
-                            OnNuevaEmpresa();
-
-                        this.Dispose();
                     }
                     catch (Exception error)
                     {
                         MessageBox.Show("Error al ingresar la empresa. \r\n \r\n Error: " + error.Message);
                     }
                     break;
-                case 1:
+                case 2:
                     try
                     {
-                        
+                        em.idempresa = _idempresa;
+                        cnx.Open();
+                        eh.actualizaEmpresa(em);
+                        cnx.Close();
+                        cnx.Dispose();
                     }
                     catch (Exception error)
                     {
@@ -135,9 +103,21 @@ namespace Nominas
                     }
                     break;
             }
+
+            switch (tipoGuardar)
+            {
+                case 0:
+                    limpiar(this, typeof(TextBox));
+                    break;
+                case 1:
+                    if (OnNuevaEmpresa != null)
+                        OnNuevaEmpresa();
+                    this.Dispose();
+                    break;
+            }
         }
 
-        #region FUNCION LIMPIAR TEXTBOX
+        #region FUNCION LIMPIAR TEXTBOX E INHABILITAR CONTROLES
         private void limpiar(Control control, Type tipo)
         {
             var controls = control.Controls.Cast<Control>();
@@ -145,6 +125,21 @@ namespace Nominas
             {
                 (c as TextBox).Clear();
             }
+            txtRegistroPatronal.Clear();
+            chkEsSindicato.Checked = false;
+        }
+
+        private void inhabilitar(Control control, Type tipo)
+        {
+            var controls = control.Controls.Cast<Control>();
+            foreach (Control c in controls.Where(c => c.GetType() == tipo))
+            {
+                (c as TextBox).Enabled = false;
+            }
+            chkEsSindicato.Enabled = false;
+            txtRegistroPatronal.Enabled = false;
+            toolGuardarCerrar.Enabled = false;
+            toolGuardarNuevo.Enabled = false;
         }
         #endregion
 
@@ -158,7 +153,7 @@ namespace Nominas
 
         private void frmEmpresas_Load(object sender, EventArgs e)
         {
-            if (_tipoOperacion == 1)
+            if (_tipoOperacion == 1 || _tipoOperacion == 2)
             {
                 cnx = new MySqlConnection();
                 cnx.ConnectionString = cdn;
@@ -178,8 +173,14 @@ namespace Nominas
                     txtDigitoVerificador.Text = lstEmpresa[i].digitoverificador.ToString();
                     chkEsSindicato.Checked = Convert.ToBoolean(lstEmpresa[i].sindicato);
                 }
-
+                if (_tipoOperacion == 1)
+                    inhabilitar(this,typeof(TextBox));
             }
+        }
+
+        private void toolCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

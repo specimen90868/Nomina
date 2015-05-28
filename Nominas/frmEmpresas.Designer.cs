@@ -49,6 +49,7 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label11 = new System.Windows.Forms.Label();
+            this.toolCerrar = new System.Windows.Forms.ToolStripButton();
             this.Panel2.SuspendLayout();
             this.toolEmpresa.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -105,7 +106,8 @@
             // 
             this.toolEmpresa.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolGuardarCerrar,
-            this.toolGuardarNuevo});
+            this.toolGuardarNuevo,
+            this.toolCerrar});
             this.toolEmpresa.Location = new System.Drawing.Point(0, 0);
             this.toolEmpresa.Name = "toolEmpresa";
             this.toolEmpresa.Size = new System.Drawing.Size(723, 25);
@@ -173,7 +175,7 @@
             this.txtRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRfc.Location = new System.Drawing.Point(138, 220);
             this.txtRfc.Name = "txtRfc";
-            this.txtRfc.Size = new System.Drawing.Size(76, 20);
+            this.txtRfc.Size = new System.Drawing.Size(97, 20);
             this.txtRfc.TabIndex = 3;
             this.txtRfc.Leave += new System.EventHandler(this.txtRfc_Leave);
             // 
@@ -182,7 +184,7 @@
             this.txtRegistroPatronal.Location = new System.Drawing.Point(139, 246);
             this.txtRegistroPatronal.Mask = "AAAAAAAAAA";
             this.txtRegistroPatronal.Name = "txtRegistroPatronal";
-            this.txtRegistroPatronal.Size = new System.Drawing.Size(75, 20);
+            this.txtRegistroPatronal.Size = new System.Drawing.Size(96, 20);
             this.txtRegistroPatronal.TabIndex = 4;
             // 
             // txtDigitoVerificador
@@ -236,6 +238,15 @@
             this.Label11.Size = new System.Drawing.Size(90, 13);
             this.Label11.TabIndex = 124;
             this.Label11.Text = "Digito Verificador:";
+            // 
+            // toolCerrar
+            // 
+            this.toolCerrar.Image = ((System.Drawing.Image)(resources.GetObject("toolCerrar.Image")));
+            this.toolCerrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolCerrar.Name = "toolCerrar";
+            this.toolCerrar.Size = new System.Drawing.Size(59, 22);
+            this.toolCerrar.Text = "Cerrar";
+            this.toolCerrar.Click += new System.EventHandler(this.toolCerrar_Click);
             // 
             // frmEmpresas
             // 
@@ -295,5 +306,6 @@
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.Label Label11;
+        private System.Windows.Forms.ToolStripButton toolCerrar;
     }
 }

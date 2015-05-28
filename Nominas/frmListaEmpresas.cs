@@ -139,15 +139,26 @@ namespace Nominas
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-
+            SeleccionaEmpresa(0);
         }
 
-        private void SeleccionaEmpresa()
+        private void toolConsultar_Click(object sender, EventArgs e)
+        {
+            SeleccionaEmpresa(1);
+        }
+
+        private void toolEditar_Click(object sender, EventArgs e)
+        {
+            SeleccionaEmpresa(2);
+        }
+
+        private void SeleccionaEmpresa(int edicion)
         {
             int fila = dgvEmpresas.CurrentCell.RowIndex;
             frmEmpresas e = new frmEmpresas();
-            e._tipoOperacion = 1;
+            e._tipoOperacion = edicion;
             e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
+            e.Show();
         }
     }
 }

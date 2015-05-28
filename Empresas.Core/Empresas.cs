@@ -15,5 +15,6 @@ namespace Empresas.Core
         public int digitoverificador { get; set; }
         public int sindicato { get; set; }
         public string representante { get; set; }
+        public int activo { get; set; }
     }
 }
