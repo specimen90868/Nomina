@@ -23,7 +23,7 @@ namespace Nominas
             var controls = control.Controls.Cast<Control>();
             foreach (Control c in controls.Where(c => c.GetType() == tipo))
             {
-                if (string.IsNullOrEmpty(c.Text) || string.IsNullOrWhiteSpace(c.Text))
+                if (string.IsNullOrEmpty(c.Text))
                 {
                     nombre = c.Name.Substring(3);
                     break;

@@ -36,6 +36,7 @@ namespace Nominas
         #region VARIABLES PUBLICAS
         public int _tipoOperacion;
         public int _idempresa;
+        public int _iddireccion;
         #endregion
 
         private void toolGuardarCerrar_Click(object sender, EventArgs e)
@@ -75,6 +76,9 @@ namespace Nominas
             em.sindicato = Convert.ToInt32(chkEsSindicato.Checked);
             em.representante = txtRepresentante.Text;
             em.activo = 1;
+
+            dh = new Direccion.Core.DireccionesHelper();
+            dh.Command = cmd;
 
             Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
             d.calle = txtCalle.Text;
@@ -118,8 +122,11 @@ namespace Nominas
                     try
                     {
                         em.idempresa = _idempresa;
+                        d.iddireccion = _iddireccion;
+                        d.idpersona = _idempresa;
                         cnx.Open();
                         eh.actualizaEmpresa(em);
+                        dh.actualizaDireccion(d);
                         cnx.Close();
                         cnx.Dispose();
                     }
@@ -167,6 +174,7 @@ namespace Nominas
             txtRegistroPatronal.Enabled = false;
             toolGuardarCerrar.Enabled = false;
             toolGuardarNuevo.Enabled = false;
+            txtCP.Enabled = false;
         }
         #endregion
 
@@ -190,17 +198,52 @@ namespace Nominas
                 eh = new Empresas.Core.EmpresasHelper();
                 eh.Command = cmd;
 
-                List<Empresas.Core.Empresas> lstEmpresa = eh.obtenerEmpresa(_idempresa);
+                dh = new Direccion.Core.DireccionesHelper();
+                dh.Command = cmd;
 
-                for (int i = 0; i < lstEmpresa.Count; i++)
+                Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
+                d.idpersona = _idempresa;
+                d.tipopersona = 0; ///TIPO PERSONA 0 - Empresas
+                List<Empresas.Core.Empresas> lstEmpresa;
+                List<Direccion.Core.Direcciones> lstDireccion;
+
+                try
                 {
-                    txtNombre.Text = lstEmpresa[i].nombre;
-                    txtRepresentante.Text = lstEmpresa[i].representante;
-                    txtRfc.Text = lstEmpresa[i].rfc;
-                    txtRegistroPatronal.Text = lstEmpresa[i].registro;
-                    txtDigitoVerificador.Text = lstEmpresa[i].digitoverificador.ToString();
-                    chkEsSindicato.Checked = Convert.ToBoolean(lstEmpresa[i].sindicato);
+                    cnx.Open();
+                    lstEmpresa = eh.obtenerEmpresa(_idempresa);
+                    lstDireccion = dh.obtenerDireccion(d);
+                    cnx.Close();
+                    cnx.Dispose();
+
+                    for (int i = 0; i < lstEmpresa.Count; i++)
+                    {
+                        txtNombre.Text = lstEmpresa[i].nombre;
+                        txtRepresentante.Text = lstEmpresa[i].representante;
+                        txtRfc.Text = lstEmpresa[i].rfc;
+                        txtRegistroPatronal.Text = lstEmpresa[i].registro;
+                        txtDigitoVerificador.Text = lstEmpresa[i].digitoverificador.ToString();
+                        chkEsSindicato.Checked = Convert.ToBoolean(lstEmpresa[i].sindicato);
+                    }
+
+                    for (int i = 0; i < lstDireccion.Count; i++)
+                    {
+                        _iddireccion = lstDireccion[i].iddireccion;
+                        txtCalle.Text = lstDireccion[i].calle;
+                        txtExterior.Text = lstDireccion[i].exterior;
+                        txtInterior.Text = lstDireccion[i].interior;
+                        txtColonia.Text = lstDireccion[i].colonia;
+                        txtCP.Text = lstDireccion[i].cp;
+                        txtMunicipio.Text = lstDireccion[i].ciudad;
+                        txtEstado.Text = lstDireccion[i].estado;
+                        txtPais.Text = lstDireccion[i].pais;
+                    }
+
                 }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                }
+                
                 if (_tipoOperacion == 1)
                 {
                     toolTitulo.Text = "Consulta Empresa";
