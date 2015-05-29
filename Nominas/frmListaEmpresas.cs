@@ -134,7 +134,7 @@ namespace Nominas
 
         private void dgvEmpresas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            SeleccionaEmpresa(1);
         }
 
         private void toolNuevo_Click(object sender, EventArgs e)
@@ -159,6 +159,36 @@ namespace Nominas
             e._tipoOperacion = edicion;
             e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
             e.Show();
+        }
+
+        private void toolBaja_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("¿Quiere eliminar la empresa?", "Confirmación", MessageBoxButtons.YesNo);
+            if (respuesta == DialogResult.Yes)
+            {
+                string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
+                int fila = dgvEmpresas.CurrentCell.RowIndex;
+                int idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
+                cnx = new MySqlConnection(cdn);
+                cmd = new MySqlCommand();
+                cmd.Connection = cnx;
+                Empresas.Core.EmpresasHelper eh = new Empresas.Core.EmpresasHelper();
+                eh.Command = cmd;
+                Empresas.Core.Empresas em = new Empresas.Core.Empresas();
+                em.idempresa = idempresa;
+                try
+                {
+                    cnx.Open();
+                    eh.bajaEmpresa(em);
+                    cnx.Close();
+                    cnx.Dispose();
+                    ListaEmpresas();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                }
+            }
         }
     }
 }

@@ -112,6 +112,14 @@ namespace Empresas.Core
             Command.Parameters.AddWithValue("representante", e.representante);
             return Command.ExecuteNonQuery();
         }
+
+        public int bajaEmpresa(Empresas e)
+        {
+            Command.CommandText = "update empresas set activo = 0 where idempresa = @idempresa";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idempresa", e.idempresa);
+            return Command.ExecuteNonQuery();
+        }
     }
 }
 

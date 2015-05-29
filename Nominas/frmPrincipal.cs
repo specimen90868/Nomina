@@ -119,7 +119,6 @@ namespace Nominas
             }
 
             workPerfil.ReportProgress(100);
-            toolEstatusPerfil.Text = "Perfil cargado.";
         }
 
         private void workPerfil_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -233,6 +232,11 @@ namespace Nominas
         private void mnuSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void workPerfil_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            toolEstatusPerfil.Text = "Perfil cargado.";
         }
     }
 }

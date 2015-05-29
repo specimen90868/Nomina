@@ -281,6 +281,7 @@
             this.workPerfil.WorkerReportsProgress = true;
             this.workPerfil.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workPerfil_DoWork);
             this.workPerfil.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.workPerfil_ProgressChanged);
+            this.workPerfil.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workPerfil_RunWorkerCompleted);
             // 
             // stsPrincipal
             // 

@@ -25,6 +25,7 @@ namespace Nominas
         MySqlCommand cmd;
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         Empresas.Core.EmpresasHelper eh;
+        Direccion.Core.DireccionesHelper dh;
         #endregion
         
         #region DELEGADOS
@@ -57,6 +58,8 @@ namespace Nominas
                 return;
             }
 
+            int idempresa;
+
             cnx = new MySqlConnection();
             cnx.ConnectionString = cdn;
             cmd = new MySqlCommand();
@@ -73,6 +76,26 @@ namespace Nominas
             em.representante = txtRepresentante.Text;
             em.activo = 1;
 
+            Direccion.Core.Direcciones d = new Direccion.Core.Direcciones();
+            d.calle = txtCalle.Text;
+            d.exterior = txtExterior.Text;
+            d.interior = txtInterior.Text;
+            d.colonia = txtColonia.Text;
+            d.ciudad = txtMunicipio.Text;
+            d.estado = txtEstado.Text;
+            d.pais = txtPais.Text;
+            d.cp = txtCP.Text;
+            ///TIPO DIRECCION
+            ///0 - Dirección fiscal
+            ///1 - Dirección sucursal
+            ///2 - Dirección personal
+            d.tipodireccion = 0;
+            ///TIPO PERSONA
+            ///0 - Empresa
+            ///1 - Cliente
+            ///2 - Empleado
+            d.tipopersona = 0;
+
             switch (_tipoOperacion)
             {
                 case 0:
@@ -80,6 +103,9 @@ namespace Nominas
                     {
                         cnx.Open();
                         eh.insertaEmpresa(em);
+                        idempresa = (int)eh.obtenerIdEmpresa(em);
+                        d.idpersona = idempresa;
+                        dh.insertaDireccion(d);
                         cnx.Close();
                         cnx.Dispose();
                     }
@@ -108,6 +134,7 @@ namespace Nominas
             {
                 case 0:
                     limpiar(this, typeof(TextBox));
+                    txtCP.Clear();  
                     break;
                 case 1:
                     if (OnNuevaEmpresa != null)
@@ -153,6 +180,7 @@ namespace Nominas
 
         private void frmEmpresas_Load(object sender, EventArgs e)
         {
+            /// _tipoOperacion CONSULTA = 1, EDICION = 2
             if (_tipoOperacion == 1 || _tipoOperacion == 2)
             {
                 cnx = new MySqlConnection();
@@ -174,7 +202,12 @@ namespace Nominas
                     chkEsSindicato.Checked = Convert.ToBoolean(lstEmpresa[i].sindicato);
                 }
                 if (_tipoOperacion == 1)
-                    inhabilitar(this,typeof(TextBox));
+                {
+                    toolTitulo.Text = "Consulta Empresa";
+                    inhabilitar(this, typeof(TextBox));
+                }
+                else
+                    toolTitulo.Text = "Edición Empresa";
             }
         }
 
@@ -182,5 +215,6 @@ namespace Nominas
         {
             this.Dispose();
         }
+
     }
 }

@@ -95,6 +95,7 @@
             this.toolBaja.Name = "toolBaja";
             this.toolBaja.Size = new System.Drawing.Size(70, 22);
             this.toolBaja.Text = "Eliminar";
+            this.toolBaja.Click += new System.EventHandler(this.toolBaja_Click);
             // 
             // toolStripSeparator1
             // 
