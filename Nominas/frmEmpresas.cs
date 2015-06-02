@@ -141,7 +141,6 @@ namespace Nominas
             {
                 case 0:
                     limpiar(this, typeof(TextBox));
-                    txtCP.Clear();  
                     break;
                 case 1:
                     if (OnNuevaEmpresa != null)
@@ -159,6 +158,7 @@ namespace Nominas
             {
                 (c as TextBox).Clear();
             }
+            txtCP.Clear();  
             txtRegistroPatronal.Clear();
             chkEsSindicato.Checked = false;
         }

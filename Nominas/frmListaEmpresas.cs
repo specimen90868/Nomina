@@ -152,15 +152,6 @@ namespace Nominas
             SeleccionaEmpresa(2);
         }
 
-        private void SeleccionaEmpresa(int edicion)
-        {
-            int fila = dgvEmpresas.CurrentCell.RowIndex;
-            frmEmpresas e = new frmEmpresas();
-            e._tipoOperacion = edicion;
-            e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
-            e.Show();
-        }
-
         private void toolBaja_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("¿Quiere eliminar la empresa?", "Confirmación", MessageBoxButtons.YesNo);
@@ -190,5 +181,15 @@ namespace Nominas
                 }
             }
         }
+
+        private void SeleccionaEmpresa(int edicion)
+        {
+            int fila = dgvEmpresas.CurrentCell.RowIndex;
+            frmEmpresas e = new frmEmpresas();
+            e._tipoOperacion = edicion;
+            e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
+            e.Show();
+        }
+
     }
 }

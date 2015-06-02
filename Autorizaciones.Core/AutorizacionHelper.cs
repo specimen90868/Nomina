@@ -72,6 +72,20 @@ namespace Autorizaciones.Core
             }
             return edicion;
         }
+
+        public int insertaAutorizacion(int perfil, List<Autorizacion> lista)
+        {
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Command.CommandText = "insert into autorizaciones (idacceso, idperfil, acceso) values (@idacceso, @idperfil, @acceso)";
+                Command.Parameters.Clear();
+                Command.Parameters.AddWithValue("idacceso", lista[i].idacceso);
+                Command.Parameters.AddWithValue("idperfil", perfil);
+                Command.Parameters.AddWithValue("acceso", lista[i].acceso);
+                Command.ExecuteNonQuery();
+            }
+            return 1;
+        }
     }
 }
 

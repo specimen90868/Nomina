@@ -30,4 +30,12 @@ namespace Autorizaciones.Core
         public int modificar { get; set; }
         public int baja { get; set; }
     }
+
+    public class Autorizacion
+    {
+        public int id { get; set; }
+        public int idacceso { get; set; }
+        public int idperfil { get; set; }
+        public int acceso { get; set; }
+    }
 }

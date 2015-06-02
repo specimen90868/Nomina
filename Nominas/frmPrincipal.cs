@@ -57,6 +57,15 @@ namespace Nominas
                     case "Recursos Humanos":
                         mnuRecursosHumanos.Enabled = Convert.ToBoolean(lstAuth[i].acceso);
                         break;
+                    case "Seguro Social":
+                        mnuSeguroSocial.Enabled = Convert.ToBoolean(lstAuth[i].acceso);
+                        break;
+                    case "Contratos":
+                        mnuContratos.Enabled = Convert.ToBoolean(lstAuth[i].acceso);
+                        break;
+                    case "Nominas":
+                        mnuNominas.Enabled = Convert.ToBoolean(lstAuth[i].acceso);
+                        break;
                     case "Catálogos":
                         mnuCatalogos.Enabled = Convert.ToBoolean(lstAuth[i].acceso);
                         break;
@@ -237,6 +246,20 @@ namespace Nominas
         private void workPerfil_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             toolEstatusPerfil.Text = "Perfil cargado.";
+        }
+
+        private void mnuPlazas_Click(object sender, EventArgs e)
+        {
+            frmListaPlazas lp = new frmListaPlazas();
+            lp.MdiParent = this;
+            lp.Show();
+        }
+
+        private void mnuPerfiles_Click(object sender, EventArgs e)
+        {
+            frmListaPerfiles lp = new frmListaPerfiles();
+            lp.MdiParent = this;
+            lp.Show();
         }
     }
 }

@@ -44,3 +44,11 @@ C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmPrincipal.re
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmSeleccionarEmpresa.resources
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.Properties.Resources.resources
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.csproj.GenerateResource.Cache
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Plaza.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Plaza.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaPlazas.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmPlazas.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Perfil.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Perfil.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaPerfiles.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmPerfiles.resources

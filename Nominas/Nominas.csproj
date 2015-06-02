@@ -61,11 +61,35 @@
     <Compile Include="frmListaEmpresas.Designer.cs">
       <DependentUpon>frmListaEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListaPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPerfiles.Designer.cs">
+      <DependentUpon>frmListaPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaPlazas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPlazas.Designer.cs">
+      <DependentUpon>frmListaPlazas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPerfiles.Designer.cs">
+      <DependentUpon>frmPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlazas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlazas.Designer.cs">
+      <DependentUpon>frmPlazas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -88,8 +112,20 @@
     <EmbeddedResource Include="frmListaEmpresas.resx">
       <DependentUpon>frmListaEmpresas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPerfiles.resx">
+      <DependentUpon>frmListaPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPlazas.resx">
+      <DependentUpon>frmListaPlazas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPerfiles.resx">
+      <DependentUpon>frmPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlazas.resx">
+      <DependentUpon>frmPlazas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -135,6 +171,14 @@
     <ProjectReference Include="..\Empresas.Core\Empresas.Core.csproj">
       <Project>{9ddf6a04-39b7-458a-9f15-123f2b27c303}</Project>
       <Name>Empresas.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Perfil.Core\Perfil.Core.csproj">
+      <Project>{f45c48b3-fd8c-4b67-9d87-10e3971c1dbd}</Project>
+      <Name>Perfil.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plaza.Core\Plaza.Core.csproj">
+      <Project>{dae0cf88-089f-452c-ac35-9a458753c71b}</Project>
+      <Name>Plaza.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Usuarios.Core\Usuarios.Core.csproj">
       <Project>{eaaf5c8a-7616-431b-8875-cd0bc4300e2d}</Project>
