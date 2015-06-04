@@ -277,6 +277,13 @@ namespace Nominas
             le.MdiParent = this;
             le.Show();
         }
+
+        private void mnuClientes_Click(object sender, EventArgs e)
+        {
+            frmListaClientes c = new frmListaClientes();
+            c.MdiParent = this;
+            c.Show();
+        }
     }
 }
 

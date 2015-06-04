@@ -169,49 +169,49 @@
             // mnuEmpleados
             // 
             this.mnuEmpleados.Name = "mnuEmpleados";
-            this.mnuEmpleados.Size = new System.Drawing.Size(152, 22);
+            this.mnuEmpleados.Size = new System.Drawing.Size(149, 22);
             this.mnuEmpleados.Text = "Empleados";
             this.mnuEmpleados.Click += new System.EventHandler(this.mnuEmpleados_Click);
             // 
             // mnuFotografias
             // 
             this.mnuFotografias.Name = "mnuFotografias";
-            this.mnuFotografias.Size = new System.Drawing.Size(152, 22);
+            this.mnuFotografias.Size = new System.Drawing.Size(149, 22);
             this.mnuFotografias.Text = "Fotografias";
             // 
             // mnuExpedientes
             // 
             this.mnuExpedientes.Name = "mnuExpedientes";
-            this.mnuExpedientes.Size = new System.Drawing.Size(152, 22);
+            this.mnuExpedientes.Size = new System.Drawing.Size(149, 22);
             this.mnuExpedientes.Text = "Expedientes";
             // 
             // mnuBajas
             // 
             this.mnuBajas.Name = "mnuBajas";
-            this.mnuBajas.Size = new System.Drawing.Size(152, 22);
+            this.mnuBajas.Size = new System.Drawing.Size(149, 22);
             this.mnuBajas.Text = "Bajas";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
             // 
             // mnuInfonavit
             // 
             this.mnuInfonavit.Name = "mnuInfonavit";
-            this.mnuInfonavit.Size = new System.Drawing.Size(152, 22);
+            this.mnuInfonavit.Size = new System.Drawing.Size(149, 22);
             this.mnuInfonavit.Text = "Infonavit";
             // 
             // mnuIncapacidades
             // 
             this.mnuIncapacidades.Name = "mnuIncapacidades";
-            this.mnuIncapacidades.Size = new System.Drawing.Size(152, 22);
+            this.mnuIncapacidades.Size = new System.Drawing.Size(149, 22);
             this.mnuIncapacidades.Text = "Incapacidades";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(146, 6);
             // 
             // mnuMovimientos
             // 
@@ -220,7 +220,7 @@
             this.mnuModificacion,
             this.mnuBaja});
             this.mnuMovimientos.Name = "mnuMovimientos";
-            this.mnuMovimientos.Size = new System.Drawing.Size(152, 22);
+            this.mnuMovimientos.Size = new System.Drawing.Size(149, 22);
             this.mnuMovimientos.Text = "Movimientos";
             // 
             // mnuAlta
@@ -277,6 +277,7 @@
             this.mnuClientes.Name = "mnuClientes";
             this.mnuClientes.Size = new System.Drawing.Size(155, 22);
             this.mnuClientes.Text = "Clientes";
+            this.mnuClientes.Click += new System.EventHandler(this.mnuClientes_Click);
             // 
             // mnuDepartamentos
             // 

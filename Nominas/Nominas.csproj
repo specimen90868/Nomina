@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,12 @@
     </Compile>
     <Compile Include="frmEmpresas.Designer.cs">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaClientes.Designer.cs">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaEmpleados.cs">
       <SubType>Form</SubType>
@@ -118,11 +130,17 @@
     <Compile Include="GlobalVar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpresas.resx">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaClientes.resx">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaEmpleados.resx">
       <DependentUpon>frmListaEmpleados.cs</DependentUpon>
@@ -177,6 +195,10 @@
     <ProjectReference Include="..\Autorizaciones.Core\Autorizaciones.Core.csproj">
       <Project>{85e3a89d-2eb1-40b4-ba25-0e9600ec15a0}</Project>
       <Name>Autorizaciones.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clientes.Core\Clientes.Core.csproj">
+      <Project>{05b3d13b-5118-469d-bcb7-61c4f6a0e949}</Project>
+      <Name>Clientes.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.Obj\Data.Obj.csproj">
       <Project>{2f926e34-44b7-49dc-b955-9b33f8b55c96}</Project>
