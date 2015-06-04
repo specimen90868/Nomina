@@ -50,6 +50,7 @@ namespace Nominas
                         if (GLOBALES.SESION == 0)
                         {
                             GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
+                            GLOBALES.IDPLAZA = int.Parse(usr.Rows[0]["plaza"].ToString());
                             GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
                             GLOBALES.SESION = 1;
                             frmPrincipal p = new frmPrincipal();
@@ -59,6 +60,7 @@ namespace Nominas
                         else
                         {
                             GLOBALES.IDUSUARIO = int.Parse(usr.Rows[0]["idusuario"].ToString());
+                            GLOBALES.IDPLAZA = int.Parse(usr.Rows[0]["plaza"].ToString());
                             GLOBALES.IDPERFIL = int.Parse(usr.Rows[0]["idperfil"].ToString());
                             this.Close();
                         }

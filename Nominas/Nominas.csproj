@@ -49,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEmpresas.Designer.cs">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaEmpleados.Designer.cs">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaEmpresas.cs">
       <SubType>Form</SubType>
@@ -106,8 +118,14 @@
     <Compile Include="GlobalVar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpresas.resx">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaEmpleados.resx">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaEmpresas.resx">
       <DependentUpon>frmListaEmpresas.cs</DependentUpon>
@@ -167,6 +185,10 @@
     <ProjectReference Include="..\Direccion.Core\Direccion.Core.csproj">
       <Project>{edd3a402-8d97-4357-8e5c-acfab60ecd27}</Project>
       <Name>Direccion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Empleados.Core\Empleados.Core.csproj">
+      <Project>{ad7ad50b-c084-4e52-bbbb-705e08b143e6}</Project>
+      <Name>Empleados.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Empresas.Core\Empresas.Core.csproj">
       <Project>{9ddf6a04-39b7-458a-9f15-123f2b27c303}</Project>

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plaza.Core", "Plaza.Core\Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perfil.Core", "Perfil.Core\Perfil.Core.csproj", "{F45C48B3-FD8C-4B67-9D87-10E3971C1DBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empleados.Core", "Empleados.Core\Empleados.Core.csproj", "{AD7AD50B-C084-4E52-BBBB-705E08B143E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{F45C48B3-FD8C-4B67-9D87-10E3971C1DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45C48B3-FD8C-4B67-9D87-10E3971C1DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45C48B3-FD8C-4B67-9D87-10E3971C1DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7AD50B-C084-4E52-BBBB-705E08B143E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7AD50B-C084-4E52-BBBB-705E08B143E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7AD50B-C084-4E52-BBBB-705E08B143E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7AD50B-C084-4E52-BBBB-705E08B143E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

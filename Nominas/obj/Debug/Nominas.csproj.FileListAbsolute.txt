@@ -52,3 +52,6 @@ C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Perfi
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Perfil.Core.pdb
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaPerfiles.resources
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmPerfiles.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Empleados.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Empleados.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaEmpleados.resources

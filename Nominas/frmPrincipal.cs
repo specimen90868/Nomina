@@ -170,6 +170,9 @@ namespace Nominas
         private void MenuInicial(int sesion)
         {
             mnuRecursosHumanos.Visible = false;
+            mnuSeguroSocial.Visible = false;
+            mnuContratos.Visible = false;
+            mnuNominas.Visible = false;
             mnuCatalogos.Visible = false;
             mnuConfiguracion.Visible = false;
             if (sesion == 0)
@@ -192,6 +195,9 @@ namespace Nominas
         private void MenuPerfil()
         {
             mnuRecursosHumanos.Visible = true;
+            mnuSeguroSocial.Visible = true;
+            mnuContratos.Visible = true;
+            mnuNominas.Visible = true;
             mnuCatalogos.Visible = true;
             mnuConfiguracion.Visible = true;
         }
@@ -216,6 +222,9 @@ namespace Nominas
             GLOBALES.NOMBREEMPRESA = null;
             this.Text = "Sistema de Nomina";
             mnuRecursosHumanos.Visible = false;
+            mnuSeguroSocial.Visible = false;
+            mnuContratos.Visible = false;
+            mnuNominas.Visible = false;
             mnuCatalogos.Visible = false;
             mnuConfiguracion.Visible = false;
             MenuInicial(1);
@@ -260,6 +269,13 @@ namespace Nominas
             frmListaPerfiles lp = new frmListaPerfiles();
             lp.MdiParent = this;
             lp.Show();
+        }
+
+        private void mnuEmpleados_Click(object sender, EventArgs e)
+        {
+            frmListaEmpleados le = new frmListaEmpleados();
+            le.MdiParent = this;
+            le.Show();
         }
     }
 }

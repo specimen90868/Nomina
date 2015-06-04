@@ -12,6 +12,7 @@ namespace Nominas
     public static class GLOBALES
     {
         public static int IDUSUARIO { get; set; }
+        public static int IDPLAZA { get; set; }
         public static int IDPERFIL { get; set; }
         public static int IDEMPRESA { get; set; }
         public static string NOMBREEMPRESA { get; set; }
