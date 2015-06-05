@@ -134,11 +134,15 @@ namespace Nominas
 
         private void SeleccionaPlaza(int edicion)
         {
-            int fila = dgvPlazas.CurrentCell.RowIndex;
+            int fila = 0;
             frmPlazas p = new frmPlazas();
+            if (!edicion.Equals(0))
+            { 
+                fila = dgvPlazas.CurrentCell.RowIndex;
+                p._idplaza = int.Parse(dgvPlazas.Rows[fila].Cells[0].Value.ToString());
+            }
             p.OnNuevaPlaza += p_OnNuevaPlaza;
             p._tipoOperacion = edicion;
-            p._idplaza = int.Parse(dgvPlazas.Rows[fila].Cells[0].Value.ToString());
             p.Show();
         }
 

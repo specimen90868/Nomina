@@ -29,7 +29,7 @@ namespace Nominas
         #endregion
         
         #region DELEGADOS
-        public delegate void delOnNuevaEmpresa();
+        public delegate void delOnNuevaEmpresa(int edicion);
         public event delOnNuevaEmpresa OnNuevaEmpresa;
         #endregion
 
@@ -144,7 +144,7 @@ namespace Nominas
                     break;
                 case 1:
                     if (OnNuevaEmpresa != null)
-                        OnNuevaEmpresa();
+                        OnNuevaEmpresa(_tipoOperacion);
                     this.Dispose();
                     break;
             }

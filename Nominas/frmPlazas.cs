@@ -84,8 +84,6 @@ namespace Nominas
                         cnx.Close();
                         cnx.Dispose();
 
-                        if (OnNuevaPlaza != null)
-                            OnNuevaPlaza(0);
                     }
                     catch (Exception error)
                     {
@@ -101,8 +99,6 @@ namespace Nominas
                         cnx.Close();
                         cnx.Dispose();
 
-                        if (OnNuevaPlaza != null)
-                            OnNuevaPlaza(2);
                     }
                     catch (Exception error)
                     {
@@ -117,6 +113,8 @@ namespace Nominas
                     limpiar(this, typeof(TextBox));
                     break;
                 case 1:
+                    if (OnNuevaPlaza != null)
+                        OnNuevaPlaza(_tipoOperacion);
                     this.Dispose();
                     break;
             }

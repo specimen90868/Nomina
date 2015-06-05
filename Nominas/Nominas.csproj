@@ -55,6 +55,12 @@
     <Compile Include="frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepartamentos.Designer.cs">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="frmListaClientes.Designer.cs">
       <DependentUpon>frmListaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDepartamentos.Designer.cs">
+      <DependentUpon>frmListaDepartamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaEmpleados.cs">
       <SubType>Form</SubType>
@@ -133,6 +145,9 @@
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDepartamentos.resx">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaClientes.resx">
       <DependentUpon>frmListaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDepartamentos.resx">
+      <DependentUpon>frmListaDepartamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaEmpleados.resx">
       <DependentUpon>frmListaEmpleados.cs</DependentUpon>
@@ -204,6 +222,10 @@
       <Project>{2f926e34-44b7-49dc-b955-9b33f8b55c96}</Project>
       <Name>Data.Obj</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Departamento.Core\Departamento.Core.csproj">
+      <Project>{976a8297-166c-4d90-94b1-69de7ccc9271}</Project>
+      <Name>Departamento.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Direccion.Core\Direccion.Core.csproj">
       <Project>{edd3a402-8d97-4357-8e5c-acfab60ecd27}</Project>
       <Name>Direccion.Core</Name>
@@ -216,13 +238,29 @@
       <Project>{9ddf6a04-39b7-458a-9f15-123f2b27c303}</Project>
       <Name>Empresas.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Factores.Core\Factores.Core.csproj">
+      <Project>{4975efe5-7f1e-4648-89c1-ff4b4fcafd7a}</Project>
+      <Name>Factores.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Perfil.Core\Perfil.Core.csproj">
       <Project>{f45c48b3-fd8c-4b67-9d87-10e3971c1dbd}</Project>
       <Name>Perfil.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Periodos.Core\Periodos.Core.csproj">
+      <Project>{0cadde52-8b72-446e-80f8-33da3fc99151}</Project>
+      <Name>Periodos.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Plaza.Core\Plaza.Core.csproj">
       <Project>{dae0cf88-089f-452c-ac35-9a458753c71b}</Project>
       <Name>Plaza.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Puestos.Core\Puestos.Core.csproj">
+      <Project>{c9507108-2018-4989-97bc-c00354d90a75}</Project>
+      <Name>Puestos.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Salario.Core\Salario.Core.csproj">
+      <Project>{17ca0d9b-32e3-4dd4-9f85-f9a8083a5b67}</Project>
+      <Name>Salario.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Usuarios.Core\Usuarios.Core.csproj">
       <Project>{eaaf5c8a-7616-431b-8875-cd0bc4300e2d}</Project>

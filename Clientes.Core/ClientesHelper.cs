@@ -50,6 +50,15 @@ namespace Clientes.Core
             return lstClientes;
         }
 
+        public object obtenerIdCliente(Clientes c)
+        {
+            Command.CommandText = "select idcliente from clientes where rfc = @rfc";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("rfc",c.rfc);
+            object id = Select(Command);
+            return id;
+        }
+
         public int insertaCliente(Clientes c)
         {
             Command.CommandText = "insert into clientes (nombre, rfc, estatus, plaza) values (@nombre, @rfc, @estatus, @plaza)";

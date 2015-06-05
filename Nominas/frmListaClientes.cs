@@ -90,11 +90,22 @@ namespace Nominas
 
         private void SeleccionaEmpresa(int edicion)
         {
-            int fila = dgvClientes.CurrentCell.RowIndex;
             frmClientes c = new frmClientes();
+            c.OnNuevoCliente += c_OnNuevoCliente;
+            int fila = 0;
+            if (!edicion.Equals(0))
+            {
+                fila = dgvClientes.CurrentCell.RowIndex;
+                c._idcliente = int.Parse(dgvClientes.Rows[fila].Cells[0].Value.ToString());
+            }
             c._tipoOperacion = edicion;
-            c._idcliente = int.Parse(dgvClientes.Rows[fila].Cells[0].Value.ToString());
             c.Show();
+        }
+
+        void c_OnNuevoCliente(int edicion)
+        {
+            if (edicion == 0 || edicion == 2)
+                ListaClientes();
         }
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

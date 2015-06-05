@@ -184,11 +184,24 @@ namespace Nominas
 
         private void SeleccionaEmpresa(int edicion)
         {
-            int fila = dgvEmpresas.CurrentCell.RowIndex;
+            int fila = 0;
             frmEmpresas e = new frmEmpresas();
+            e.OnNuevaEmpresa += e_OnNuevaEmpresa;
+            if (!edicion.Equals(0))
+            {
+                fila = dgvEmpresas.CurrentCell.RowIndex;
+                e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
+            }
             e._tipoOperacion = edicion;
-            e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
             e.Show();
+        }
+
+        void e_OnNuevaEmpresa(int edicion)
+        {
+            if (edicion == 0 || edicion == 2)
+            {
+                ListaEmpresas();
+            }
         }
 
     }
