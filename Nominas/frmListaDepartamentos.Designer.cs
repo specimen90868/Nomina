@@ -133,6 +133,9 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(300, 25);
             this.txtBuscar.Text = "Buscar departamento...";
+            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
+            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             // 
             // dgvDepartamentos
             // 

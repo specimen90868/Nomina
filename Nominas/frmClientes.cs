@@ -64,6 +64,13 @@ namespace Nominas
                 return;
             }
 
+            control = GLOBALES.VALIDAR(this, typeof(MaskedTextBox));
+            if (!control.Equals(""))
+            {
+                MessageBox.Show("Falta el campo: " + control, "Información");
+                return;
+            }
+
             int idcliente;
 
             cnx = new MySqlConnection();
@@ -142,7 +149,9 @@ namespace Nominas
             switch (tipoGuardar)
             {
                 case 0:
-                    limpiar(this, typeof(TextBox));
+                    GLOBALES.LIMPIAR(this,typeof(TextBox));
+                    GLOBALES.LIMPIAR(this, typeof(MaskedTextBox));
+                    //limpiar(this, typeof(TextBox));
                     break;
                 case 1:
                     if (OnNuevoCliente != null)
@@ -152,34 +161,10 @@ namespace Nominas
             }
         }
 
-        #region FUNCION LIMPIAR TEXTBOX E INHABILITAR CONTROLES
-        private void limpiar(Control control, Type tipo)
-        {
-            var controls = control.Controls.Cast<Control>();
-            foreach (Control c in controls.Where(c => c.GetType() == tipo))
-            {
-                (c as TextBox).Clear();
-            }
-            txtCP.Clear();
-        }
-
-        private void inhabilitar(Control control, Type tipo)
-        {
-            var controls = control.Controls.Cast<Control>();
-            foreach (Control c in controls.Where(c => c.GetType() == tipo))
-            {
-                (c as TextBox).Enabled = false;
-            }
-            toolGuardarCerrar.Enabled = false;
-            toolGuardarNuevo.Enabled = false;
-            txtCP.Enabled = false;
-        }
-        #endregion
-
         private void frmClientes_Load(object sender, EventArgs e)
         {
             /// _tipoOperacion CONSULTA = 1, EDICION = 2
-            if (_tipoOperacion == 1 || _tipoOperacion == 2)
+            if (_tipoOperacion == GLOBALES.CONSULTAR || _tipoOperacion == GLOBALES.MODIFICAR)
             {
                 cnx = new MySqlConnection();
                 cnx.ConnectionString = cdn;
@@ -233,10 +218,11 @@ namespace Nominas
                     MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
                 }
 
-                if (_tipoOperacion == 1)
+                if (_tipoOperacion == GLOBALES.CONSULTAR)
                 {
                     toolTitulo.Text = "Consulta Cliente";
-                    inhabilitar(this, typeof(TextBox));
+                    GLOBALES.INHABILITAR(this, typeof(TextBox));
+                    GLOBALES.INHABILITAR(this, typeof(MaskedTextBox));
                 }
                 else
                     toolTitulo.Text = "Edición Cliente";

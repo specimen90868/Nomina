@@ -11,6 +11,12 @@ namespace Nominas
 {
     public static class GLOBALES
     {
+        #region CONSTANTES GLOBALES
+        public static int NUEVO = 0;
+        public static int CONSULTAR = 1;
+        public static int MODIFICAR = 2;
+        #endregion
+
         public static int IDUSUARIO { get; set; }
         public static int IDPLAZA { get; set; }
         public static int IDPERFIL { get; set; }
@@ -22,6 +28,7 @@ namespace Nominas
         {
             string nombre = "";
             var controls = control.Controls.Cast<Control>();
+            
             foreach (Control c in controls.Where(c => c.GetType() == tipo))
             {
                 if (string.IsNullOrEmpty(c.Text))
@@ -30,7 +37,41 @@ namespace Nominas
                     break;
                 }
             }
+            
             return nombre;
+        }
+
+        public static void LIMPIAR(Control control, Type tipo)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            foreach (Control c in controls.Where(c => c.GetType() == tipo))
+            {
+                c.Text = "";
+            }
+            
+        }
+
+        public static void INHABILITAR(Control control, Type tipo)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            foreach (Control c in controls.Where(c => c.GetType() == tipo))
+            {
+                c.Enabled = false;
+            }
+
+        }
+
+        public static void REFRESCAR(Control control, Type tipo)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            foreach (Control c in controls.Where(c => c.GetType() == tipo))
+            {
+                c.Refresh();
+            }
+
         }
 
         public static List<Autorizaciones.Core.Ediciones> PERFILEDICIONES(string menu)

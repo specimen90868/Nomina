@@ -134,22 +134,22 @@ namespace Nominas
 
         private void dgvEmpresas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleccionaEmpresa(1);
+            Seleccion(1);
         }
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(0);
+            Seleccion(GLOBALES.NUEVO);
         }
 
         private void toolConsultar_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(1);
+            Seleccion(GLOBALES.CONSULTAR);
         }
 
         private void toolEditar_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(2);
+            Seleccion(GLOBALES.MODIFICAR);
         }
 
         private void toolBaja_Click(object sender, EventArgs e)
@@ -182,12 +182,12 @@ namespace Nominas
             }
         }
 
-        private void SeleccionaEmpresa(int edicion)
+        private void Seleccion(int edicion)
         {
             int fila = 0;
             frmEmpresas e = new frmEmpresas();
             e.OnNuevaEmpresa += e_OnNuevaEmpresa;
-            if (!edicion.Equals(0))
+            if (!edicion.Equals(GLOBALES.NUEVO))
             {
                 fila = dgvEmpresas.CurrentCell.RowIndex;
                 e._idempresa = int.Parse(dgvEmpresas.Rows[fila].Cells[0].Value.ToString());
@@ -198,7 +198,7 @@ namespace Nominas
 
         void e_OnNuevaEmpresa(int edicion)
         {
-            if (edicion == 0 || edicion == 2)
+            if (edicion == GLOBALES.NUEVO || edicion == GLOBALES.MODIFICAR)
             {
                 ListaEmpresas();
             }

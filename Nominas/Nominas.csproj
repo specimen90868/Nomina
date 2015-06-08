@@ -73,6 +73,12 @@
     <Compile Include="frmEmpresas.Designer.cs">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFactores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFactores.Designer.cs">
+      <DependentUpon>frmFactores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,17 +103,41 @@
     <Compile Include="frmListaEmpresas.Designer.cs">
       <DependentUpon>frmListaEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListaFactores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaFactores.Designer.cs">
+      <DependentUpon>frmListaFactores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaPerfiles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmListaPerfiles.Designer.cs">
       <DependentUpon>frmListaPerfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListaPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPeriodos.Designer.cs">
+      <DependentUpon>frmListaPeriodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaPlazas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmListaPlazas.Designer.cs">
       <DependentUpon>frmListaPlazas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaPuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPuestos.Designer.cs">
+      <DependentUpon>frmListaPuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaSalario.Designer.cs">
+      <DependentUpon>frmListaSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogIn.cs">
       <SubType>Form</SubType>
@@ -121,6 +151,12 @@
     <Compile Include="frmPerfiles.Designer.cs">
       <DependentUpon>frmPerfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPeriodos.Designer.cs">
+      <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPlazas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +168,18 @@
     </Compile>
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPuestos.Designer.cs">
+      <DependentUpon>frmPuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalario.Designer.cs">
+      <DependentUpon>frmSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSeleccionarEmpresa.cs">
       <SubType>Form</SubType>
@@ -154,6 +202,9 @@
     <EmbeddedResource Include="frmEmpresas.resx">
       <DependentUpon>frmEmpresas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFactores.resx">
+      <DependentUpon>frmFactores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaClientes.resx">
       <DependentUpon>frmListaClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,11 +217,23 @@
     <EmbeddedResource Include="frmListaEmpresas.resx">
       <DependentUpon>frmListaEmpresas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListaFactores.resx">
+      <DependentUpon>frmListaFactores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaPerfiles.resx">
       <DependentUpon>frmListaPerfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPeriodos.resx">
+      <DependentUpon>frmListaPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaPlazas.resx">
       <DependentUpon>frmListaPlazas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPuestos.resx">
+      <DependentUpon>frmListaPuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSalario.resx">
+      <DependentUpon>frmListaSalario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
@@ -178,11 +241,20 @@
     <EmbeddedResource Include="frmPerfiles.resx">
       <DependentUpon>frmPerfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPeriodos.resx">
+      <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPlazas.resx">
       <DependentUpon>frmPlazas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPuestos.resx">
+      <DependentUpon>frmPuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalario.resx">
+      <DependentUpon>frmSalario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeleccionarEmpresa.resx">
       <DependentUpon>frmSeleccionarEmpresa.cs</DependentUpon>

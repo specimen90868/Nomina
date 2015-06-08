@@ -129,14 +129,14 @@ namespace Nominas
 
         private void dgvPlazas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleccionaPlaza(1);
+            Seleccion(GLOBALES.CONSULTAR);
         }
 
-        private void SeleccionaPlaza(int edicion)
+        private void Seleccion(int edicion)
         {
             int fila = 0;
             frmPlazas p = new frmPlazas();
-            if (!edicion.Equals(0))
+            if (!edicion.Equals(GLOBALES.NUEVO))
             { 
                 fila = dgvPlazas.CurrentCell.RowIndex;
                 p._idplaza = int.Parse(dgvPlazas.Rows[fila].Cells[0].Value.ToString());
@@ -148,23 +148,23 @@ namespace Nominas
 
         void p_OnNuevaPlaza(int edicion)
         {
-            if (edicion == 0 || edicion == 2)
+            if (edicion == GLOBALES.NUEVO || edicion == GLOBALES.MODIFICAR)
                 ListaPlazas();
         }
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            SeleccionaPlaza(0);
+            Seleccion(GLOBALES.NUEVO);
         }
 
         private void toolConsultar_Click(object sender, EventArgs e)
         {
-            SeleccionaPlaza(1);
+            Seleccion(GLOBALES.CONSULTAR);
         }
 
         private void toolEditar_Click(object sender, EventArgs e)
         {
-            SeleccionaPlaza(2);
+            Seleccion(GLOBALES.MODIFICAR);
         }
 
         private void toolBaja_Click(object sender, EventArgs e)

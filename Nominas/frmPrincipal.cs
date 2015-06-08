@@ -284,6 +284,41 @@ namespace Nominas
             c.MdiParent = this;
             c.Show();
         }
+
+        private void mnuDepartamentos_Click(object sender, EventArgs e)
+        {
+            frmListaDepartamentos ld = new frmListaDepartamentos();
+            ld.MdiParent = this;
+            ld.Show();
+        }
+
+        private void mnuPuestos_Click(object sender, EventArgs e)
+        {
+            frmListaPuestos lp = new frmListaPuestos();
+            lp.MdiParent = this;
+            lp.Show();
+        }
+
+        private void mnuPeriodos_Click(object sender, EventArgs e)
+        {
+            frmListaPeriodos lp = new frmListaPeriodos();
+            lp.MdiParent = this;
+            lp.Show();
+        }
+
+        private void mnuFactores_Click(object sender, EventArgs e)
+        {
+            frmListaFactores lf = new frmListaFactores();
+            lf.MdiParent = this;
+            lf.Show();
+        }
+
+        private void mnuSalarioMinimo_Click(object sender, EventArgs e)
+        {
+            frmListaSalario ls = new frmListaSalario();
+            ls.MdiParent = this;
+            ls.Show();
+        }
     }
 }
 

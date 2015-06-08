@@ -284,30 +284,35 @@
             this.mnuDepartamentos.Name = "mnuDepartamentos";
             this.mnuDepartamentos.Size = new System.Drawing.Size(155, 22);
             this.mnuDepartamentos.Text = "Departamentos";
+            this.mnuDepartamentos.Click += new System.EventHandler(this.mnuDepartamentos_Click);
             // 
             // mnuPuestos
             // 
             this.mnuPuestos.Name = "mnuPuestos";
             this.mnuPuestos.Size = new System.Drawing.Size(155, 22);
             this.mnuPuestos.Text = "Puestos";
+            this.mnuPuestos.Click += new System.EventHandler(this.mnuPuestos_Click);
             // 
             // mnuPeriodos
             // 
             this.mnuPeriodos.Name = "mnuPeriodos";
             this.mnuPeriodos.Size = new System.Drawing.Size(155, 22);
             this.mnuPeriodos.Text = "Periodos";
+            this.mnuPeriodos.Click += new System.EventHandler(this.mnuPeriodos_Click);
             // 
             // mnuFactores
             // 
             this.mnuFactores.Name = "mnuFactores";
             this.mnuFactores.Size = new System.Drawing.Size(155, 22);
             this.mnuFactores.Text = "Factores";
+            this.mnuFactores.Click += new System.EventHandler(this.mnuFactores_Click);
             // 
             // mnuSalarioMinimo
             // 
             this.mnuSalarioMinimo.Name = "mnuSalarioMinimo";
             this.mnuSalarioMinimo.Size = new System.Drawing.Size(155, 22);
             this.mnuSalarioMinimo.Text = "Salario minimo";
+            this.mnuSalarioMinimo.Click += new System.EventHandler(this.mnuSalarioMinimo_Click);
             // 
             // mnuConfiguracion
             // 

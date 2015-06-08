@@ -5,6 +5,5 @@ c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\
 c:\users\fabricio.vilchis\documents\visual studio 2013\Projects\Nomina\Data.Obj\obj\Debug\Data.Obj.pdb
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Data.Obj\bin\Debug\Data.Obj.dll
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Data.Obj\bin\Debug\Data.Obj.pdb
-C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Data.Obj\obj\Debug\Data.Obj.csprojResolveAssemblyReference.cache
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Data.Obj\obj\Debug\Data.Obj.dll
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Data.Obj\obj\Debug\Data.Obj.pdb

@@ -88,12 +88,12 @@ namespace Nominas
             ListaClientes();
         }
 
-        private void SeleccionaEmpresa(int edicion)
+        private void Selecciona(int edicion)
         {
             frmClientes c = new frmClientes();
             c.OnNuevoCliente += c_OnNuevoCliente;
             int fila = 0;
-            if (!edicion.Equals(0))
+            if (!edicion.Equals(GLOBALES.NUEVO))
             {
                 fila = dgvClientes.CurrentCell.RowIndex;
                 c._idcliente = int.Parse(dgvClientes.Rows[fila].Cells[0].Value.ToString());
@@ -110,22 +110,22 @@ namespace Nominas
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleccionaEmpresa(1);
+            Selecciona(1);
         }
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(0);
+            Selecciona(GLOBALES.NUEVO);
         }
 
         private void toolConsultar_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(1);
+            Selecciona(GLOBALES.CONSULTAR);
         }
 
         private void toolEditar_Click(object sender, EventArgs e)
         {
-            SeleccionaEmpresa(2);
+            Selecciona(GLOBALES.MODIFICAR);
         }
 
         private void toolBaja_Click(object sender, EventArgs e)
@@ -157,7 +157,6 @@ namespace Nominas
                 }
             }
         }
-
 
         private void txtBuscar_Click(object sender, EventArgs e)
         {

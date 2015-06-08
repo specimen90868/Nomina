@@ -59,6 +59,13 @@ namespace Nominas
                 return;
             }
 
+            control = GLOBALES.VALIDAR(this, typeof(MaskedTextBox));
+            if (!control.Equals(""))
+            {
+                MessageBox.Show("Falta el campo: " + control, "Información");
+                return;
+            }
+
             int idempresa;
 
             cnx = new MySqlConnection();
@@ -140,7 +147,9 @@ namespace Nominas
             switch (tipoGuardar)
             {
                 case 0:
-                    limpiar(this, typeof(TextBox));
+                    GLOBALES.LIMPIAR(this,typeof(TextBox));
+                    GLOBALES.LIMPIAR(this, typeof(MaskedTextBox));
+                    //limpiar(this, typeof(TextBox));
                     break;
                 case 1:
                     if (OnNuevaEmpresa != null)
@@ -189,7 +198,7 @@ namespace Nominas
         private void frmEmpresas_Load(object sender, EventArgs e)
         {
             /// _tipoOperacion CONSULTA = 1, EDICION = 2
-            if (_tipoOperacion == 1 || _tipoOperacion == 2)
+            if (_tipoOperacion == GLOBALES.CONSULTAR || _tipoOperacion == GLOBALES.MODIFICAR)
             {
                 cnx = new MySqlConnection();
                 cnx.ConnectionString = cdn;
@@ -244,10 +253,12 @@ namespace Nominas
                     MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
                 }
                 
-                if (_tipoOperacion == 1)
+                if (_tipoOperacion == GLOBALES.CONSULTAR)
                 {
                     toolTitulo.Text = "Consulta Empresa";
-                    inhabilitar(this, typeof(TextBox));
+                    GLOBALES.INHABILITAR(this, typeof(TextBox));
+                    GLOBALES.INHABILITAR(this, typeof(MaskedTextBox));
+                    GLOBALES.INHABILITAR(this, typeof(CheckBox));
                 }
                 else
                     toolTitulo.Text = "Edición Empresa";

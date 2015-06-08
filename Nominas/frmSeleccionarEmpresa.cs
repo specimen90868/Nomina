@@ -101,9 +101,10 @@ namespace Nominas
             em.ShowDialog();
         }
 
-        void em_OnNuevaEmpresa()
+        void em_OnNuevaEmpresa(int edicion)
         {
-            cargaGridEmpresa();
+            if(edicion == GLOBALES.NUEVO)
+                cargaGridEmpresa();
         }
     }
 }

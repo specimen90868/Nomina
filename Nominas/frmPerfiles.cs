@@ -49,12 +49,12 @@ namespace Nominas
 
         private void Guardar(int tipoGuardar)
         {//SE VALIDA SI TODOS LOS TEXTBOX HAN SIDO LLENADOS.
-            string control = GLOBALES.VALIDAR(this, typeof(TextBox));
-            if (!control.Equals(""))
-            {
-                MessageBox.Show("Falta el campo: " + control, "Información");
-                return;
-            }
+            //string control = GLOBALES.VALIDAR(this, typeof(TextBox));
+            //if (!control.Equals(""))
+            //{
+            //    MessageBox.Show("Falta el campo: " + control, "Información");
+            //    return;
+            //}
 
             int idperfil;
 
@@ -182,7 +182,7 @@ namespace Nominas
         private void frmPerfiles_Load(object sender, EventArgs e)
         {
             /// _tipoOperacion CONSULTA = 1, EDICION = 2
-            if (_tipoOperacion == 1 || _tipoOperacion == 2)
+            if (_tipoOperacion == GLOBALES.CONSULTAR || _tipoOperacion == GLOBALES.MODIFICAR)
             {
                 cnx = new MySqlConnection();
                 cnx.ConnectionString = cdn;
@@ -217,10 +217,10 @@ namespace Nominas
                     MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
                 }
 
-                if (_tipoOperacion == 1)
+                if (_tipoOperacion == GLOBALES.CONSULTAR)
                 {
                     toolTitulo.Text = "Consulta Perfil";
-                    inhabilitar(this, typeof(TextBox));
+                    GLOBALES.INHABILITAR(this, typeof(TextBox));
                 }
                 else
                     toolTitulo.Text = "Edición Perfil";

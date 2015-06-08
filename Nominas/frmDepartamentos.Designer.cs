@@ -80,6 +80,7 @@
             this.toolGuardarCerrar.Size = new System.Drawing.Size(113, 22);
             this.toolGuardarCerrar.Text = "Guardar y Cerrar";
             this.toolGuardarCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolGuardarCerrar.Click += new System.EventHandler(this.toolGuardarCerrar_Click);
             // 
             // toolGuardarNuevo
             // 
@@ -88,6 +89,7 @@
             this.toolGuardarNuevo.Name = "toolGuardarNuevo";
             this.toolGuardarNuevo.Size = new System.Drawing.Size(116, 22);
             this.toolGuardarNuevo.Text = "Guardar y Nuevo";
+            this.toolGuardarNuevo.Click += new System.EventHandler(this.toolGuardarNuevo_Click);
             // 
             // toolCerrar
             // 
@@ -96,6 +98,7 @@
             this.toolCerrar.Name = "toolCerrar";
             this.toolCerrar.Size = new System.Drawing.Size(59, 22);
             this.toolCerrar.Text = "Cerrar";
+            this.toolCerrar.Click += new System.EventHandler(this.toolCerrar_Click);
             // 
             // Label1
             // 
@@ -136,6 +139,7 @@
             this.Controls.Add(this.toolAcciones);
             this.Name = "frmDepartamentos";
             this.Text = "Departamentos";
+            this.Load += new System.EventHandler(this.frmDepartamentos_Load);
             this.toolAcciones.ResumeLayout(false);
             this.toolAcciones.PerformLayout();
             this.toolDepartamento.ResumeLayout(false);

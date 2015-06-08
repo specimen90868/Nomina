@@ -13,7 +13,7 @@ namespace Departamento.Core
         {
             DataTable dtDeptos = new DataTable();
             List<Depto> lstDeptos = new List<Depto>();
-            Command.CommandText = "select id, descripcion from departamentos";
+            Command.CommandText = "select id, descripcion from departamentos where estatus = 1";
             Command.Parameters.Clear();
             dtDeptos = SelectData(Command);
             for (int i = 0; i < dtDeptos.Rows.Count; i++)
@@ -51,6 +51,7 @@ namespace Departamento.Core
             Command.CommandText = "insert into departamentos (descripcion, estatus) values (@descripcion, @estatus)";
             Command.Parameters.Clear();
             Command.Parameters.AddWithValue("descripcion", d.descripcion);
+            Command.Parameters.AddWithValue("estatus", d.estatus);
             return Command.ExecuteNonQuery();
         }
 

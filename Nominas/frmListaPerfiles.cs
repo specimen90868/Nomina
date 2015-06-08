@@ -130,10 +130,10 @@ namespace Nominas
 
         private void dgvPerfiles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleccionaPerfil(1);
+            Seleccion(1);
         }
 
-        private void SeleccionaPerfil(int edicion)
+        private void Seleccion(int edicion)
         {
             int fila = dgvPerfiles.CurrentCell.RowIndex;
             frmPerfiles p = new frmPerfiles();
@@ -145,23 +145,23 @@ namespace Nominas
 
         void p_OnNuevoPerfil(int edicion)
         {
-            if (edicion == 0 || edicion == 2)
+            if (edicion == GLOBALES.NUEVO || edicion == GLOBALES.MODIFICAR)
                 ListaPerfiles();
         }
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            SeleccionaPerfil(0);
+            Seleccion(GLOBALES.NUEVO);
         }
 
         private void toolConsultar_Click(object sender, EventArgs e)
         {
-            SeleccionaPerfil(1);
+            Seleccion(GLOBALES.CONSULTAR);
         }
 
         private void toolEditar_Click(object sender, EventArgs e)
         {
-            SeleccionaPerfil(2);
+            Seleccion(GLOBALES.MODIFICAR);
         }
 
         private void toolBaja_Click(object sender, EventArgs e)

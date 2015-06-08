@@ -75,7 +75,6 @@ namespace Nominas
                 MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
             }
         }
-
         private void CargaPerfil()
         {
             List<Autorizaciones.Core.Ediciones> lstEdiciones = GLOBALES.PERFILEDICIONES("Trabajadores");
