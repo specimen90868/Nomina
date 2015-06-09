@@ -33,13 +33,13 @@
             this.toolNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolConsultar = new System.Windows.Forms.ToolStripButton();
             this.toolEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolBaja = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblBuscar = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolTitulo = new System.Windows.Forms.ToolStrip();
             this.toolEmpleados = new System.Windows.Forms.ToolStripLabel();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.toolBaja = new System.Windows.Forms.ToolStripButton();
             this.toolBusqueda.SuspendLayout();
             this.toolTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
@@ -68,6 +68,7 @@
             this.toolNuevo.Name = "toolNuevo";
             this.toolNuevo.Size = new System.Drawing.Size(62, 22);
             this.toolNuevo.Text = "Nuevo";
+            this.toolNuevo.Click += new System.EventHandler(this.toolNuevo_Click);
             // 
             // toolConsultar
             // 
@@ -76,6 +77,7 @@
             this.toolConsultar.Name = "toolConsultar";
             this.toolConsultar.Size = new System.Drawing.Size(78, 22);
             this.toolConsultar.Text = "Consultar";
+            this.toolConsultar.Click += new System.EventHandler(this.toolConsultar_Click);
             // 
             // toolEditar
             // 
@@ -84,14 +86,7 @@
             this.toolEditar.Name = "toolEditar";
             this.toolEditar.Size = new System.Drawing.Size(57, 22);
             this.toolEditar.Text = "Editar";
-            // 
-            // toolBaja
-            // 
-            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
-            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolBaja.Name = "toolBaja";
-            this.toolBaja.Size = new System.Drawing.Size(70, 22);
-            this.toolBaja.Text = "Eliminar";
+            this.toolEditar.Click += new System.EventHandler(this.toolEditar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -111,6 +106,9 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(300, 25);
             this.txtBuscar.Text = "Buscar empleado...";
+            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
+            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             // 
             // toolTitulo
             // 
@@ -142,6 +140,16 @@
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.Size = new System.Drawing.Size(810, 456);
             this.dgvEmpleados.TabIndex = 5;
+            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
+            // 
+            // toolBaja
+            // 
+            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
+            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBaja.Name = "toolBaja";
+            this.toolBaja.Size = new System.Drawing.Size(70, 22);
+            this.toolBaja.Text = "Eliminar";
+            this.toolBaja.Click += new System.EventHandler(this.toolBaja_Click);
             // 
             // frmListaEmpleados
             // 
@@ -170,12 +178,12 @@
         private System.Windows.Forms.ToolStripButton toolNuevo;
         private System.Windows.Forms.ToolStripButton toolConsultar;
         private System.Windows.Forms.ToolStripButton toolEditar;
-        private System.Windows.Forms.ToolStripButton toolBaja;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         internal System.Windows.Forms.ToolStripLabel lblBuscar;
         internal System.Windows.Forms.ToolStripTextBox txtBuscar;
         internal System.Windows.Forms.ToolStrip toolTitulo;
         internal System.Windows.Forms.ToolStripLabel toolEmpleados;
         private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.ToolStripButton toolBaja;
     }
 }

@@ -52,6 +52,24 @@ namespace Periodos.Core
             return lstPeriodos;
         }
 
+        public List<Periodos> obtenerPeriodoCliente(Periodos p)
+        {
+            DataTable dtPeriodos = new DataTable();
+            List<Periodos> lstPeriodos = new List<Periodos>();
+            Command.CommandText = "select idperiodo, pago from periodos where idcliente = @idcliente";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idcliente",p.idcliente);
+            dtPeriodos = SelectData(Command);
+            for (int i = 0; i < dtPeriodos.Rows.Count; i++)
+            {
+                Periodos periodo = new Periodos();
+                periodo.idperiodo = int.Parse(dtPeriodos.Rows[i]["idperiodo"].ToString());
+                periodo.pago = dtPeriodos.Rows[i]["pago"].ToString();
+                lstPeriodos.Add(periodo);
+            }
+            return lstPeriodos;
+        }
+
         public int insertaPeriodo(Periodos p)
         {
             Command.CommandText = "insert into periodos (idcliente, pago, dias, inicio, termino, estatus) values (@idcliente, @pago, @dias, @inicio, @termino, @estatus)";

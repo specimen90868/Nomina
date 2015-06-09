@@ -12,6 +12,7 @@ namespace Empleados.Core
         public string nombres { get; set; }
         public string paterno { get; set; }
         public string materno { get; set; }
+        public string nombrecompleto { get; set; }
         public int idempresa { get; set; }
         public int idcliente { get; set; }
         public DateTime fechaingreso { get; set; }

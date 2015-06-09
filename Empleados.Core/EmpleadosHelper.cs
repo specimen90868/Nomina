@@ -17,13 +17,13 @@ namespace Empleados.Core
             string plazas = "(select id from plazas)";
             if (e.idplaza.Equals(0))
             {
-                Command.CommandText = "select idtrabajador, nombres, paterno, materno, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza in " + plazas;
+                Command.CommandText = "select idtrabajador, nombrecompleto, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza in " + plazas;
                 Command.Parameters.Clear();
                 Command.Parameters.AddWithValue("idempresa", e.idempresa);
             }
             else
             {
-                Command.CommandText = "select idtrabajador, nombres, paterno, materno, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza = @idplaza";
+                Command.CommandText = "select idtrabajador, nombrecompleto, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza = @idplaza";
                 Command.Parameters.Clear();
                 Command.Parameters.AddWithValue("idempresa", e.idempresa);
                 Command.Parameters.AddWithValue("idplaza", e.idplaza);
@@ -34,9 +34,7 @@ namespace Empleados.Core
             {
                 Empleados empleado = new Empleados();
                 empleado.idtrabajador = int.Parse(dtEmpleados.Rows[i]["idtrabajador"].ToString());
-                empleado.nombres = dtEmpleados.Rows[i]["nombres"].ToString();
-                empleado.paterno = dtEmpleados.Rows[i]["paterno"].ToString();
-                empleado.materno = dtEmpleados.Rows[i]["materno"].ToString();
+                empleado.nombrecompleto = dtEmpleados.Rows[i]["nombrecompleto"].ToString();
                 empleado.fechaingreso = DateTime.Parse(dtEmpleados.Rows[i]["fechaingreso"].ToString());
                 empleado.antiguedad = int.Parse(dtEmpleados.Rows[i]["antiguedad"].ToString());
                 empleado.sdi = decimal.Parse(dtEmpleados.Rows[i]["sdi"].ToString());
@@ -66,6 +64,7 @@ namespace Empleados.Core
                 empleado.nombres = dtEmpleados.Rows[i]["nombres"].ToString();
                 empleado.paterno = dtEmpleados.Rows[i]["paterno"].ToString();
                 empleado.materno = dtEmpleados.Rows[i]["materno"].ToString();
+                empleado.nombrecompleto = dtEmpleados.Rows[i]["nombrecompleto"].ToString();
                 empleado.idcliente = int.Parse(dtEmpleados.Rows[i]["idcliente"].ToString());
                 empleado.fechaingreso = DateTime.Parse(dtEmpleados.Rows[i]["fechaingreso"].ToString());
                 empleado.antiguedad = int.Parse(dtEmpleados.Rows[i]["antiguedad"].ToString());
@@ -86,14 +85,24 @@ namespace Empleados.Core
             return lstEmpleados;
         }
 
+        public object obtenerEstatus(Empleados e)
+        {
+            Command.CommandText = "select estatus from trabajadores where idtrabajador = @idtrabajador";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idtrabajador",e.idtrabajador);
+            object estatus = Select(Command);
+            return estatus;
+        }
+
         public int insertaEmpleado(Empleados e)
         {
-            Command.CommandText = "insert into trabajadores (nombres,paterno,materno,idempresa,idcliente,fechaingreso,antiguedad,idperiodo,localforaneo,sua,rfc,curp,nss,digitoverificador,tiposalario,sdi,sd,sueldo,estatus,idse,modsalario,idplaza)" +
+            Command.CommandText = "insert into trabajadores (nombres,paterno,materno,nombrecompleto,idempresa,idcliente,fechaingreso,antiguedad,idperiodo,localforaneo,sua,rfc,curp,nss,digitoverificador,tiposalario,sdi,sd,sueldo,estatus,idse,modsalario,idplaza)" +
                 "values (@nombres,@paterno,@materno,@idempresa,@idcliente,@fechaingreso,@antiguedad,@idperiodo,@localforaneo,@sua,@rfc,@curp,@nss,@digitoverificador,@tiposalario,@sdi,@sd,@sueldo,@estatus,@idse,@modsalario,@idplaza)";
             Command.Parameters.Clear();
             Command.Parameters.AddWithValue("nombres",e.nombres);
             Command.Parameters.AddWithValue("paterno", e.paterno);
             Command.Parameters.AddWithValue("materno", e.materno);
+            Command.Parameters.AddWithValue("nombrecompleto", e.nombrecompleto);
             Command.Parameters.AddWithValue("idempresa", e.idempresa);
             Command.Parameters.AddWithValue("idcliente", e.idcliente);
             Command.Parameters.AddWithValue("fechaingreso", e.fechaingreso);
@@ -119,7 +128,7 @@ namespace Empleados.Core
 
         public int actualizaEmpleado(Empleados e)
         {
-            Command.CommandText = "update trabajadores set nombres = @nombres, paterno = @paterno, materno = @materno, idcliente = @idcliente, fechaingreso = @fechaingreso, antiguedad = @antiguedad, idperiodo = @idperiodo, " +
+            Command.CommandText = "update trabajadores set nombres = @nombres, paterno = @paterno, materno = @materno, nombrecompleto = @nombrecompleto, idcliente = @idcliente, fechaingreso = @fechaingreso, antiguedad = @antiguedad, idperiodo = @idperiodo, " +
                 "localforaneo = @localforaneo, sua = @sua, rfc = @rfc, curp = @curp, nss = @nss, digitoverificador = @digitoverificador, tiposalario = @tiposalario, sdi = @sdi, sd = @sd, sueldo = @sueldo where idtrabajador = @idtrabajador";
                 
             Command.Parameters.Clear();
@@ -127,6 +136,7 @@ namespace Empleados.Core
             Command.Parameters.AddWithValue("nombres", e.nombres);
             Command.Parameters.AddWithValue("paterno", e.paterno);
             Command.Parameters.AddWithValue("materno", e.materno);
+            Command.Parameters.AddWithValue("nombrecompleto", e.nombrecompleto);
             Command.Parameters.AddWithValue("idcliente", e.idcliente);
             Command.Parameters.AddWithValue("fechaingreso", e.fechaingreso);
             Command.Parameters.AddWithValue("antiguedad", e.antiguedad);
@@ -142,6 +152,14 @@ namespace Empleados.Core
             Command.Parameters.AddWithValue("sd", e.sd);
             Command.Parameters.AddWithValue("sueldo", e.sueldo);
 
+            return Command.ExecuteNonQuery();
+        }
+
+        public int bajaEmpleado(Empleados e)
+        {
+            Command.CommandText = "delete from trabajadores where idtrabajador = @idtrabajador";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idtrabajador",e.idtrabajador);
             return Command.ExecuteNonQuery();
         }
 

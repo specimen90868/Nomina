@@ -123,7 +123,7 @@
             this.cmbDiaTermino.Location = new System.Drawing.Point(113, 222);
             this.cmbDiaTermino.Name = "cmbDiaTermino";
             this.cmbDiaTermino.Size = new System.Drawing.Size(100, 21);
-            this.cmbDiaTermino.TabIndex = 24;
+            this.cmbDiaTermino.TabIndex = 5;
             // 
             // cmbDiaInicio
             // 
@@ -139,7 +139,8 @@
             this.cmbDiaInicio.Location = new System.Drawing.Point(113, 195);
             this.cmbDiaInicio.Name = "cmbDiaInicio";
             this.cmbDiaInicio.Size = new System.Drawing.Size(100, 21);
-            this.cmbDiaInicio.TabIndex = 23;
+            this.cmbDiaInicio.TabIndex = 4;
+            this.cmbDiaInicio.SelectedIndexChanged += new System.EventHandler(this.cmbDiaInicio_SelectedIndexChanged);
             // 
             // Label6
             // 
@@ -165,7 +166,7 @@
             this.txtDias.Location = new System.Drawing.Point(113, 169);
             this.txtDias.Name = "txtDias";
             this.txtDias.Size = new System.Drawing.Size(41, 20);
-            this.txtDias.TabIndex = 19;
+            this.txtDias.TabIndex = 3;
             // 
             // Label3
             // 
@@ -204,7 +205,8 @@
             this.cmbPago.Location = new System.Drawing.Point(113, 142);
             this.cmbPago.Name = "cmbPago";
             this.cmbPago.Size = new System.Drawing.Size(100, 21);
-            this.cmbPago.TabIndex = 130;
+            this.cmbPago.TabIndex = 2;
+            this.cmbPago.SelectedIndexChanged += new System.EventHandler(this.cmbPago_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -221,7 +223,7 @@
             this.cmbCliente.Location = new System.Drawing.Point(113, 115);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(343, 21);
-            this.cmbCliente.TabIndex = 132;
+            this.cmbCliente.TabIndex = 1;
             // 
             // frmPeriodos
             // 

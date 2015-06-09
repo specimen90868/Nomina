@@ -31,6 +31,7 @@ namespace Nominas
             CargaPerfil();
             ListaEmpleados();
         }
+
         private void ListaEmpleados()
         {
             string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
@@ -54,9 +55,7 @@ namespace Nominas
                          select new
                          {
                              IdTrabajador = e.idtrabajador,
-                             Nombre = e.nombres,
-                             Paterno = e.paterno,
-                             Materno = e.materno,
+                             Nombre = e.nombrecompleto,
                              Ingreso = e.fechaingreso,
                              Antiguedad = e.antiguedad + " AÑOS",
                              SDI = e.sdi,
@@ -74,7 +73,14 @@ namespace Nominas
             {
                 MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
             }
+
+            DataGridViewCellStyle estilo = new DataGridViewCellStyle();
+            estilo.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvEmpleados.Columns[4].DefaultCellStyle = estilo;
+            dgvEmpleados.Columns[5].DefaultCellStyle = estilo;
+            dgvEmpleados.Columns[6].DefaultCellStyle = estilo;
         }
+
         private void CargaPerfil()
         {
             List<Autorizaciones.Core.Ediciones> lstEdiciones = GLOBALES.PERFILEDICIONES("Trabajadores");
@@ -91,6 +97,154 @@ namespace Nominas
                         break;
                 }
             }
+        }
+
+        private void Seleccion(int edicion)
+        {
+            int fila = 0;
+            frmEmpleados e = new frmEmpleados();
+            e.OnNuevoEmpleado += e_OnNuevoEmpleado;
+            if (!edicion.Equals(GLOBALES.NUEVO))
+            {
+                fila = dgvEmpleados.CurrentCell.RowIndex;
+                e._idempleado = int.Parse(dgvEmpleados.Rows[fila].Cells[0].Value.ToString());
+            }
+            e._tipoOperacion = edicion;
+            e.Show();
+        }
+
+        void e_OnNuevoEmpleado(int edicion)
+        {
+            if (edicion == GLOBALES.NUEVO || edicion == GLOBALES.MODIFICAR)
+                ListaEmpleados();
+        }
+
+        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Seleccion(GLOBALES.CONSULTAR);
+        }
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+            Seleccion(GLOBALES.NUEVO);
+        }
+
+        private void toolConsultar_Click(object sender, EventArgs e)
+        {
+            Seleccion(GLOBALES.CONSULTAR);
+        }
+
+        private void toolEditar_Click(object sender, EventArgs e)
+        {
+            Seleccion(GLOBALES.MODIFICAR);
+        }
+
+        private void toolBaja_Click(object sender, EventArgs e)
+        {
+            int estatus = 0;
+            string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
+            int fila = dgvEmpleados.CurrentCell.RowIndex;
+            int idempleado = int.Parse(dgvEmpleados.Rows[fila].Cells[0].Value.ToString());
+
+            cnx = new MySqlConnection(cdn);
+            cmd = new MySqlCommand();
+            cmd.Connection = cnx;
+
+            Empleados.Core.EmpleadosHelper eh = new Empleados.Core.EmpleadosHelper();
+            eh.Command = cmd;
+
+            Empleados.Core.Empleados empleado = new Empleados.Core.Empleados();
+            empleado.idtrabajador = idempleado;
+
+            try
+            {
+                cnx.Open();
+                estatus = (int)eh.obtenerEstatus(empleado);
+                cnx.Close();
+                cnx.Dispose();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+            }
+
+            if (estatus.Equals(0))
+            {
+                DialogResult respuesta = MessageBox.Show("¿Quiere eliminar la trabajador?", "Confirmación", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes)
+                {
+                    eh = new Empleados.Core.EmpleadosHelper();
+                    eh.Command = cmd;
+                    try
+                    {
+                        cnx.Open();
+                        eh.bajaEmpleado(empleado);
+                        cnx.Close();
+                        cnx.Dispose();
+                        ListaEmpleados();
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("El empleado no puede ser eliminado. Ya tiene movimientos registrados.", "Confirmación");
+            }
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
+            txtBuscar.Font = new Font("Arial", 9);
+            txtBuscar.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtBuscar.Text) || string.IsNullOrWhiteSpace(txtBuscar.Text))
+                {
+                    var empleado = from em in lstEmpleados
+                             select new
+                             {
+                                 IdTrabajador = em.idtrabajador,
+                                 Nombre = em.nombrecompleto,
+                                 Ingreso = em.fechaingreso,
+                                 Antiguedad = em.antiguedad + " AÑOS",
+                                 SDI = em.sdi,
+                                 SD = em.sd,
+                                 Sueldo = em.sueldo
+                             };
+                    dgvEmpleados.DataSource = empleado.ToList();
+                }
+                else
+                {
+                    var busqueda = from b in lstEmpleados
+                                   where b.nombrecompleto.Contains(txtBuscar.Text.ToUpper())
+                                   select new
+                                   {
+                                       IdTrabajador = b.idtrabajador,
+                                       Nombre = b.nombrecompleto,
+                                       Ingreso = b.fechaingreso,
+                                       Antiguedad = b.antiguedad + " AÑOS",
+                                       SDI = b.sdi,
+                                       SD = b.sd,
+                                       Sueldo = b.sueldo
+                                   };
+                    dgvEmpleados.DataSource = busqueda.ToList();
+                }
+            }
+        }
+
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "Buscar empleado...";
+            txtBuscar.Font = new Font("Segoe UI", 9, FontStyle.Italic);
+            txtBuscar.ForeColor = System.Drawing.Color.Gray;
         }
     }
 }

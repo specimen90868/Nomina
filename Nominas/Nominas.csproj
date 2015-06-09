@@ -286,6 +286,10 @@
       <Project>{85e3a89d-2eb1-40b4-ba25-0e9600ec15a0}</Project>
       <Name>Autorizaciones.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Catalogos.Core\Catalogos.Core.csproj">
+      <Project>{82d361fb-9511-4e6a-a33b-11b1a65b4353}</Project>
+      <Name>Catalogos.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Clientes.Core\Clientes.Core.csproj">
       <Project>{05b3d13b-5118-469d-bcb7-61c4f6a0e949}</Project>
       <Name>Clientes.Core</Name>

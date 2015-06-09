@@ -89,3 +89,12 @@ C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Salar
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Usuarios.Core.pdb
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.exe
 C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmFactores.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaFactores.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaPeriodos.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaSalario.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmPeriodos.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmPuestos.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmSalario.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Catalogos.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Catalogos.Core.pdb

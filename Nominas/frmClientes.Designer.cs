@@ -315,6 +315,7 @@
             // 
             // txtPais
             // 
+            this.txtPais.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPais.Location = new System.Drawing.Point(145, 364);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(117, 20);

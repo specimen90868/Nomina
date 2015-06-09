@@ -45,6 +45,7 @@ namespace Nominas
             Clientes.Core.ClientesHelper ch = new Clientes.Core.ClientesHelper();
             ch.Command = cmd;
 
+            //DataTable dtClientes = new DataTable();
             List<Clientes.Core.Clientes> lstClientes = new List<Clientes.Core.Clientes>();
             Clientes.Core.Clientes cliente = new Clientes.Core.Clientes();
             cliente.plaza = GLOBALES.IDPLAZA;
@@ -53,6 +54,7 @@ namespace Nominas
             {
                 cnx.Open();
                 lstClientes = ch.obtenerClientes(cliente);
+                //dtClientes = ch.dtObtenerClientes(cliente);
                 cnx.Close();
                 cnx.Dispose();
             }
@@ -61,9 +63,9 @@ namespace Nominas
                 MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
             }
 
-            cmbCliente.DataSource = (from c in lstClientes select new { Id = c.idcliente, Nombre = c.nombre }).ToList();
-            cmbCliente.SelectedValue = "Id";
-            cmbCliente.SelectedText = "Nombre";
+            cmbCliente.DataSource = lstClientes.ToList();
+            cmbCliente.ValueMember = "idcliente";
+            cmbCliente.DisplayMember = "nombre";
 
             if (_tipoOperacion == GLOBALES.CONSULTAR || _tipoOperacion == GLOBALES.MODIFICAR)
             {
@@ -104,7 +106,11 @@ namespace Nominas
                 }
                 else
                     toolTitulo.Text = "Edición Periodo";
-            }   
+            }
+
+            cmbPago.SelectedIndex = 0;
+            cmbDiaInicio.SelectedIndex = 0;
+            cmbDiaTermino.SelectedIndex = 6;
         }
 
         private void toolGuardarCerrar_Click(object sender, EventArgs e)
@@ -188,6 +194,49 @@ namespace Nominas
                     if (OnNuevoPeriodo != null)
                         OnNuevoPeriodo(_tipoOperacion);
                     this.Dispose();
+                    break;
+            }
+        }
+
+        private void cmbPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPago.SelectedIndex.Equals(1))
+            {
+                cmbDiaInicio.Enabled = false;
+                txtDias.Text = "15";
+            }
+            else
+            {
+                cmbDiaInicio.Enabled = true;
+                txtDias.Text = "7";
+            }
+        }
+
+        private void cmbDiaInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int dia = cmbDiaInicio.SelectedIndex;
+            switch (dia)
+            {
+                case 0:
+                    cmbDiaTermino.SelectedIndex = 6;
+                    break;
+                case 1:
+                    cmbDiaTermino.SelectedIndex = 0;
+                    break;
+                case 2:
+                    cmbDiaTermino.SelectedIndex = 1;
+                    break;
+                case 3:
+                    cmbDiaTermino.SelectedIndex = 2;
+                    break;
+                case 4:
+                    cmbDiaTermino.SelectedIndex = 3;
+                    break;
+                case 5:
+                    cmbDiaTermino.SelectedIndex = 4;
+                    break;
+                case 6:
+                    cmbDiaTermino.SelectedIndex = 5;
                     break;
             }
         }

@@ -29,6 +29,16 @@ namespace Clientes.Core
             return lstClientes;
         }
 
+        public DataTable dtObtenerClientes(Clientes c)
+        {
+            DataTable dtClientes = new DataTable();
+            Command.CommandText = "select idcliente, nombre, rfc from clientes where estatus = 1 and plaza = @idplaza";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idplaza", c.plaza);
+            dtClientes = SelectData(Command);
+            return dtClientes;
+        }
+
         public List<Clientes> obtenerCliente(Clientes c)
         {
             DataTable dtClientes = new DataTable();

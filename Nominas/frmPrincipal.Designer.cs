@@ -87,7 +87,7 @@
             this.mnuConfiguracion});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(654, 24);
+            this.mnuPrincipal.Size = new System.Drawing.Size(795, 24);
             this.mnuPrincipal.TabIndex = 1;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
@@ -169,49 +169,49 @@
             // mnuEmpleados
             // 
             this.mnuEmpleados.Name = "mnuEmpleados";
-            this.mnuEmpleados.Size = new System.Drawing.Size(149, 22);
+            this.mnuEmpleados.Size = new System.Drawing.Size(152, 22);
             this.mnuEmpleados.Text = "Empleados";
             this.mnuEmpleados.Click += new System.EventHandler(this.mnuEmpleados_Click);
             // 
             // mnuFotografias
             // 
             this.mnuFotografias.Name = "mnuFotografias";
-            this.mnuFotografias.Size = new System.Drawing.Size(149, 22);
+            this.mnuFotografias.Size = new System.Drawing.Size(152, 22);
             this.mnuFotografias.Text = "Fotografias";
             // 
             // mnuExpedientes
             // 
             this.mnuExpedientes.Name = "mnuExpedientes";
-            this.mnuExpedientes.Size = new System.Drawing.Size(149, 22);
+            this.mnuExpedientes.Size = new System.Drawing.Size(152, 22);
             this.mnuExpedientes.Text = "Expedientes";
             // 
             // mnuBajas
             // 
             this.mnuBajas.Name = "mnuBajas";
-            this.mnuBajas.Size = new System.Drawing.Size(149, 22);
+            this.mnuBajas.Size = new System.Drawing.Size(152, 22);
             this.mnuBajas.Text = "Bajas";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuInfonavit
             // 
             this.mnuInfonavit.Name = "mnuInfonavit";
-            this.mnuInfonavit.Size = new System.Drawing.Size(149, 22);
+            this.mnuInfonavit.Size = new System.Drawing.Size(152, 22);
             this.mnuInfonavit.Text = "Infonavit";
             // 
             // mnuIncapacidades
             // 
             this.mnuIncapacidades.Name = "mnuIncapacidades";
-            this.mnuIncapacidades.Size = new System.Drawing.Size(149, 22);
+            this.mnuIncapacidades.Size = new System.Drawing.Size(152, 22);
             this.mnuIncapacidades.Text = "Incapacidades";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuMovimientos
             // 
@@ -220,7 +220,7 @@
             this.mnuModificacion,
             this.mnuBaja});
             this.mnuMovimientos.Name = "mnuMovimientos";
-            this.mnuMovimientos.Size = new System.Drawing.Size(149, 22);
+            this.mnuMovimientos.Size = new System.Drawing.Size(152, 22);
             this.mnuMovimientos.Text = "Movimientos";
             // 
             // mnuAlta
@@ -383,9 +383,9 @@
             // 
             this.stsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolEstatusPerfil});
-            this.stsPrincipal.Location = new System.Drawing.Point(0, 511);
+            this.stsPrincipal.Location = new System.Drawing.Point(0, 645);
             this.stsPrincipal.Name = "stsPrincipal";
-            this.stsPrincipal.Size = new System.Drawing.Size(654, 22);
+            this.stsPrincipal.Size = new System.Drawing.Size(795, 22);
             this.stsPrincipal.TabIndex = 3;
             this.stsPrincipal.Text = "statusStrip1";
             // 
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 533);
+            this.ClientSize = new System.Drawing.Size(795, 667);
             this.Controls.Add(this.stsPrincipal);
             this.Controls.Add(this.mnuPrincipal);
             this.IsMdiContainer = true;
