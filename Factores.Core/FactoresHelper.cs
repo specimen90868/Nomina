@@ -47,6 +47,15 @@ namespace Factores.Core
             return lstFactores;
         }
 
+        public object FactorDePago(Factores f)
+        {
+            Command.CommandText = "select max(valor) from factores where anio <= @anio order by anio desc";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("anio", f.anio);
+            object dato = Select(Command);
+            return dato;
+        }
+
         public int insertaFactor(Factores f)
         {
             Command.CommandText = "insert into factores (anio, valor) values (@anio, @valor)";

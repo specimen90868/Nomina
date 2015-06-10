@@ -88,6 +88,7 @@ namespace Nominas
         private void Seleccion(int edicion)
         {
             frmDepartamentos d = new frmDepartamentos();
+            d.MdiParent = this.MdiParent;
             d.OnNuevoDepto += d_OnNuevoDepto;
             int fila = 0;
             if (!edicion.Equals(GLOBALES.NUEVO))

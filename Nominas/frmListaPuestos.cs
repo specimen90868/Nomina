@@ -88,6 +88,7 @@ namespace Nominas
         private void Seleccion(int edicion)
         {
             frmPuestos p = new frmPuestos();
+            p.MdiParent = this.MdiParent;
             p.OnNuevoPuesto += p_OnNuevoPuesto;
             int fila = 0;
             if (!edicion.Equals(GLOBALES.NUEVO))

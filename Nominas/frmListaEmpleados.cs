@@ -103,6 +103,7 @@ namespace Nominas
         {
             int fila = 0;
             frmEmpleados e = new frmEmpleados();
+            e.MdiParent = this.MdiParent;
             e.OnNuevoEmpleado += e_OnNuevoEmpleado;
             if (!edicion.Equals(GLOBALES.NUEVO))
             {

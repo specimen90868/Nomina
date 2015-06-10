@@ -91,6 +91,7 @@ namespace Nominas
         private void Selecciona(int edicion)
         {
             frmClientes c = new frmClientes();
+            c.MdiParent = this.MdiParent;
             c.OnNuevoCliente += c_OnNuevoCliente;
             int fila = 0;
             if (!edicion.Equals(GLOBALES.NUEVO))

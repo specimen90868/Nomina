@@ -271,13 +271,6 @@ namespace Nominas
             lp.Show();
         }
 
-        private void mnuEmpleados_Click(object sender, EventArgs e)
-        {
-            frmListaEmpleados le = new frmListaEmpleados();
-            le.MdiParent = this;
-            le.Show();
-        }
-
         private void mnuClientes_Click(object sender, EventArgs e)
         {
             frmListaClientes c = new frmListaClientes();
@@ -318,6 +311,20 @@ namespace Nominas
             frmListaSalario ls = new frmListaSalario();
             ls.MdiParent = this;
             ls.Show();
+        }
+
+        private void mnuEmpleadoNomina_Click(object sender, EventArgs e)
+        {
+            frmListaEmpleados le = new frmListaEmpleados();
+            le.MdiParent = this;
+            le.Show();
+        }
+
+        private void mnuModificarCliente_Click(object sender, EventArgs e)
+        {
+            frmModificaClienteEmpleado mce = new frmModificaClienteEmpleado();
+            mce.MdiParent = this;
+            mce.Show();
         }
     }
 }

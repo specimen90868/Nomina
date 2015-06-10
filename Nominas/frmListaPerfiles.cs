@@ -137,9 +137,13 @@ namespace Nominas
         {
             int fila = dgvPerfiles.CurrentCell.RowIndex;
             frmPerfiles p = new frmPerfiles();
+            p.MdiParent = this.MdiParent;
             p.OnNuevoPerfil += p_OnNuevoPerfil;
+            if (!edicion.Equals(GLOBALES.NUEVO))
+            {
+                p._idperfil = int.Parse(dgvPerfiles.Rows[fila].Cells[0].Value.ToString());
+            }
             p._tipoOperacion = edicion;
-            p._idperfil = int.Parse(dgvPerfiles.Rows[fila].Cells[0].Value.ToString());
             p.Show();
         }
 

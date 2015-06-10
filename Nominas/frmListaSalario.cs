@@ -82,6 +82,7 @@ namespace Nominas
         private void Seleccion(int edicion)
         {
             frmSalario s = new frmSalario();
+            s.MdiParent = this.MdiParent;
             s.OnNuevoSalario += s_OnNuevoSalario;
             int fila = 0;
             if (!edicion.Equals(GLOBALES.NUEVO))

@@ -136,6 +136,7 @@ namespace Nominas
         {
             int fila = 0;
             frmPlazas p = new frmPlazas();
+            p.MdiParent = this.MdiParent;
             if (!edicion.Equals(GLOBALES.NUEVO))
             { 
                 fila = dgvPlazas.CurrentCell.RowIndex;

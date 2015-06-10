@@ -35,8 +35,9 @@ namespace Periodos.Core
         {
             DataTable dtPeriodos = new DataTable();
             List<Periodos> lstPeriodos = new List<Periodos>();
-            Command.CommandText = "select idperiodo,idcliente,pago,dias,inicio,termino from periodos";
+            Command.CommandText = "select idperiodo, idcliente, pago, dias, inicio, termino from periodos where idperiodo = @idperiodo";
             Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idperiodo", p.idperiodo);
             dtPeriodos = SelectData(Command);
             for (int i = 0; i < dtPeriodos.Rows.Count; i++)
             {
@@ -50,6 +51,15 @@ namespace Periodos.Core
                 lstPeriodos.Add(periodo);
             }
             return lstPeriodos;
+        }
+
+        public object DiasDePago(Periodos p)
+        {
+            Command.CommandText = "select dias from periodos where idperiodo = @idperiodo";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idperiodo", p.idperiodo);
+            object dato = Select(Command);
+            return dato;
         }
 
         public List<Periodos> obtenerPeriodoCliente(Periodos p)

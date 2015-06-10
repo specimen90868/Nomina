@@ -159,34 +159,6 @@ namespace Nominas
             }
         }
 
-        #region FUNCION LIMPIAR TEXTBOX E INHABILITAR CONTROLES
-        private void limpiar(Control control, Type tipo)
-        {
-            var controls = control.Controls.Cast<Control>();
-            foreach (Control c in controls.Where(c => c.GetType() == tipo))
-            {
-                (c as TextBox).Clear();
-            }
-            txtCP.Clear();  
-            txtRegistroPatronal.Clear();
-            chkEsSindicato.Checked = false;
-        }
-
-        private void inhabilitar(Control control, Type tipo)
-        {
-            var controls = control.Controls.Cast<Control>();
-            foreach (Control c in controls.Where(c => c.GetType() == tipo))
-            {
-                (c as TextBox).Enabled = false;
-            }
-            chkEsSindicato.Enabled = false;
-            txtRegistroPatronal.Enabled = false;
-            toolGuardarCerrar.Enabled = false;
-            toolGuardarNuevo.Enabled = false;
-            txtCP.Enabled = false;
-        }
-        #endregion
-
         private void txtRfc_Leave(object sender, EventArgs e)
         {
             string lsPatron = @"^[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9][A-Z,0-9][0-9A]$";

@@ -35,7 +35,13 @@
     <StartupObject>Nominas.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConvierteRomanosaLetras">
+      <HintPath>..\..\..\..\..\Downloads\LibRFC\LibRFC\ConvierteRomanosaLetras.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="RFC">
+      <HintPath>..\..\..\..\..\Downloads\LibRFC\LibRFC\RFC.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -49,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscar.Designer.cs">
+      <DependentUpon>frmBuscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,18 @@
     <Compile Include="frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificaClienteEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificaClienteEmpleado.Designer.cs">
+      <DependentUpon>frmModificaClienteEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificaSueldoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificaSueldoEmpleado.Designer.cs">
+      <DependentUpon>frmModificaSueldoEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPerfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +214,9 @@
     <Compile Include="GlobalVar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBuscar.resx">
+      <DependentUpon>frmBuscar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +264,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificaClienteEmpleado.resx">
+      <DependentUpon>frmModificaClienteEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificaSueldoEmpleado.resx">
+      <DependentUpon>frmModificaSueldoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPerfiles.resx">
       <DependentUpon>frmPerfiles.cs</DependentUpon>

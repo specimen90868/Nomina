@@ -35,7 +35,7 @@
             this.toolGuardarCerrar = new System.Windows.Forms.ToolStripButton();
             this.toolGuardarNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolCerrar = new System.Windows.Forms.ToolStripButton();
-            this.Label30 = new System.Windows.Forms.Label();
+            this.lblSalario = new System.Windows.Forms.Label();
             this.Label16 = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.txtNSS = new System.Windows.Forms.MaskedTextBox();
@@ -48,18 +48,18 @@
             this.Label27 = new System.Windows.Forms.Label();
             this.Label26 = new System.Windows.Forms.Label();
             this.cmbTipoSalario = new System.Windows.Forms.ComboBox();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.txtSueldoPeriodo = new System.Windows.Forms.TextBox();
-            this.Label9 = new System.Windows.Forms.Label();
+            this.lblTipoSalario = new System.Windows.Forms.Label();
+            this.txtSueldo = new System.Windows.Forms.TextBox();
+            this.lblSueldo = new System.Windows.Forms.Label();
             this.txtSD = new System.Windows.Forms.TextBox();
-            this.Label8 = new System.Windows.Forms.Label();
+            this.lblSD = new System.Windows.Forms.Label();
             this.txtSDI = new System.Windows.Forms.TextBox();
-            this.Label10 = new System.Windows.Forms.Label();
+            this.lblSDI = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.Label11 = new System.Windows.Forms.Label();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
-            this.Label32 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
+            this.lblPeriodo = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
             this.txtApMaterno = new System.Windows.Forms.TextBox();
             this.txtApPaterno = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -67,9 +67,12 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRFC = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.txtDigito = new System.Windows.Forms.MaskedTextBox();
             this.toolAcciones.SuspendLayout();
             this.toolEmpleado.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +115,7 @@
             this.toolGuardarCerrar.Size = new System.Drawing.Size(113, 22);
             this.toolGuardarCerrar.Text = "Guardar y Cerrar";
             this.toolGuardarCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolGuardarCerrar.Click += new System.EventHandler(this.toolGuardarCerrar_Click);
             // 
             // toolGuardarNuevo
             // 
@@ -120,6 +124,7 @@
             this.toolGuardarNuevo.Name = "toolGuardarNuevo";
             this.toolGuardarNuevo.Size = new System.Drawing.Size(116, 22);
             this.toolGuardarNuevo.Text = "Guardar y Nuevo";
+            this.toolGuardarNuevo.Click += new System.EventHandler(this.toolGuardarNuevo_Click);
             // 
             // toolCerrar
             // 
@@ -128,17 +133,18 @@
             this.toolCerrar.Name = "toolCerrar";
             this.toolCerrar.Size = new System.Drawing.Size(59, 22);
             this.toolCerrar.Text = "Cerrar";
+            this.toolCerrar.Click += new System.EventHandler(this.toolCerrar_Click);
             // 
-            // Label30
+            // lblSalario
             // 
-            this.Label30.AutoSize = true;
-            this.Label30.BackColor = System.Drawing.Color.White;
-            this.Label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.Label30.Location = new System.Drawing.Point(14, 303);
-            this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(61, 18);
-            this.Label30.TabIndex = 209;
-            this.Label30.Text = "Salario";
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.BackColor = System.Drawing.Color.White;
+            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblSalario.Location = new System.Drawing.Point(14, 341);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(61, 18);
+            this.lblSalario.TabIndex = 209;
+            this.lblSalario.Text = "Salario";
             // 
             // Label16
             // 
@@ -153,33 +159,34 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(285, 357);
+            this.btnCalcular.Location = new System.Drawing.Point(285, 395);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(63, 20);
-            this.btnCalcular.TabIndex = 15;
+            this.btnCalcular.TabIndex = 16;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // txtNSS
             // 
             this.txtNSS.Location = new System.Drawing.Point(392, 220);
-            this.txtNSS.Mask = "AAAAAAAAAAA";
+            this.txtNSS.Mask = "9999999999";
             this.txtNSS.Name = "txtNSS";
             this.txtNSS.Size = new System.Drawing.Size(151, 20);
-            this.txtNSS.TabIndex = 11;
+            this.txtNSS.TabIndex = 12;
             // 
             // cmbSua
             // 
             this.cmbSua.FormattingEnabled = true;
-            this.cmbSua.Location = new System.Drawing.Point(127, 244);
+            this.cmbSua.Location = new System.Drawing.Point(127, 270);
             this.cmbSua.Name = "cmbSua";
             this.cmbSua.Size = new System.Drawing.Size(152, 21);
-            this.cmbSua.TabIndex = 6;
+            this.cmbSua.TabIndex = 7;
             // 
             // Label15
             // 
             this.Label15.AutoSize = true;
-            this.Label15.Location = new System.Drawing.Point(65, 252);
+            this.Label15.Location = new System.Drawing.Point(65, 275);
             this.Label15.Name = "Label15";
             this.Label15.Size = new System.Drawing.Size(56, 13);
             this.Label15.TabIndex = 201;
@@ -188,15 +195,15 @@
             // cmbLocalForaneo
             // 
             this.cmbLocalForaneo.FormattingEnabled = true;
-            this.cmbLocalForaneo.Location = new System.Drawing.Point(127, 217);
+            this.cmbLocalForaneo.Location = new System.Drawing.Point(127, 243);
             this.cmbLocalForaneo.Name = "cmbLocalForaneo";
             this.cmbLocalForaneo.Size = new System.Drawing.Size(152, 21);
-            this.cmbLocalForaneo.TabIndex = 5;
+            this.cmbLocalForaneo.TabIndex = 6;
             // 
             // Label45
             // 
             this.Label45.AutoSize = true;
-            this.Label45.Location = new System.Drawing.Point(34, 220);
+            this.Label45.Location = new System.Drawing.Point(34, 246);
             this.Label45.Name = "Label45";
             this.Label45.Size = new System.Drawing.Size(87, 13);
             this.Label45.TabIndex = 199;
@@ -208,8 +215,8 @@
             this.cmbCliente.Location = new System.Drawing.Point(392, 113);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(271, 21);
-            this.cmbCliente.TabIndex = 7;
-            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
+            this.cmbCliente.TabIndex = 8;
+            this.cmbCliente.SelectionChangeCommitted += new System.EventHandler(this.cmbCliente_SelectionChangeCommitted);
             // 
             // txtCURP
             // 
@@ -217,7 +224,7 @@
             this.txtCURP.Location = new System.Drawing.Point(392, 194);
             this.txtCURP.Name = "txtCURP";
             this.txtCURP.Size = new System.Drawing.Size(151, 20);
-            this.txtCURP.TabIndex = 10;
+            this.txtCURP.TabIndex = 11;
             // 
             // Label27
             // 
@@ -239,87 +246,89 @@
             // 
             // cmbTipoSalario
             // 
+            this.cmbTipoSalario.Enabled = false;
             this.cmbTipoSalario.FormattingEnabled = true;
-            this.cmbTipoSalario.Location = new System.Drawing.Point(127, 330);
+            this.cmbTipoSalario.Location = new System.Drawing.Point(127, 368);
             this.cmbTipoSalario.Name = "cmbTipoSalario";
             this.cmbTipoSalario.Size = new System.Drawing.Size(152, 21);
-            this.cmbTipoSalario.TabIndex = 13;
+            this.cmbTipoSalario.TabIndex = 14;
             // 
-            // Label12
+            // lblTipoSalario
             // 
-            this.Label12.AutoSize = true;
-            this.Label12.Location = new System.Drawing.Point(42, 333);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(79, 13);
-            this.Label12.TabIndex = 193;
-            this.Label12.Text = "Tipo de salario:";
+            this.lblTipoSalario.AutoSize = true;
+            this.lblTipoSalario.Location = new System.Drawing.Point(42, 371);
+            this.lblTipoSalario.Name = "lblTipoSalario";
+            this.lblTipoSalario.Size = new System.Drawing.Size(79, 13);
+            this.lblTipoSalario.TabIndex = 193;
+            this.lblTipoSalario.Text = "Tipo de salario:";
             // 
-            // txtSueldoPeriodo
+            // txtSueldo
             // 
-            this.txtSueldoPeriodo.Location = new System.Drawing.Point(127, 357);
-            this.txtSueldoPeriodo.Name = "txtSueldoPeriodo";
-            this.txtSueldoPeriodo.Size = new System.Drawing.Size(152, 20);
-            this.txtSueldoPeriodo.TabIndex = 14;
-            this.txtSueldoPeriodo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSueldo.Enabled = false;
+            this.txtSueldo.Location = new System.Drawing.Point(127, 395);
+            this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.Size = new System.Drawing.Size(152, 20);
+            this.txtSueldo.TabIndex = 15;
+            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // Label9
+            // lblSueldo
             // 
-            this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(23, 360);
-            this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(98, 13);
-            this.Label9.TabIndex = 192;
-            this.Label9.Text = "Sueldo del periodo:";
+            this.lblSueldo.AutoSize = true;
+            this.lblSueldo.Location = new System.Drawing.Point(23, 398);
+            this.lblSueldo.Name = "lblSueldo";
+            this.lblSueldo.Size = new System.Drawing.Size(98, 13);
+            this.lblSueldo.TabIndex = 192;
+            this.lblSueldo.Text = "Sueldo del periodo:";
             // 
             // txtSD
             // 
-            this.txtSD.Location = new System.Drawing.Point(127, 383);
+            this.txtSD.Location = new System.Drawing.Point(127, 421);
             this.txtSD.Name = "txtSD";
             this.txtSD.ReadOnly = true;
             this.txtSD.Size = new System.Drawing.Size(152, 20);
-            this.txtSD.TabIndex = 16;
+            this.txtSD.TabIndex = 17;
             this.txtSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // Label8
+            // lblSD
             // 
-            this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(51, 386);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(70, 13);
-            this.Label8.TabIndex = 190;
-            this.Label8.Text = "Salario diario:";
+            this.lblSD.AutoSize = true;
+            this.lblSD.Location = new System.Drawing.Point(51, 424);
+            this.lblSD.Name = "lblSD";
+            this.lblSD.Size = new System.Drawing.Size(70, 13);
+            this.lblSD.TabIndex = 190;
+            this.lblSD.Text = "Salario diario:";
             // 
             // txtSDI
             // 
-            this.txtSDI.Location = new System.Drawing.Point(127, 409);
+            this.txtSDI.Location = new System.Drawing.Point(127, 447);
             this.txtSDI.Name = "txtSDI";
             this.txtSDI.ReadOnly = true;
             this.txtSDI.Size = new System.Drawing.Size(152, 20);
-            this.txtSDI.TabIndex = 17;
+            this.txtSDI.TabIndex = 18;
             this.txtSDI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // Label10
+            // lblSDI
             // 
-            this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(4, 412);
-            this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(117, 13);
-            this.Label10.TabIndex = 187;
-            this.Label10.Text = "Salario diario integrado:";
+            this.lblSDI.AutoSize = true;
+            this.lblSDI.Location = new System.Drawing.Point(4, 450);
+            this.lblSDI.Name = "lblSDI";
+            this.lblSDI.Size = new System.Drawing.Size(117, 13);
+            this.lblSDI.TabIndex = 187;
+            this.lblSDI.Text = "Salario diario integrado:";
             // 
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(127, 191);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(127, 217);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpFechaIngreso.Size = new System.Drawing.Size(152, 20);
-            this.dtpFechaIngreso.TabIndex = 4;
+            this.dtpFechaIngreso.TabIndex = 5;
             // 
             // Label11
             // 
             this.Label11.AutoSize = true;
-            this.Label11.Location = new System.Drawing.Point(29, 194);
+            this.Label11.Location = new System.Drawing.Point(29, 220);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(92, 13);
             this.Label11.TabIndex = 184;
@@ -331,25 +340,26 @@
             this.cmbPeriodo.Location = new System.Drawing.Point(392, 139);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(151, 21);
-            this.cmbPeriodo.TabIndex = 8;
+            this.cmbPeriodo.TabIndex = 9;
+            this.cmbPeriodo.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodo_SelectedIndexChanged);
             // 
-            // Label32
+            // lblPeriodo
             // 
-            this.Label32.AutoSize = true;
-            this.Label32.Location = new System.Drawing.Point(340, 142);
-            this.Label32.Name = "Label32";
-            this.Label32.Size = new System.Drawing.Size(46, 13);
-            this.Label32.TabIndex = 183;
-            this.Label32.Text = "Periodo:";
+            this.lblPeriodo.AutoSize = true;
+            this.lblPeriodo.Location = new System.Drawing.Point(340, 142);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(46, 13);
+            this.lblPeriodo.TabIndex = 183;
+            this.lblPeriodo.Text = "Periodo:";
             // 
-            // Label6
+            // lblCliente
             // 
-            this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(344, 116);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(42, 13);
-            this.Label6.TabIndex = 182;
-            this.Label6.Text = "Cliente:";
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(344, 116);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(42, 13);
+            this.lblCliente.TabIndex = 182;
+            this.lblCliente.Text = "Cliente:";
             // 
             // txtApMaterno
             // 
@@ -411,19 +421,12 @@
             this.label1.TabIndex = 210;
             this.label1.Text = "R.F.C.:";
             // 
-            // textBox1
+            // txtRFC
             // 
-            this.textBox1.Location = new System.Drawing.Point(392, 165);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(392, 246);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(26, 20);
-            this.textBox2.TabIndex = 12;
+            this.txtRFC.Location = new System.Drawing.Point(392, 165);
+            this.txtRFC.Name = "txtRFC";
+            this.txtRFC.Size = new System.Drawing.Size(151, 20);
+            this.txtRFC.TabIndex = 10;
             // 
             // label4
             // 
@@ -434,16 +437,53 @@
             this.label4.TabIndex = 213;
             this.label4.Text = "Digito verificador:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.TabIndex = 214;
+            this.label5.Text = "Fecha de nacimiento:";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(127, 191);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(152, 20);
+            this.dtpFechaNacimiento.TabIndex = 4;
+            this.dtpFechaNacimiento.Leave += new System.EventHandler(this.dtpFechaNacimiento_Leave);
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Enabled = false;
+            this.txtEdad.Location = new System.Drawing.Point(285, 191);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(30, 20);
+            this.txtEdad.TabIndex = 19;
+            // 
+            // txtDigito
+            // 
+            this.txtDigito.Location = new System.Drawing.Point(392, 246);
+            this.txtDigito.Mask = "9";
+            this.txtDigito.Name = "txtDigito";
+            this.txtDigito.Size = new System.Drawing.Size(23, 20);
+            this.txtDigito.TabIndex = 215;
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 609);
+            this.Controls.Add(this.txtDigito);
+            this.Controls.Add(this.txtEdad);
+            this.Controls.Add(this.dtpFechaNacimiento);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRFC);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Label30);
+            this.Controls.Add(this.lblSalario);
             this.Controls.Add(this.Label16);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.txtNSS);
@@ -456,18 +496,18 @@
             this.Controls.Add(this.Label27);
             this.Controls.Add(this.Label26);
             this.Controls.Add(this.cmbTipoSalario);
-            this.Controls.Add(this.Label12);
-            this.Controls.Add(this.txtSueldoPeriodo);
-            this.Controls.Add(this.Label9);
+            this.Controls.Add(this.lblTipoSalario);
+            this.Controls.Add(this.txtSueldo);
+            this.Controls.Add(this.lblSueldo);
             this.Controls.Add(this.txtSD);
-            this.Controls.Add(this.Label8);
+            this.Controls.Add(this.lblSD);
             this.Controls.Add(this.txtSDI);
-            this.Controls.Add(this.Label10);
+            this.Controls.Add(this.lblSDI);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.Label11);
             this.Controls.Add(this.cmbPeriodo);
-            this.Controls.Add(this.Label32);
-            this.Controls.Add(this.Label6);
+            this.Controls.Add(this.lblPeriodo);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.txtApMaterno);
             this.Controls.Add(this.txtApPaterno);
             this.Controls.Add(this.txtNombre);
@@ -496,7 +536,7 @@
         internal System.Windows.Forms.ToolStripButton toolGuardarCerrar;
         internal System.Windows.Forms.ToolStripButton toolGuardarNuevo;
         private System.Windows.Forms.ToolStripButton toolCerrar;
-        internal System.Windows.Forms.Label Label30;
+        internal System.Windows.Forms.Label lblSalario;
         internal System.Windows.Forms.Label Label16;
         internal System.Windows.Forms.Button btnCalcular;
         internal System.Windows.Forms.MaskedTextBox txtNSS;
@@ -509,18 +549,18 @@
         internal System.Windows.Forms.Label Label27;
         internal System.Windows.Forms.Label Label26;
         internal System.Windows.Forms.ComboBox cmbTipoSalario;
-        internal System.Windows.Forms.Label Label12;
-        internal System.Windows.Forms.TextBox txtSueldoPeriodo;
-        internal System.Windows.Forms.Label Label9;
+        internal System.Windows.Forms.Label lblTipoSalario;
+        internal System.Windows.Forms.TextBox txtSueldo;
+        internal System.Windows.Forms.Label lblSueldo;
         internal System.Windows.Forms.TextBox txtSD;
-        internal System.Windows.Forms.Label Label8;
+        internal System.Windows.Forms.Label lblSD;
         internal System.Windows.Forms.TextBox txtSDI;
-        internal System.Windows.Forms.Label Label10;
+        internal System.Windows.Forms.Label lblSDI;
         internal System.Windows.Forms.DateTimePicker dtpFechaIngreso;
         internal System.Windows.Forms.Label Label11;
         internal System.Windows.Forms.ComboBox cmbPeriodo;
-        internal System.Windows.Forms.Label Label32;
-        internal System.Windows.Forms.Label Label6;
+        internal System.Windows.Forms.Label lblPeriodo;
+        internal System.Windows.Forms.Label lblCliente;
         internal System.Windows.Forms.TextBox txtApMaterno;
         internal System.Windows.Forms.TextBox txtApPaterno;
         internal System.Windows.Forms.TextBox txtNombre;
@@ -528,8 +568,11 @@
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label Label7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRFC;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.TextBox txtEdad;
+        private System.Windows.Forms.MaskedTextBox txtDigito;
     }
 }
