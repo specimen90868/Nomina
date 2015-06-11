@@ -33,13 +33,15 @@
             this.toolNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolConsultar = new System.Windows.Forms.ToolStripButton();
             this.toolEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolBaja = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblBuscar = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolTitulo = new System.Windows.Forms.ToolStrip();
             this.toolEmpleados = new System.Windows.Forms.ToolStripLabel();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.toolBaja = new System.Windows.Forms.ToolStripButton();
+            this.toolModificarSalario = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolBusqueda.SuspendLayout();
             this.toolTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
@@ -53,6 +55,8 @@
             this.toolEditar,
             this.toolBaja,
             this.toolStripSeparator1,
+            this.toolModificarSalario,
+            this.toolStripSeparator2,
             this.lblBuscar,
             this.txtBuscar});
             this.toolBusqueda.Location = new System.Drawing.Point(0, 27);
@@ -87,6 +91,15 @@
             this.toolEditar.Size = new System.Drawing.Size(57, 22);
             this.toolEditar.Text = "Editar";
             this.toolEditar.Click += new System.EventHandler(this.toolEditar_Click);
+            // 
+            // toolBaja
+            // 
+            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
+            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBaja.Name = "toolBaja";
+            this.toolBaja.Size = new System.Drawing.Size(70, 22);
+            this.toolBaja.Text = "Eliminar";
+            this.toolBaja.Click += new System.EventHandler(this.toolBaja_Click);
             // 
             // toolStripSeparator1
             // 
@@ -142,14 +155,19 @@
             this.dgvEmpleados.TabIndex = 5;
             this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
             // 
-            // toolBaja
+            // toolModificarSalario
             // 
-            this.toolBaja.Image = ((System.Drawing.Image)(resources.GetObject("toolBaja.Image")));
-            this.toolBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolBaja.Name = "toolBaja";
-            this.toolBaja.Size = new System.Drawing.Size(70, 22);
-            this.toolBaja.Text = "Eliminar";
-            this.toolBaja.Click += new System.EventHandler(this.toolBaja_Click);
+            this.toolModificarSalario.Image = ((System.Drawing.Image)(resources.GetObject("toolModificarSalario.Image")));
+            this.toolModificarSalario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolModificarSalario.Name = "toolModificarSalario";
+            this.toolModificarSalario.Size = new System.Drawing.Size(116, 22);
+            this.toolModificarSalario.Text = "Modificar Salario";
+            this.toolModificarSalario.Click += new System.EventHandler(this.toolModificarSalario_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // frmListaEmpleados
             // 
@@ -185,5 +203,7 @@
         internal System.Windows.Forms.ToolStripLabel toolEmpleados;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.ToolStripButton toolBaja;
+        private System.Windows.Forms.ToolStripButton toolModificarSalario;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

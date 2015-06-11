@@ -202,6 +202,7 @@
             this.mnuModificarSueldo.Name = "mnuModificarSueldo";
             this.mnuModificarSueldo.Size = new System.Drawing.Size(218, 22);
             this.mnuModificarSueldo.Text = "Modificar Sueldo";
+            this.mnuModificarSueldo.Click += new System.EventHandler(this.mnuModificarSueldo_Click);
             // 
             // toolStripSeparator6
             // 

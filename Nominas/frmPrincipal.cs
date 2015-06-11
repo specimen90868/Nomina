@@ -326,6 +326,13 @@ namespace Nominas
             mce.MdiParent = this;
             mce.Show();
         }
+
+        private void mnuModificarSueldo_Click(object sender, EventArgs e)
+        {
+            frmModificaSueldoEmpleado mse = new frmModificaSueldoEmpleado();
+            mse.MdiParent = this;
+            mse.Show();
+        }
     }
 }
 

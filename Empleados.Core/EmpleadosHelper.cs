@@ -14,20 +14,11 @@ namespace Empleados.Core
         {
             DataTable dtEmpleados = new DataTable();
             List<Empleados> lstEmpleados = new List<Empleados>();
-            string plazas = "(select id from plazas)";
-            if (e.idplaza.Equals(0))
-            {
-                Command.CommandText = "select idtrabajador, nombrecompleto, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza in " + plazas;
-                Command.Parameters.Clear();
-                Command.Parameters.AddWithValue("idempresa", e.idempresa);
-            }
-            else
-            {
-                Command.CommandText = "select idtrabajador, nombrecompleto, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza = @idplaza";
-                Command.Parameters.Clear();
-                Command.Parameters.AddWithValue("idempresa", e.idempresa);
-                Command.Parameters.AddWithValue("idplaza", e.idplaza);
-            }
+            Command.CommandText = "select idtrabajador, nombrecompleto, fechaingreso, antiguedad, sdi, sd, sueldo from trabajadores where idempresa = @idempresa and idplaza = @idplaza";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("idempresa", e.idempresa);
+            Command.Parameters.AddWithValue("idplaza", e.idplaza);
+            
             dtEmpleados = SelectData(Command);
 
             for (int i = 0; i < dtEmpleados.Rows.Count; i++)
@@ -181,7 +172,7 @@ namespace Empleados.Core
 
         public int actualizaSueldo(Empleados e)
         {
-            Command.CommandText = "update trabajador set sueldo = @sueldo, sd = @sd, sdi = @sdi where idtrabajador = @idtrabajador";
+            Command.CommandText = "update trabajadores set sueldo = @sueldo, sd = @sd, sdi = @sdi where idtrabajador = @idtrabajador";
             Command.Parameters.Clear();
             Command.Parameters.AddWithValue("sueldo", e.sueldo);
             Command.Parameters.AddWithValue("sd", e.sd);

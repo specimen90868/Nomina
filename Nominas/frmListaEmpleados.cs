@@ -247,5 +247,12 @@ namespace Nominas
             txtBuscar.Font = new Font("Segoe UI", 9, FontStyle.Italic);
             txtBuscar.ForeColor = System.Drawing.Color.Gray;
         }
+
+        private void toolModificarSalario_Click(object sender, EventArgs e)
+        {
+            frmModificaSalarioImss msi = new frmModificaSalarioImss();
+            msi.MdiParent = this.MdiParent;
+            msi.Show();
+        }
     }
 }

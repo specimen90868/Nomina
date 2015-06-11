@@ -163,6 +163,12 @@
     <Compile Include="frmModificaClienteEmpleado.Designer.cs">
       <DependentUpon>frmModificaClienteEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificaSalarioImss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificaSalarioImss.Designer.cs">
+      <DependentUpon>frmModificaSalarioImss.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificaSueldoEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaClienteEmpleado.resx">
       <DependentUpon>frmModificaClienteEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificaSalarioImss.resx">
+      <DependentUpon>frmModificaSalarioImss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaSueldoEmpleado.resx">
       <DependentUpon>frmModificaSueldoEmpleado.cs</DependentUpon>
