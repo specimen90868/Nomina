@@ -325,7 +325,6 @@ namespace Nominas
             em.curp = txtCURP.Text;
             em.nss = txtNSS.Text;
             em.digitoverificador = int.Parse(txtDigito.Text);
-            
 
             switch (_tipoOperacion)
             {
@@ -349,6 +348,48 @@ namespace Nominas
                         eh.insertaEmpleado(em);
                         cnx.Close();
                         cnx.Dispose();
+
+                        int idtrabajador = (int)eh.obtenerIdTrabajador(em);
+
+                        LayoutMovimientos.Core.LayoutHelper lh = new LayoutMovimientos.Core.LayoutHelper();
+                        lh.Command = cmd;
+                        LayoutMovimientos.Core.LayoutMovimientos layout = new LayoutMovimientos.Core.LayoutMovimientos();
+                        layout.idtrabajador = idtrabajador;
+                        layout.idempresa = GLOBALES.IDEMPRESA;
+                        layout.idcliente = em.idcliente;
+                        layout.movimiento = 0;
+                        layout.nombres = em.nombres;
+                        layout.paterno = em.paterno;
+                        layout.materno = em.materno;
+                        layout.sdi = em.sdi;
+                        layout.sdinuevo = 0;
+                        layout.nss = em.nss;
+                        layout.digitonss = em.digitoverificador;
+                        layout.fecha_ingreso = em.fechaingreso;
+                        layout.fecha_sistema = DateTime.Now;
+                        layout.curp = em.curp;
+                        layout.generado = 0;
+
+                        Empresas.Core.EmpresasHelper empresah = new Empresas.Core.EmpresasHelper();
+                        empresah.Command = cmd;
+                        List<Empresas.Core.Empresas> lstEmpresa = new List<Empresas.Core.Empresas>();
+
+                        cnx.Open();
+                        lstEmpresa = empresah.obtenerEmpresa(GLOBALES.IDEMPRESA);
+                        cnx.Close();
+                        cnx.Dispose();
+
+                        for (int i = 0; i < lstEmpresa.Count; i++)
+                        {
+                            layout.registro = lstEmpresa[i].registro;
+                            layout.digitoregistro = lstEmpresa[i].digitoverificador;
+                        }
+
+                        cnx.Open();
+                        lh.insertaLayoutMovimiento(layout);
+                        cnx.Close();
+                        cnx.Dispose();
+
                     }
                     catch (Exception error)
                     {

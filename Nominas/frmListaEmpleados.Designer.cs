@@ -35,13 +35,13 @@
             this.toolEditar = new System.Windows.Forms.ToolStripButton();
             this.toolBaja = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolModificarSalario = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lblBuscar = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolTitulo = new System.Windows.Forms.ToolStrip();
             this.toolEmpleados = new System.Windows.Forms.ToolStripLabel();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.toolModificarSalario = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolBusqueda.SuspendLayout();
             this.toolTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
@@ -106,6 +106,20 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolModificarSalario
+            // 
+            this.toolModificarSalario.Image = ((System.Drawing.Image)(resources.GetObject("toolModificarSalario.Image")));
+            this.toolModificarSalario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolModificarSalario.Name = "toolModificarSalario";
+            this.toolModificarSalario.Size = new System.Drawing.Size(116, 22);
+            this.toolModificarSalario.Text = "Modificar Salario";
+            this.toolModificarSalario.Click += new System.EventHandler(this.toolModificarSalario_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // lblBuscar
             // 
             this.lblBuscar.Name = "lblBuscar";
@@ -155,20 +169,6 @@
             this.dgvEmpleados.TabIndex = 5;
             this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
             // 
-            // toolModificarSalario
-            // 
-            this.toolModificarSalario.Image = ((System.Drawing.Image)(resources.GetObject("toolModificarSalario.Image")));
-            this.toolModificarSalario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolModificarSalario.Name = "toolModificarSalario";
-            this.toolModificarSalario.Size = new System.Drawing.Size(116, 22);
-            this.toolModificarSalario.Text = "Modificar Salario";
-            this.toolModificarSalario.Click += new System.EventHandler(this.toolModificarSalario_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // frmListaEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +179,7 @@
             this.Controls.Add(this.toolTitulo);
             this.Name = "frmListaEmpleados";
             this.Text = "Empleados";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmListaEmpleados_FormClosed);
             this.Load += new System.EventHandler(this.frmListaEmpleados_Load);
             this.toolBusqueda.ResumeLayout(false);
             this.toolBusqueda.PerformLayout();

@@ -92,7 +92,7 @@ namespace Nominas
                         mnuBajas.Enabled = Convert.ToBoolean(lstMenu[i].ver);
                         break;
                     case "Empresas":
-                        mnuEmpresas.Enabled = Convert.ToBoolean(lstMenu[i].ver);
+                        mnuEmpresa.Enabled = Convert.ToBoolean(lstMenu[i].ver);
                         break;
                     case "Clientes":
                         mnuClientes.Enabled = Convert.ToBoolean(lstMenu[i].ver);
@@ -157,14 +157,6 @@ namespace Nominas
             this.Text = "Sistema de Nomina - [" + GLOBALES.NOMBREEMPRESA + "]";
             workPerfil.RunWorkerAsync();
             MenuPerfil();
-        }
-
-        private void mnuEmpresas_Click(object sender, EventArgs e)
-        {
-            frmListaEmpresas le = new frmListaEmpresas();
-            le.MdiParent = this;
-            le.WindowState = FormWindowState.Maximized;
-            le.Show();
         }
 
         private void MenuInicial(int sesion)
@@ -332,6 +324,21 @@ namespace Nominas
             frmModificaSueldoEmpleado mse = new frmModificaSueldoEmpleado();
             mse.MdiParent = this;
             mse.Show();
+        }
+
+        private void mnuComplementos_Click(object sender, EventArgs e)
+        {
+            frmListaComplementos lc = new frmListaComplementos();
+            lc.MdiParent = this;
+            lc.Show();
+        }
+
+        private void mnuEmpresas_Click_1(object sender, EventArgs e)
+        {
+            frmListaEmpresas le = new frmListaEmpresas();
+            le.MdiParent = this;
+            le.WindowState = FormWindowState.Maximized;
+            le.Show();
         }
     }
 }

@@ -40,6 +40,7 @@
             this.mnuRecursosHumanos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEmpleadoNomina = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuComplementos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuModificarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuModificarSueldo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -66,7 +67,7 @@
             this.mnuFactores = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalarioMinimo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEmpresas = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPerfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPlazas = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +77,8 @@
             this.workPerfil = new System.ComponentModel.BackgroundWorker();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolEstatusPerfil = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mnuEmpresas = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLogo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.stsPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -175,6 +178,7 @@
             // 
             this.mnuEmpleados.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEmpleadoNomina,
+            this.mnuComplementos,
             this.mnuModificarCliente,
             this.mnuModificarSueldo,
             this.toolStripSeparator6,
@@ -189,6 +193,13 @@
             this.mnuEmpleadoNomina.Size = new System.Drawing.Size(218, 22);
             this.mnuEmpleadoNomina.Text = "Empleados de nómina";
             this.mnuEmpleadoNomina.Click += new System.EventHandler(this.mnuEmpleadoNomina_Click);
+            // 
+            // mnuComplementos
+            // 
+            this.mnuComplementos.Name = "mnuComplementos";
+            this.mnuComplementos.Size = new System.Drawing.Size(218, 22);
+            this.mnuComplementos.Text = "Complementos";
+            this.mnuComplementos.Click += new System.EventHandler(this.mnuComplementos_Click);
             // 
             // mnuModificarCliente
             // 
@@ -359,7 +370,7 @@
             // mnuConfiguracion
             // 
             this.mnuConfiguracion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuEmpresas,
+            this.mnuEmpresa,
             this.mnuUsuarios,
             this.mnuPerfiles,
             this.mnuPlazas,
@@ -370,12 +381,14 @@
             this.mnuConfiguracion.Size = new System.Drawing.Size(95, 20);
             this.mnuConfiguracion.Text = "Configuración";
             // 
-            // mnuEmpresas
+            // mnuEmpresa
             // 
-            this.mnuEmpresas.Name = "mnuEmpresas";
-            this.mnuEmpresas.Size = new System.Drawing.Size(180, 22);
-            this.mnuEmpresas.Text = "Empresas";
-            this.mnuEmpresas.Click += new System.EventHandler(this.mnuEmpresas_Click);
+            this.mnuEmpresa.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuEmpresas,
+            this.mnuLogo});
+            this.mnuEmpresa.Name = "mnuEmpresa";
+            this.mnuEmpresa.Size = new System.Drawing.Size(180, 22);
+            this.mnuEmpresa.Text = "Empresa";
             // 
             // mnuUsuarios
             // 
@@ -437,6 +450,19 @@
             this.toolEstatusPerfil.Size = new System.Drawing.Size(98, 17);
             this.toolEstatusPerfil.Text = "Cargando perfil...";
             // 
+            // mnuEmpresas
+            // 
+            this.mnuEmpresas.Name = "mnuEmpresas";
+            this.mnuEmpresas.Size = new System.Drawing.Size(152, 22);
+            this.mnuEmpresas.Text = "Empresas";
+            this.mnuEmpresas.Click += new System.EventHandler(this.mnuEmpresas_Click_1);
+            // 
+            // mnuLogo
+            // 
+            this.mnuLogo.Name = "mnuLogo";
+            this.mnuLogo.Size = new System.Drawing.Size(152, 22);
+            this.mnuLogo.Text = "Logo";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,7 +516,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPerfiles;
         private System.ComponentModel.BackgroundWorker workPerfil;
         private System.Windows.Forms.StatusStrip stsPrincipal;
-        private System.Windows.Forms.ToolStripMenuItem mnuEmpresas;
+        private System.Windows.Forms.ToolStripMenuItem mnuEmpresa;
         private System.Windows.Forms.ToolStripStatusLabel toolEstatusPerfil;
         private System.Windows.Forms.ToolStripMenuItem mnuPlazas;
         private System.Windows.Forms.ToolStripMenuItem mnuSeguroSocial;
@@ -509,6 +535,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuModificarSueldo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem mnuEmpleadoSindicato;
+        private System.Windows.Forms.ToolStripMenuItem mnuComplementos;
+        private System.Windows.Forms.ToolStripMenuItem mnuEmpresas;
+        private System.Windows.Forms.ToolStripMenuItem mnuLogo;
     }
 }
 

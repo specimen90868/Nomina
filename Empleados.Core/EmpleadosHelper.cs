@@ -58,6 +58,7 @@ namespace Empleados.Core
                 empleado.nombrecompleto = dtEmpleados.Rows[i]["nombrecompleto"].ToString();
                 empleado.fechanacimiento = DateTime.Parse(dtEmpleados.Rows[i]["fechanacimiento"].ToString());
                 empleado.edad = int.Parse(dtEmpleados.Rows[i]["edad"].ToString());
+                empleado.idempresa = int.Parse(dtEmpleados.Rows[i]["idempresas"].ToString());
                 empleado.idcliente = int.Parse(dtEmpleados.Rows[i]["idcliente"].ToString());
                 empleado.fechaingreso = DateTime.Parse(dtEmpleados.Rows[i]["fechaingreso"].ToString());
                 empleado.antiguedad = int.Parse(dtEmpleados.Rows[i]["antiguedad"].ToString());
@@ -85,6 +86,15 @@ namespace Empleados.Core
             Command.Parameters.AddWithValue("idtrabajador",e.idtrabajador);
             object estatus = Select(Command);
             return estatus;
+        }
+
+        public object obtenerIdTrabajador(Empleados e)
+        {
+            Command.CommandText = "select idtrabajador from trabajadores where rfc = @rfc";
+            Command.Parameters.Clear();
+            Command.Parameters.AddWithValue("rfc", e.rfc);
+            object dato = Select(Command);
+            return dato;
         }
 
         public int insertaEmpleado(Empleados e)

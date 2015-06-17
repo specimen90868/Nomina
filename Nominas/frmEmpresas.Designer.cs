@@ -67,6 +67,9 @@
             this.txtExterior = new System.Windows.Forms.TextBox();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtLogo = new System.Windows.Forms.TextBox();
+            this.btnExaminar = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.Panel2.SuspendLayout();
             this.toolEmpresa.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -410,11 +413,39 @@
             this.label13.TabIndex = 163;
             this.label13.Text = "Pais:";
             // 
+            // txtLogo
+            // 
+            this.txtLogo.Location = new System.Drawing.Point(135, 482);
+            this.txtLogo.Name = "txtLogo";
+            this.txtLogo.Size = new System.Drawing.Size(425, 20);
+            this.txtLogo.TabIndex = 165;
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.Location = new System.Drawing.Point(563, 482);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(24, 20);
+            this.btnExaminar.TabIndex = 166;
+            this.btnExaminar.Text = "...";
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(95, 485);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.TabIndex = 164;
+            this.label17.Text = "Logo:";
+            // 
             // frmEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 560);
+            this.Controls.Add(this.btnExaminar);
+            this.Controls.Add(this.txtLogo);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPais);
             this.Controls.Add(this.Label14);
@@ -503,5 +534,8 @@
         internal System.Windows.Forms.TextBox txtExterior;
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtLogo;
+        private System.Windows.Forms.Button btnExaminar;
+        private System.Windows.Forms.Label label17;
     }
 }

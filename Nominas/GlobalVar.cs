@@ -15,6 +15,8 @@ namespace Nominas
         public static int NUEVO = 0;
         public static int CONSULTAR = 1;
         public static int MODIFICAR = 2;
+        public static int EMPRESAS = 100;
+        public static int EMPLEADOS = 101;
         #endregion
 
         public static int IDUSUARIO { get; set; }

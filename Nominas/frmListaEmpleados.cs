@@ -25,6 +25,7 @@ namespace Nominas
         List<Empleados.Core.Empleados> lstEmpleados;
         #endregion
 
+       
         private void frmListaEmpleados_Load(object sender, EventArgs e)
         {
             dgvEmpleados.RowHeadersVisible = false;
@@ -157,6 +158,11 @@ namespace Nominas
             Empleados.Core.Empleados empleado = new Empleados.Core.Empleados();
             empleado.idtrabajador = idempleado;
 
+            LayoutMovimientos.Core.LayoutHelper lh = new LayoutMovimientos.Core.LayoutHelper();
+            lh.Command = cmd;
+            LayoutMovimientos.Core.LayoutMovimientos lm = new LayoutMovimientos.Core.LayoutMovimientos();
+            lm.idtrabajador = idempleado;
+
             try
             {
                 cnx.Open();
@@ -174,12 +180,14 @@ namespace Nominas
                 DialogResult respuesta = MessageBox.Show("¿Quiere eliminar la trabajador?", "Confirmación", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
-                    eh = new Empleados.Core.EmpleadosHelper();
-                    eh.Command = cmd;
+                    //eh = new Empleados.Core.EmpleadosHelper();
+                    //eh.Command = cmd;
+                    
                     try
                     {
                         cnx.Open();
                         eh.bajaEmpleado(empleado);
+                        lh.bajaLayoutMovimiento(lm);
                         cnx.Close();
                         cnx.Dispose();
                         ListaEmpleados();
@@ -250,9 +258,17 @@ namespace Nominas
 
         private void toolModificarSalario_Click(object sender, EventArgs e)
         {
+            int fila = dgvEmpleados.CurrentCell.RowIndex;
             frmModificaSalarioImss msi = new frmModificaSalarioImss();
             msi.MdiParent = this.MdiParent;
+            msi._idempleado = int.Parse(dgvEmpleados.Rows[fila].Cells[0].Value.ToString());
+            msi._nombreCompleto = dgvEmpleados.Rows[fila].Cells[1].Value.ToString();
             msi.Show();
+        }
+
+        private void frmListaEmpleados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
