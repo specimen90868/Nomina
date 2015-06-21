@@ -67,6 +67,7 @@ namespace Nominas
         private void toolBuscar_Click(object sender, EventArgs e)
         {
             frmBuscar b = new frmBuscar();
+            b._catalogo = GLOBALES.EMPLEADOS;
             b.OnBuscar += b_OnBuscar;
             b.MdiParent = this.MdiParent;
             b.Show();

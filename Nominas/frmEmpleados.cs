@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace Nominas
         MySqlCommand cmd;
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         Empleados.Core.EmpleadosHelper eh;
+        Imagen.Core.ImagenesHelper ih;
+        byte[] fotografia;
         #endregion
 
         #region DELEGADOS
@@ -111,11 +114,21 @@ namespace Nominas
 
                 Empleados.Core.Empleados em = new Empleados.Core.Empleados();
                 em.idtrabajador = _idempleado;
+
+                ih = new Imagen.Core.ImagenesHelper();
+                ih.Command = cmd;
+
+                List<Imagen.Core.Imagenes> lstImagen;
+
+                Imagen.Core.Imagenes imagen = new Imagen.Core.Imagenes();
+                imagen.tipopersona = _idempleado;
+                imagen.tipopersona = 1;
                 
                 try
                 {
                     cnx.Open();
                     lstEmpleado = eh.obtenerEmpleado(em);
+                    lstImagen = ih.obtenerImagen(imagen);
                     cnx.Close();
                     cnx.Dispose();
 
@@ -149,6 +162,11 @@ namespace Nominas
                         txtSD.Visible = false;
                         txtSDI.Visible = false;
                         btnCalcular.Visible = false;
+                    }
+
+                    for (int j = 0; j < lstImagen.Count; j++)
+                    {
+                        pbFoto.Image = ByteImage(lstImagen[j].imagen);
                     }
                 }
                 catch (Exception error)
@@ -326,6 +344,13 @@ namespace Nominas
             em.nss = txtNSS.Text;
             em.digitoverificador = int.Parse(txtDigito.Text);
 
+            ih = new Imagen.Core.ImagenesHelper();
+            ih.Command = cmd;
+
+            Imagen.Core.Imagenes imagen = new Imagen.Core.Imagenes();
+            imagen.imagen = fotografia;
+            imagen.tipopersona = 1;
+
             switch (_tipoOperacion)
             {
                 case 0:
@@ -346,6 +371,11 @@ namespace Nominas
 
                         cnx.Open();
                         eh.insertaEmpleado(em);
+                        if (pbFoto.Image != null)
+                        {
+                            imagen.idpersona = (int)eh.obtenerIdTrabajador(em);
+                            ih.insertaImagen(imagen);
+                        }
                         cnx.Close();
                         cnx.Dispose();
 
@@ -402,6 +432,11 @@ namespace Nominas
                         em.idempresa = _idempleado;
                         cnx.Open();
                         eh.actualizaEmpleado(em);
+                        if (pbFoto.Image != null)
+                        {
+                            imagen.idpersona = _idempleado;
+                            ih.actualizaImagen(imagen);
+                        }
                         cnx.Close();
                         cnx.Dispose();
                     }
@@ -424,6 +459,41 @@ namespace Nominas
                         OnNuevoEmpleado(_tipoOperacion);
                     this.Dispose();
                     break;
+            }
+        }
+
+        private byte[] ImagenByte(Image imagen)
+        {
+            MemoryStream ms = new MemoryStream();
+            imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+
+        private Image ByteImage(byte[] byteArray)
+        {
+            MemoryStream ms = new MemoryStream(byteArray);
+            Image img = Image.FromStream(ms);
+            return img;
+        }
+
+        private void pbFoto_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.Title = "Seleccionar fotografia";
+            abrir.Filter = "Archivo de imagen (*.jpg)|*.jpg";
+
+            if (abrir.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    Bitmap img = new Bitmap(abrir.FileName);
+                    pbFoto.Image = img;
+                    fotografia = ImagenByte(pbFoto.Image);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                }
             }
         }
     }

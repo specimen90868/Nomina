@@ -86,6 +86,7 @@
             this.toolNuevo.Name = "toolNuevo";
             this.toolNuevo.Size = new System.Drawing.Size(62, 22);
             this.toolNuevo.Text = "Nuevo";
+            this.toolNuevo.Click += new System.EventHandler(this.toolNuevo_Click);
             // 
             // toolConsultar
             // 
@@ -94,6 +95,7 @@
             this.toolConsultar.Name = "toolConsultar";
             this.toolConsultar.Size = new System.Drawing.Size(78, 22);
             this.toolConsultar.Text = "Consultar";
+            this.toolConsultar.Click += new System.EventHandler(this.toolConsultar_Click);
             // 
             // toolEditar
             // 
@@ -102,6 +104,7 @@
             this.toolEditar.Name = "toolEditar";
             this.toolEditar.Size = new System.Drawing.Size(57, 22);
             this.toolEditar.Text = "Editar";
+            this.toolEditar.Click += new System.EventHandler(this.toolEditar_Click);
             // 
             // toolBaja
             // 
@@ -110,6 +113,7 @@
             this.toolBaja.Name = "toolBaja";
             this.toolBaja.Size = new System.Drawing.Size(70, 22);
             this.toolBaja.Text = "Eliminar";
+            this.toolBaja.Click += new System.EventHandler(this.toolBaja_Click);
             // 
             // toolStripSeparator1
             // 

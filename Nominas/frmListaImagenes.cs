@@ -163,5 +163,25 @@ namespace Nominas
                 }
             }
         }
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolConsultar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolBaja_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

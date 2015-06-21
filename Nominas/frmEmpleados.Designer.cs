@@ -73,8 +73,11 @@
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtDigito = new System.Windows.Forms.MaskedTextBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.toolAcciones.SuspendLayout();
             this.toolEmpleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // toolAcciones
@@ -84,7 +87,7 @@
             this.toolTitulo});
             this.toolAcciones.Location = new System.Drawing.Point(0, 0);
             this.toolAcciones.Name = "toolAcciones";
-            this.toolAcciones.Size = new System.Drawing.Size(742, 27);
+            this.toolAcciones.Size = new System.Drawing.Size(696, 27);
             this.toolAcciones.TabIndex = 1;
             this.toolAcciones.Text = "toolAcciones";
             // 
@@ -103,7 +106,7 @@
             this.toolCerrar});
             this.toolEmpleado.Location = new System.Drawing.Point(0, 27);
             this.toolEmpleado.Name = "toolEmpleado";
-            this.toolEmpleado.Size = new System.Drawing.Size(742, 25);
+            this.toolEmpleado.Size = new System.Drawing.Size(696, 25);
             this.toolEmpleado.TabIndex = 2;
             this.toolEmpleado.Text = "toolEmpresa";
             // 
@@ -140,7 +143,7 @@
             this.lblSalario.AutoSize = true;
             this.lblSalario.BackColor = System.Drawing.Color.White;
             this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblSalario.Location = new System.Drawing.Point(14, 341);
+            this.lblSalario.Location = new System.Drawing.Point(14, 313);
             this.lblSalario.Name = "lblSalario";
             this.lblSalario.Size = new System.Drawing.Size(61, 18);
             this.lblSalario.TabIndex = 209;
@@ -159,9 +162,9 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(285, 395);
+            this.btnCalcular.Location = new System.Drawing.Point(286, 370);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(63, 20);
+            this.btnCalcular.Size = new System.Drawing.Size(54, 20);
             this.btnCalcular.TabIndex = 16;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -169,7 +172,7 @@
             // 
             // txtNSS
             // 
-            this.txtNSS.Location = new System.Drawing.Point(392, 220);
+            this.txtNSS.Location = new System.Drawing.Point(415, 165);
             this.txtNSS.Mask = "9999999999";
             this.txtNSS.Name = "txtNSS";
             this.txtNSS.Size = new System.Drawing.Size(151, 20);
@@ -212,16 +215,16 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(392, 113);
+            this.cmbCliente.Location = new System.Drawing.Point(415, 217);
             this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(271, 21);
+            this.cmbCliente.Size = new System.Drawing.Size(151, 21);
             this.cmbCliente.TabIndex = 8;
             this.cmbCliente.SelectionChangeCommitted += new System.EventHandler(this.cmbCliente_SelectionChangeCommitted);
             // 
             // txtCURP
             // 
             this.txtCURP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCURP.Location = new System.Drawing.Point(392, 194);
+            this.txtCURP.Location = new System.Drawing.Point(415, 139);
             this.txtCURP.Name = "txtCURP";
             this.txtCURP.Size = new System.Drawing.Size(151, 20);
             this.txtCURP.TabIndex = 11;
@@ -229,7 +232,7 @@
             // Label27
             // 
             this.Label27.AutoSize = true;
-            this.Label27.Location = new System.Drawing.Point(334, 197);
+            this.Label27.Location = new System.Drawing.Point(357, 142);
             this.Label27.Name = "Label27";
             this.Label27.Size = new System.Drawing.Size(52, 13);
             this.Label27.TabIndex = 195;
@@ -238,7 +241,7 @@
             // Label26
             // 
             this.Label26.AutoSize = true;
-            this.Label26.Location = new System.Drawing.Point(345, 225);
+            this.Label26.Location = new System.Drawing.Point(368, 168);
             this.Label26.Name = "Label26";
             this.Label26.Size = new System.Drawing.Size(41, 13);
             this.Label26.TabIndex = 196;
@@ -248,7 +251,7 @@
             // 
             this.cmbTipoSalario.Enabled = false;
             this.cmbTipoSalario.FormattingEnabled = true;
-            this.cmbTipoSalario.Location = new System.Drawing.Point(127, 368);
+            this.cmbTipoSalario.Location = new System.Drawing.Point(127, 343);
             this.cmbTipoSalario.Name = "cmbTipoSalario";
             this.cmbTipoSalario.Size = new System.Drawing.Size(152, 21);
             this.cmbTipoSalario.TabIndex = 14;
@@ -256,7 +259,7 @@
             // lblTipoSalario
             // 
             this.lblTipoSalario.AutoSize = true;
-            this.lblTipoSalario.Location = new System.Drawing.Point(42, 371);
+            this.lblTipoSalario.Location = new System.Drawing.Point(43, 346);
             this.lblTipoSalario.Name = "lblTipoSalario";
             this.lblTipoSalario.Size = new System.Drawing.Size(79, 13);
             this.lblTipoSalario.TabIndex = 193;
@@ -265,7 +268,7 @@
             // txtSueldo
             // 
             this.txtSueldo.Enabled = false;
-            this.txtSueldo.Location = new System.Drawing.Point(127, 395);
+            this.txtSueldo.Location = new System.Drawing.Point(128, 370);
             this.txtSueldo.Name = "txtSueldo";
             this.txtSueldo.Size = new System.Drawing.Size(152, 20);
             this.txtSueldo.TabIndex = 15;
@@ -274,7 +277,7 @@
             // lblSueldo
             // 
             this.lblSueldo.AutoSize = true;
-            this.lblSueldo.Location = new System.Drawing.Point(23, 398);
+            this.lblSueldo.Location = new System.Drawing.Point(24, 374);
             this.lblSueldo.Name = "lblSueldo";
             this.lblSueldo.Size = new System.Drawing.Size(98, 13);
             this.lblSueldo.TabIndex = 192;
@@ -282,7 +285,7 @@
             // 
             // txtSD
             // 
-            this.txtSD.Location = new System.Drawing.Point(127, 421);
+            this.txtSD.Location = new System.Drawing.Point(127, 396);
             this.txtSD.Name = "txtSD";
             this.txtSD.ReadOnly = true;
             this.txtSD.Size = new System.Drawing.Size(152, 20);
@@ -292,7 +295,7 @@
             // lblSD
             // 
             this.lblSD.AutoSize = true;
-            this.lblSD.Location = new System.Drawing.Point(51, 424);
+            this.lblSD.Location = new System.Drawing.Point(52, 399);
             this.lblSD.Name = "lblSD";
             this.lblSD.Size = new System.Drawing.Size(70, 13);
             this.lblSD.TabIndex = 190;
@@ -300,7 +303,7 @@
             // 
             // txtSDI
             // 
-            this.txtSDI.Location = new System.Drawing.Point(127, 447);
+            this.txtSDI.Location = new System.Drawing.Point(127, 422);
             this.txtSDI.Name = "txtSDI";
             this.txtSDI.ReadOnly = true;
             this.txtSDI.Size = new System.Drawing.Size(152, 20);
@@ -310,7 +313,7 @@
             // lblSDI
             // 
             this.lblSDI.AutoSize = true;
-            this.lblSDI.Location = new System.Drawing.Point(4, 450);
+            this.lblSDI.Location = new System.Drawing.Point(5, 425);
             this.lblSDI.Name = "lblSDI";
             this.lblSDI.Size = new System.Drawing.Size(117, 13);
             this.lblSDI.TabIndex = 187;
@@ -337,7 +340,7 @@
             // cmbPeriodo
             // 
             this.cmbPeriodo.FormattingEnabled = true;
-            this.cmbPeriodo.Location = new System.Drawing.Point(392, 139);
+            this.cmbPeriodo.Location = new System.Drawing.Point(415, 243);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(151, 21);
             this.cmbPeriodo.TabIndex = 9;
@@ -346,7 +349,7 @@
             // lblPeriodo
             // 
             this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(340, 142);
+            this.lblPeriodo.Location = new System.Drawing.Point(363, 246);
             this.lblPeriodo.Name = "lblPeriodo";
             this.lblPeriodo.Size = new System.Drawing.Size(46, 13);
             this.lblPeriodo.TabIndex = 183;
@@ -355,7 +358,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(344, 116);
+            this.lblCliente.Location = new System.Drawing.Point(367, 220);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(42, 13);
             this.lblCliente.TabIndex = 182;
@@ -415,7 +418,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(346, 168);
+            this.label1.Location = new System.Drawing.Point(369, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 210;
@@ -423,7 +426,7 @@
             // 
             // txtRFC
             // 
-            this.txtRFC.Location = new System.Drawing.Point(392, 165);
+            this.txtRFC.Location = new System.Drawing.Point(415, 113);
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(151, 20);
             this.txtRFC.TabIndex = 10;
@@ -431,7 +434,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(297, 249);
+            this.label4.Location = new System.Drawing.Point(320, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 213;
@@ -465,17 +468,39 @@
             // 
             // txtDigito
             // 
-            this.txtDigito.Location = new System.Drawing.Point(392, 246);
+            this.txtDigito.Location = new System.Drawing.Point(415, 191);
             this.txtDigito.Mask = "9";
             this.txtDigito.Name = "txtDigito";
             this.txtDigito.Size = new System.Drawing.Size(23, 20);
             this.txtDigito.TabIndex = 215;
             // 
+            // pbFoto
+            // 
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFoto.Location = new System.Drawing.Point(572, 113);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(104, 122);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 220;
+            this.pbFoto.TabStop = false;
+            this.pbFoto.DoubleClick += new System.EventHandler(this.pbFoto_DoubleClick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(569, 246);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.TabIndex = 221;
+            this.label9.Text = "Fotografía";
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 609);
+            this.ClientSize = new System.Drawing.Size(696, 609);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.pbFoto);
             this.Controls.Add(this.txtDigito);
             this.Controls.Add(this.txtEdad);
             this.Controls.Add(this.dtpFechaNacimiento);
@@ -523,6 +548,7 @@
             this.toolAcciones.PerformLayout();
             this.toolEmpleado.ResumeLayout(false);
             this.toolEmpleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,5 +600,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.MaskedTextBox txtDigito;
+        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.Label label9;
     }
 }

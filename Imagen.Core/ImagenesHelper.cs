@@ -42,9 +42,10 @@ namespace Imagen.Core
         
         public int actualizaImagen(Imagenes img)
         {
-            Command.CommandText = "update imagenes set imagen = @imagen where idimagen = @idimagen";
+            Command.CommandText = "update imagenes set imagen = @imagen where idpersona = @idpersona and tipopersona = @tipopersona";
             Command.Parameters.Clear();
-            Command.Parameters.AddWithValue("idimagen", img.idpersona);
+            Command.Parameters.AddWithValue("idpersona", img.idpersona);
+            Command.Parameters.AddWithValue("tipopersona", img.tipopersona);
             return Command.ExecuteNonQuery();
         }
 

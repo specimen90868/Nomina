@@ -127,3 +127,15 @@ C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmModificaSuel
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmPeriodos.resources
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmPuestos.resources
 C:\Users\gamer\Documents\GitHub\Nomina\Nominas\obj\Debug\Nominas.frmSalario.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Complementos.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Imagen.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\LayoutMovimientos.Core.dll
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Complementos.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\Imagen.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\bin\Debug\LayoutMovimientos.Core.pdb
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmComplementos.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaComplementos.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmListaImagenes.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmLogo.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmModificaSalarioImss.resources
+C:\Users\fabricio.vilchis\Documents\GitHub\Nomina\Nomina\Nominas\obj\Debug\Nominas.frmModificaSueldoEmpleado.resources

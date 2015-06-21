@@ -58,7 +58,7 @@ namespace Empleados.Core
                 empleado.nombrecompleto = dtEmpleados.Rows[i]["nombrecompleto"].ToString();
                 empleado.fechanacimiento = DateTime.Parse(dtEmpleados.Rows[i]["fechanacimiento"].ToString());
                 empleado.edad = int.Parse(dtEmpleados.Rows[i]["edad"].ToString());
-                empleado.idempresa = int.Parse(dtEmpleados.Rows[i]["idempresas"].ToString());
+                empleado.idempresa = int.Parse(dtEmpleados.Rows[i]["idempresa"].ToString());
                 empleado.idcliente = int.Parse(dtEmpleados.Rows[i]["idcliente"].ToString());
                 empleado.fechaingreso = DateTime.Parse(dtEmpleados.Rows[i]["fechaingreso"].ToString());
                 empleado.antiguedad = int.Parse(dtEmpleados.Rows[i]["antiguedad"].ToString());

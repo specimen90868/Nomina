@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscar));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.toolAceptar = new System.Windows.Forms.ToolStripButton();
             this.toolCerrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
+            this.dgvCatalogo = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -53,20 +53,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(522, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // dgvEmpleados
-            // 
-            this.dgvEmpleados.AllowUserToAddRows = false;
-            this.dgvEmpleados.AllowUserToDeleteRows = false;
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmpleados.Location = new System.Drawing.Point(0, 25);
-            this.dgvEmpleados.MultiSelect = false;
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.ReadOnly = true;
-            this.dgvEmpleados.Size = new System.Drawing.Size(522, 272);
-            this.dgvEmpleados.TabIndex = 1;
-            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
             // 
             // toolAceptar
             // 
@@ -107,12 +93,26 @@
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             // 
+            // dgvCatalogo
+            // 
+            this.dgvCatalogo.AllowUserToAddRows = false;
+            this.dgvCatalogo.AllowUserToDeleteRows = false;
+            this.dgvCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCatalogo.Location = new System.Drawing.Point(0, 25);
+            this.dgvCatalogo.MultiSelect = false;
+            this.dgvCatalogo.Name = "dgvCatalogo";
+            this.dgvCatalogo.ReadOnly = true;
+            this.dgvCatalogo.Size = new System.Drawing.Size(522, 272);
+            this.dgvCatalogo.TabIndex = 1;
+            this.dgvCatalogo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
+            // 
             // frmBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 297);
-            this.Controls.Add(this.dgvEmpleados);
+            this.Controls.Add(this.dgvCatalogo);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -121,7 +121,7 @@
             this.Load += new System.EventHandler(this.frmBuscar_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +132,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolAceptar;
         private System.Windows.Forms.ToolStripButton toolCerrar;
-        public System.Windows.Forms.DataGridView dgvEmpleados;
+        public System.Windows.Forms.DataGridView dgvCatalogo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox txtBuscar;

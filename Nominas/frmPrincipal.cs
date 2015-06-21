@@ -340,6 +340,11 @@ namespace Nominas
             le.WindowState = FormWindowState.Maximized;
             le.Show();
         }
+
+        private void mnuLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

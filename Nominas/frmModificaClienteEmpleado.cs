@@ -102,6 +102,7 @@ namespace Nominas
         {
             frmBuscar b = new frmBuscar();
             b.MdiParent = this.MdiParent;
+            b._catalogo = GLOBALES.EMPLEADOS;
             b.OnBuscar += b_OnBuscar;
             b.Show();
         }

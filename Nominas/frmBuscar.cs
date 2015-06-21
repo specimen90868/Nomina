@@ -30,43 +30,82 @@ namespace Nominas
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         Empleados.Core.EmpleadosHelper eh;
         List<Empleados.Core.Empleados> lstEmpleados;
+
+        Clientes.Core.ClientesHelper ch;
+        List<Clientes.Core.Clientes> lstClientes;
+        #endregion
+
+        #region VARIABLES PUBLICAS
+        public int _catalogo;
         #endregion
 
         private void frmBuscar_Load(object sender, EventArgs e)
         {
-            dgvEmpleados.RowHeadersVisible = false;
+            dgvCatalogo.RowHeadersVisible = false;
 
             cnx = new MySqlConnection();
             cmd = new MySqlCommand();
             cnx.ConnectionString = cdn;
             cmd.Connection = cnx;
 
-            eh = new Empleados.Core.EmpleadosHelper();
-            eh.Command = cmd;
-
-            Empleados.Core.Empleados em = new Empleados.Core.Empleados();
-            em.idplaza = GLOBALES.IDPLAZA;
-            em.idempresa = GLOBALES.IDEMPRESA;
-
-            try
+            if (_catalogo == GLOBALES.EMPLEADOS)
             {
-                cnx.Open();
-                lstEmpleados = eh.obtenerEmpleados(em);
-                cnx.Close();
-                cnx.Dispose();
+                eh = new Empleados.Core.EmpleadosHelper();
+                eh.Command = cmd;
 
-                var empleados = from a in lstEmpleados select new { Id = a.idtrabajador, Nombre = a.nombrecompleto };
-                dgvEmpleados.DataSource = empleados.ToList();
+                Empleados.Core.Empleados em = new Empleados.Core.Empleados();
+                em.idplaza = GLOBALES.IDPLAZA;
+                em.idempresa = GLOBALES.IDEMPRESA;
 
-                for (int i = 0; i < dgvEmpleados.Columns.Count; i++)
+                try
                 {
-                    dgvEmpleados.AutoResizeColumn(i);
+                    cnx.Open();
+                    lstEmpleados = eh.obtenerEmpleados(em);
+                    cnx.Close();
+                    cnx.Dispose();
+
+                    var empleados = from a in lstEmpleados select new { Id = a.idtrabajador, Nombre = a.nombrecompleto };
+                    dgvCatalogo.DataSource = empleados.ToList();
+
+                    for (int i = 0; i < dgvCatalogo.Columns.Count; i++)
+                    {
+                        dgvCatalogo.AutoResizeColumn(i);
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
                 }
             }
-            catch (Exception error)
+            else if (_catalogo == GLOBALES.CLIENTES)
             {
-                MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                ch = new Clientes.Core.ClientesHelper();
+                ch.Command = cmd;
+
+                Clientes.Core.Clientes clientes = new Clientes.Core.Clientes();
+                clientes.plaza = GLOBALES.IDPLAZA;
+
+                try
+                {
+                    cnx.Open();
+                    lstClientes = ch.obtenerClientes(clientes);
+                    cnx.Close();
+                    cnx.Dispose();
+
+                    var cliente = from c in lstClientes select new { Id = c.idcliente, Nombre = c.nombre };
+                    dgvCatalogo.DataSource = cliente.ToList();
+
+                    for (int i = 0; i < dgvCatalogo.Columns.Count; i++)
+                    {
+                        dgvCatalogo.AutoResizeColumn(i);
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+                }
             }
+            
         }
 
         private void toolCerrar_Click(object sender, EventArgs e)
@@ -94,24 +133,52 @@ namespace Nominas
             {
                 if (string.IsNullOrEmpty(txtBuscar.Text) || string.IsNullOrWhiteSpace(txtBuscar.Text))
                 {
-                    var empleado = from em in lstEmpleados
-                                   select new
-                                   {
-                                       Id = em.idtrabajador,
-                                       Nombre = em.nombrecompleto
-                                   };
-                    dgvEmpleados.DataSource = empleado.ToList();
+                    if (_catalogo == GLOBALES.EMPLEADOS)
+                    {
+                        var empleado = from em in lstEmpleados
+                                       select new
+                                       {
+                                           Id = em.idtrabajador,
+                                           Nombre = em.nombrecompleto
+                                       };
+                        dgvCatalogo.DataSource = empleado.ToList();
+                    }
+                    else if (_catalogo == GLOBALES.CLIENTES)
+                    {
+                        var cliente = from c in lstClientes
+                                       select new
+                                       {
+                                           Id = c.idcliente,
+                                           Nombre = c.nombre
+                                       };
+                        dgvCatalogo.DataSource = cliente.ToList();
+                    }
+                    
                 }
                 else
                 {
-                    var busqueda = from b in lstEmpleados
-                                   where b.nombrecompleto.Contains(txtBuscar.Text.ToUpper())
-                                   select new
-                                   {
-                                       IdTrabajador = b.idtrabajador,
-                                       Nombre = b.nombrecompleto
-                                   };
-                    dgvEmpleados.DataSource = busqueda.ToList();
+                    if (_catalogo == GLOBALES.EMPLEADOS)
+                    {
+                        var busqueda = from b in lstEmpleados
+                                       where b.nombrecompleto.Contains(txtBuscar.Text.ToUpper())
+                                       select new
+                                       {
+                                           Id = b.idtrabajador,
+                                           Nombre = b.nombrecompleto
+                                       };
+                        dgvCatalogo.DataSource = busqueda.ToList();
+                    }
+                    else if (_catalogo == GLOBALES.CLIENTES)
+                    {
+                        var busqueda = from b in lstClientes
+                                       where b.nombre.Contains(txtBuscar.Text.ToUpper())
+                                       select new
+                                       {
+                                           Id = b.idcliente,
+                                           Nombre = b.nombre
+                                       };
+                        dgvCatalogo.DataSource = busqueda.ToList();
+                    }
                 }
             }
         }
@@ -130,8 +197,8 @@ namespace Nominas
         {
             if (OnBuscar != null)
             {
-                int fila = dgvEmpleados.CurrentCell.RowIndex;
-                OnBuscar(int.Parse(dgvEmpleados.Rows[fila].Cells[0].Value.ToString()), dgvEmpleados.Rows[fila].Cells[1].Value.ToString());
+                int fila = dgvCatalogo.CurrentCell.RowIndex;
+                OnBuscar(int.Parse(dgvCatalogo.Rows[fila].Cells[0].Value.ToString()), dgvCatalogo.Rows[fila].Cells[1].Value.ToString());
                 this.Dispose();
             }
         }
