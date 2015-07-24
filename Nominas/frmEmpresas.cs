@@ -24,8 +24,10 @@ namespace Nominas
         MySqlConnection cnx;
         MySqlCommand cmd;
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
+        string rutaImagen;
         Empresas.Core.EmpresasHelper eh;
         Direccion.Core.DireccionesHelper dh;
+        Imagen.Core.ImagenesHelper ih;
         #endregion
         
         #region DELEGADOS
@@ -96,16 +98,8 @@ namespace Nominas
             d.estado = txtEstado.Text;
             d.pais = txtPais.Text;
             d.cp = txtCP.Text;
-            ///TIPO DIRECCION
-            ///0 - Dirección fiscal
-            ///1 - Dirección sucursal
-            ///2 - Dirección personal
-            d.tipodireccion = 0;
-            ///TIPO PERSONA
-            ///0 - Empresa
-            ///1 - Cliente
-            ///2 - Empleado
-            d.tipopersona = 0;
+            d.tipodireccion = GLOBALES.dFISCAL;
+            d.tipopersona = GLOBALES.pEMPRESA;
 
             switch (_tipoOperacion)
             {
@@ -113,7 +107,8 @@ namespace Nominas
                     try
                     {
                         cnx.Open();
-                        eh.insertaEmpresa(em);
+                        MySqlCommand lastId = eh.insertaEmpresa(em);
+                        long Id = lastId.LastInsertedId;
                         idempresa = (int)eh.obtenerIdEmpresa(em);
                         d.idpersona = idempresa;
                         dh.insertaDireccion(d);
@@ -242,5 +237,23 @@ namespace Nominas
             this.Dispose();
         }
 
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Seleccionar imagen";
+            ofd.Filter = "Archivo de Imagen (*.jpg, *.png, *.bmp)|*.jpg; *.png; *.bmp";
+            ofd.RestoreDirectory = false;
+
+            if (DialogResult.OK == ofd.ShowDialog())
+            {
+                rutaImagen = ofd.FileName;
+                lblRutaImagen.Text = rutaImagen;
+            }
+        }
     }
 }

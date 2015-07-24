@@ -26,7 +26,7 @@ namespace Nominas
         string cdn = ConfigurationManager.ConnectionStrings["cdnNomina"].ConnectionString;
         Empleados.Core.EmpleadosHelper eh;
         Imagen.Core.ImagenesHelper ih;
-        byte[] fotografia;
+        //byte[] fotografia;
         #endregion
 
         #region DELEGADOS
@@ -115,20 +115,10 @@ namespace Nominas
                 Empleados.Core.Empleados em = new Empleados.Core.Empleados();
                 em.idtrabajador = _idempleado;
 
-                ih = new Imagen.Core.ImagenesHelper();
-                ih.Command = cmd;
-
-                List<Imagen.Core.Imagenes> lstImagen;
-
-                Imagen.Core.Imagenes imagen = new Imagen.Core.Imagenes();
-                imagen.tipopersona = _idempleado;
-                imagen.tipopersona = 1;
-                
                 try
                 {
                     cnx.Open();
                     lstEmpleado = eh.obtenerEmpleado(em);
-                    lstImagen = ih.obtenerImagen(imagen);
                     cnx.Close();
                     cnx.Dispose();
 
@@ -162,11 +152,6 @@ namespace Nominas
                         txtSD.Visible = false;
                         txtSDI.Visible = false;
                         btnCalcular.Visible = false;
-                    }
-
-                    for (int j = 0; j < lstImagen.Count; j++)
-                    {
-                        pbFoto.Image = ByteImage(lstImagen[j].imagen);
                     }
                 }
                 catch (Exception error)
@@ -344,13 +329,6 @@ namespace Nominas
             em.nss = txtNSS.Text;
             em.digitoverificador = int.Parse(txtDigito.Text);
 
-            ih = new Imagen.Core.ImagenesHelper();
-            ih.Command = cmd;
-
-            Imagen.Core.Imagenes imagen = new Imagen.Core.Imagenes();
-            imagen.imagen = fotografia;
-            imagen.tipopersona = 1;
-
             switch (_tipoOperacion)
             {
                 case 0:
@@ -371,55 +349,8 @@ namespace Nominas
 
                         cnx.Open();
                         eh.insertaEmpleado(em);
-                        if (pbFoto.Image != null)
-                        {
-                            imagen.idpersona = (int)eh.obtenerIdTrabajador(em);
-                            ih.insertaImagen(imagen);
-                        }
                         cnx.Close();
                         cnx.Dispose();
-
-                        int idtrabajador = (int)eh.obtenerIdTrabajador(em);
-
-                        LayoutMovimientos.Core.LayoutHelper lh = new LayoutMovimientos.Core.LayoutHelper();
-                        lh.Command = cmd;
-                        LayoutMovimientos.Core.LayoutMovimientos layout = new LayoutMovimientos.Core.LayoutMovimientos();
-                        layout.idtrabajador = idtrabajador;
-                        layout.idempresa = GLOBALES.IDEMPRESA;
-                        layout.idcliente = em.idcliente;
-                        layout.movimiento = 0;
-                        layout.nombres = em.nombres;
-                        layout.paterno = em.paterno;
-                        layout.materno = em.materno;
-                        layout.sdi = em.sdi;
-                        layout.sdinuevo = 0;
-                        layout.nss = em.nss;
-                        layout.digitonss = em.digitoverificador;
-                        layout.fecha_ingreso = em.fechaingreso;
-                        layout.fecha_sistema = DateTime.Now;
-                        layout.curp = em.curp;
-                        layout.generado = 0;
-
-                        Empresas.Core.EmpresasHelper empresah = new Empresas.Core.EmpresasHelper();
-                        empresah.Command = cmd;
-                        List<Empresas.Core.Empresas> lstEmpresa = new List<Empresas.Core.Empresas>();
-
-                        cnx.Open();
-                        lstEmpresa = empresah.obtenerEmpresa(GLOBALES.IDEMPRESA);
-                        cnx.Close();
-                        cnx.Dispose();
-
-                        for (int i = 0; i < lstEmpresa.Count; i++)
-                        {
-                            layout.registro = lstEmpresa[i].registro;
-                            layout.digitoregistro = lstEmpresa[i].digitoverificador;
-                        }
-
-                        cnx.Open();
-                        lh.insertaLayoutMovimiento(layout);
-                        cnx.Close();
-                        cnx.Dispose();
-
                     }
                     catch (Exception error)
                     {
@@ -432,11 +363,6 @@ namespace Nominas
                         em.idempresa = _idempleado;
                         cnx.Open();
                         eh.actualizaEmpleado(em);
-                        if (pbFoto.Image != null)
-                        {
-                            imagen.idpersona = _idempleado;
-                            ih.actualizaImagen(imagen);
-                        }
                         cnx.Close();
                         cnx.Dispose();
                     }
@@ -476,25 +402,25 @@ namespace Nominas
             return img;
         }
 
-        private void pbFoto_DoubleClick(object sender, EventArgs e)
-        {
-            OpenFileDialog abrir = new OpenFileDialog();
-            abrir.Title = "Seleccionar fotografia";
-            abrir.Filter = "Archivo de imagen (*.jpg)|*.jpg";
+        //private void pbFoto_DoubleClick(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog abrir = new OpenFileDialog();
+        //    abrir.Title = "Seleccionar fotografia";
+        //    abrir.Filter = "Archivo de imagen (*.jpg)|*.jpg";
 
-            if (abrir.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                try
-                {
-                    Bitmap img = new Bitmap(abrir.FileName);
-                    pbFoto.Image = img;
-                    fotografia = ImagenByte(pbFoto.Image);
-                }
-                catch (Exception error)
-                {
-                    MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
-                }
-            }
-        }
+        //    if (abrir.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+        //    {
+        //        try
+        //        {
+        //            Bitmap img = new Bitmap(abrir.FileName);
+        //            pbFoto.Image = img;
+        //            fotografia = ImagenByte(pbFoto.Image);
+        //        }
+        //        catch (Exception error)
+        //        {
+        //            MessageBox.Show("Error: \r\n \r\n " + error.Message, "Error");
+        //        }
+        //    }
+        //}
     }
 }

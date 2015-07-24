@@ -34,6 +34,6 @@ namespace Empleados.Core
         public int estatus { get; set; }
         public int idse { get; set; }
         public int modsalario { get; set; }
-        public int idplaza { get; set; }
+        public int idplaza { get; set; }      
     }
 }

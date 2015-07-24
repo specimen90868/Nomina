@@ -343,7 +343,10 @@ namespace Nominas
 
         private void mnuLogo_Click(object sender, EventArgs e)
         {
-
+            frmListaImagenes li = new frmListaImagenes();
+            li.MdiParent = this;
+            li._EmpresaEmpleado = GLOBALES.EMPRESAS;
+            li.Show();
         }
     }
 }

@@ -73,11 +73,8 @@
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtDigito = new System.Windows.Forms.MaskedTextBox();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.toolAcciones.SuspendLayout();
             this.toolEmpleado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // toolAcciones
@@ -474,33 +471,11 @@
             this.txtDigito.Size = new System.Drawing.Size(23, 20);
             this.txtDigito.TabIndex = 215;
             // 
-            // pbFoto
-            // 
-            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(572, 113);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(104, 122);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 220;
-            this.pbFoto.TabStop = false;
-            this.pbFoto.DoubleClick += new System.EventHandler(this.pbFoto_DoubleClick);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(569, 246);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 13);
-            this.label9.TabIndex = 221;
-            this.label9.Text = "Fotografía";
-            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 609);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.pbFoto);
             this.Controls.Add(this.txtDigito);
             this.Controls.Add(this.txtEdad);
             this.Controls.Add(this.dtpFechaNacimiento);
@@ -548,7 +523,6 @@
             this.toolAcciones.PerformLayout();
             this.toolEmpleado.ResumeLayout(false);
             this.toolEmpleado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,7 +574,5 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.MaskedTextBox txtDigito;
-        private System.Windows.Forms.PictureBox pbFoto;
-        private System.Windows.Forms.Label label9;
     }
 }

@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Imaging;
+
+using System.IO;
 
 namespace Nominas
 {
@@ -18,6 +22,18 @@ namespace Nominas
         public static int EMPRESAS = 100;
         public static int EMPLEADOS = 101;
         public static int CLIENTES = 102;
+        #endregion
+
+        #region VARIABLES TIPO PERSONA
+        public static int pEMPRESA = 0;
+        public static int pCLIENTE = 1;
+        public static int pEMPLEADO = 2;
+        #endregion
+
+        #region VARIABLES TIPO DIRECCION
+        public static int dFISCAL = 0;
+        public static int dSUCURSAL = 1;
+        public static int dPERSONAL = 2;
         #endregion
 
         public static int IDUSUARIO { get; set; }
@@ -98,6 +114,20 @@ namespace Nominas
                 MessageBox.Show("Error: \r\n \r\n " + error.Message,"Error");
             }
             return lstEdiciones;
+        }
+
+        public static Byte[] IMAGEN_BYTES(Image imagen)
+        {
+            MemoryStream ms = new MemoryStream();
+            imagen.Save(ms, ImageFormat.Png);
+            return ms.ToArray();
+        }
+
+        public static Image BYTES_IMAGEN(Byte[] Arreglo)
+        {
+            MemoryStream ms = new MemoryStream(Arreglo);
+            Image img = Image.FromStream(ms);
+            return img;
         }
     }   
 }

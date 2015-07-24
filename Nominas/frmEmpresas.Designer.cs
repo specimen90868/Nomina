@@ -67,9 +67,10 @@
             this.txtExterior = new System.Windows.Forms.TextBox();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtLogo = new System.Windows.Forms.TextBox();
-            this.btnExaminar = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.btnAsignar = new System.Windows.Forms.Button();
+            this.lblRutaImagen = new System.Windows.Forms.Label();
             this.Panel2.SuspendLayout();
             this.toolEmpresa.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -413,22 +414,6 @@
             this.label13.TabIndex = 163;
             this.label13.Text = "Pais:";
             // 
-            // txtLogo
-            // 
-            this.txtLogo.Location = new System.Drawing.Point(135, 482);
-            this.txtLogo.Name = "txtLogo";
-            this.txtLogo.Size = new System.Drawing.Size(425, 20);
-            this.txtLogo.TabIndex = 165;
-            // 
-            // btnExaminar
-            // 
-            this.btnExaminar.Location = new System.Drawing.Point(563, 482);
-            this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(24, 20);
-            this.btnExaminar.TabIndex = 166;
-            this.btnExaminar.Text = "...";
-            this.btnExaminar.UseVisualStyleBackColor = true;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -438,13 +423,42 @@
             this.label17.TabIndex = 164;
             this.label17.Text = "Logo:";
             // 
+            // btnVer
+            // 
+            this.btnVer.Location = new System.Drawing.Point(134, 508);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(75, 23);
+            this.btnVer.TabIndex = 167;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseVisualStyleBackColor = true;
+            // 
+            // btnAsignar
+            // 
+            this.btnAsignar.Location = new System.Drawing.Point(215, 508);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(75, 23);
+            this.btnAsignar.TabIndex = 168;
+            this.btnAsignar.Text = "Asignar";
+            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            // 
+            // lblRutaImagen
+            // 
+            this.lblRutaImagen.AutoSize = true;
+            this.lblRutaImagen.Location = new System.Drawing.Point(301, 513);
+            this.lblRutaImagen.Name = "lblRutaImagen";
+            this.lblRutaImagen.Size = new System.Drawing.Size(93, 13);
+            this.lblRutaImagen.TabIndex = 169;
+            this.lblRutaImagen.Text = "Ruta de la imagen";
+            // 
             // frmEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 560);
-            this.Controls.Add(this.btnExaminar);
-            this.Controls.Add(this.txtLogo);
+            this.Controls.Add(this.lblRutaImagen);
+            this.Controls.Add(this.btnAsignar);
+            this.Controls.Add(this.btnVer);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPais);
@@ -534,8 +548,9 @@
         internal System.Windows.Forms.TextBox txtExterior;
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtLogo;
-        private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.Button btnAsignar;
+        private System.Windows.Forms.Label lblRutaImagen;
     }
 }

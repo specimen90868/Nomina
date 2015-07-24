@@ -83,7 +83,7 @@ namespace Empresas.Core
             return id;
         }
 
-        public int insertaEmpresa(Empresas e)
+        public MySqlCommand insertaEmpresa(Empresas e)
         {
             Command.CommandText = "insert into empresas (nombre, rfc, registro, digitoverificador, sindicato, representante, activo) " + 
                 "values (@nombre, @rfc, @registro, @digitoverificador, @sindicato, @representante, @activo)";
@@ -95,7 +95,8 @@ namespace Empresas.Core
             Command.Parameters.AddWithValue("sindicato", e.sindicato);
             Command.Parameters.AddWithValue("representante", e.representante);
             Command.Parameters.AddWithValue("activo", e.activo);
-            return Command.ExecuteNonQuery();
+            Command.ExecuteNonQuery();
+            return Command;
         }
 
         public int actualizaEmpresa(Empresas e)
